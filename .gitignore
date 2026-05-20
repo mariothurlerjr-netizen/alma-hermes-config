@@ -1,0 +1,72 @@
+# Allowlist strategy: ignora tudo, libera só o que é customização ALMA.
+# Hermes upstream (Nous Research) bundla skills/built-ins/caches em ~/.hermes
+# que não pertencem a este repo — eles vêm do framework instalado.
+
+# Default: ignora tudo
+/*
+/**
+
+# --- Allow root files (custom ALMA) ---
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/SOUL.md
+!/HEARTBEAT.md
+!/CLAUDE.md
+!/config.yaml
+
+# --- Allow ALMA memory layer ---
+!/memories/
+/memories/*
+!/memories/USER.md
+!/memories/MEMORY.md
+
+!/memory/
+/memory/*
+!/memory/corrections.md
+!/memory/patterns.md
+!/memory/attempts.md
+
+# --- Allow só os skills ALMA (alma-*) ---
+!/skills/
+/skills/*
+!/skills/alma-brain/
+!/skills/alma-brain/**
+!/skills/alma-context/
+!/skills/alma-context/**
+!/skills/alma-cortex-lite/
+!/skills/alma-cortex-lite/**
+!/skills/alma-feedback-loop/
+!/skills/alma-feedback-loop/**
+!/skills/alma-heartbeat/
+!/skills/alma-heartbeat/**
+!/skills/alma-self-eval/
+!/skills/alma-self-eval/**
+!/skills/alma-style/
+!/skills/alma-style/**
+
+# Dentro de cada alma-skill, ignora caches/runtime
+/skills/alma-*/__pycache__/
+/skills/alma-*/*.pyc
+/skills/alma-*/.cache/
+
+# --- NUNCA commitar (defesa em profundidade) ---
+.env
+.env.*
+auth.json
+auth.lock
+*.lock
+*.pid
+*.db
+*.sqlite
+*.sqlite3
+*.key
+*.pem
+gateway_state.json
+sessions/
+checkpoints/
+logs/
+cron/
+brain/
+backups/
+.DS_Store
