@@ -1,56 +1,91 @@
 ---
 name: alma-brain
-description: Acessa o vault ALMA em /home/almarev/brain em modo READ-ONLY. Primeiro stop SEMPRE = STATUS.md (auto-gerado 24h). Aciona quando Mario disser status, pipeline, onde paramos, ou citar entidade por nome (ORION, CLAIRE, JT Shirts, ALMA Rev, mtmalls, Workstream B, etc.).
+description: Acessa o vault ALMA em /home/almarev/brain via brain-alma MCP (HTTP/8003). LÊ qualquer lugar do vault. ESCREVE só em áreas autorizadas (raw/, agents/hermes/, 04-personal/scratchpad-*, append-only logs). NÃO escreve em planos curados (00-execution-plans/, 03-alma-agentic/decisions.md, platform/*.md, INDEX.md, STATUS.md). Aciona quando Mario disser status, pipeline, onde paramos, anota isso, salva no brain, ou citar entidade por nome.
 license: proprietary
 ---
 
 # Skill alma-brain
 
-## Filesystem (READ-ONLY)
+## Acesso
 
 - **Vault root**: `/home/almarev/brain`
-- **STATUS** (auto-gerado): `/home/almarev/brain/STATUS.md` — LER PRIMEIRO sempre. Atualiza 24h via `brain-mcp/scripts/generate_status.py`. Tem agentes + ORION metrics + workspaces ativos.
-- **INDEX** (mapa do vault): `/home/almarev/brain/INDEX.md` — use pra navegar entre pastas.
-- **Wiki sintetizado**: `/home/almarev/brain/wiki/sistema/`, `/home/almarev/brain/wiki/workspaces/`
+- **Via**: MCP server `brain-alma` em `http://127.0.0.1:8003/mcp`
+- **Tools disponíveis**: brain_search, brain_read, brain_write, brain_query, brain_list, brain_recent, brain_link_check
 
-## Estrutura do vault (pastas numeradas)
+## Entry points de leitura (sempre nessa ordem)
 
-| Pasta | Conteúdo |
-|---|---|
-| `00-execution-plans/` | Planos executivos (north star, roadmap, build sequences) |
-| `01-job-search/` | Job search ativo |
-| `02-alma-rev/` | Positioning, ICP, brand voice, Revenue Leak Diagnostic |
-| `03-alma-agentic/` | Decisões técnicas, architecture, MCP config, tenant patterns |
-| `04-personal/` | Preferências Mario, idioma, agenda |
-| `05-meeting-notes/granola/` | Meeting notes Granola |
-| `06-claire-calls/` | Logs CLAIRE outbound |
-| `07-lance-outreach/` | LANCE LinkedIn + email logs |
-| `08-scribe-content/` | SCRIBE drafts, posts |
-| `09-iris-reports/` | IRIS daily/weekly/monthly digests |
-| `10-signals/` | Sentinels (LinkedIn, news, CRM) |
-| `agents/` | Per-agent workspace docs (ORION + futuros) |
-| `lead-base/` | Leads aprovados ORION |
-| `platform/` | Cross-tenant positioning, runbooks, service catalog |
-| `99-archive/` | Logs antigos |
+1. `STATUS.md` (auto-gerado 24h) — entry point pra qualquer pergunta de "como está / onde paramos / quantos / quando"
+2. `INDEX.md` — mapa do vault pra navegar pastas
+3. Pasta específica via `brain_search` ou `brain_read`
+
+## Estrutura do vault
+
+| Pasta | Conteúdo | Hermes pode escrever? |
+|---|---|---|
+| `00-execution-plans/` | Planos executivos curados Mario | ❌ READ-ONLY |
+| `01-job-search/` | Job search Mario | ❌ READ-ONLY |
+| `02-alma-rev/` | Positioning, ICP, brand voice | ❌ READ-ONLY |
+| `03-alma-agentic/decisions.md` | Decisões técnicas canônicas | ❌ READ-ONLY |
+| `03-alma-agentic/2026-05/` | Activity logs auto-gerados Cortex | ✅ append-only |
+| `04-personal/` | Preferências, agenda Mario | ⚠️ só `scratchpad-*.md` |
+| `05-meeting-notes/granola/` | Granola notes | ⚠️ só append-only |
+| `06-claire-calls/` | Logs CLAIRE | ❌ agent-owned |
+| `07-lance-outreach/` | LANCE logs | ❌ agent-owned |
+| `08-scribe-content/` | SCRIBE drafts | ❌ agent-owned |
+| `09-iris-reports/` | IRIS digests | ❌ agent-owned |
+| `10-signals/` | Sentinel signals | ❌ agent-owned |
+| `agents/hermes/` | **Workspace próprio Hermes** | ✅ WRITE LIVRE |
+| `lead-base/` | Leads ORION | ❌ agent-owned |
+| `platform/` | Cross-tenant runbooks curados Mario | ❌ READ-ONLY |
+| `raw/` | **Capture rápido sem curadoria** | ✅ WRITE LIVRE |
+| `99-archive/` | Logs antigos | ❌ READ-ONLY |
+| `INDEX.md` / `STATUS.md` | Meta/auto-gerado | ❌ NÃO TOCAR |
+
+## Protocolo de escrita
+
+Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
+
+1. **Decide WHERE**:
+   - Captura rápida sem categoria clara → `raw/YYYY-MM-DD-<slug>.md`
+   - Observação sobre o próprio Hermes (decisão de design, problema detectado, padrão útil) → `agents/hermes/YYYY-MM-DD-<slug>.md`
+   - Preferência ou contexto pessoal Mario → considera primeiro `~/.hermes/memories/MEMORY.md` (mais near-term que brain)
+   - Aprendizado técnico re-aplicável → `agents/hermes/lessons/<topic>.md`
+
+2. **Estrutura mínima** de qualquer .md escrito:
+   ```markdown
+   ---
+   created_by: hermes
+   created_at: 2026-MM-DDTHH:MM:SSZ
+   source: telegram | cli | heartbeat
+   ---
+
+   # <Título conciso>
+
+   <Conteúdo, com referências [[wiki-link]] quando aplicável>
+   ```
+
+3. **Confirma WHAT** ao Mario antes de escrever em pasta sensível:
+   - `04-personal/scratchpad-*.md` → não precisa confirmar
+   - Qualquer outra área não listada como "WRITE LIVRE" → pergunta "vou anotar em X, ok?" antes
+
+4. **Após escrever**: confirma path + 1 linha do conteúdo. Mario vê `git diff` no auto-push.
+
+## Operações proibidas
+
+- **NUNCA** modificar arquivos curados manualmente (00-, 02-, 03-decisions, platform/, INDEX, STATUS)
+- **NUNCA** tocar `/home/almarev/agentic-v2/`, `/home/almarev/agentic/`, `/root/alma-aios/` (esse é skill alma-cortex-lite, não alma-brain)
+- **NUNCA** deletar arquivos do brain (não tem brain_delete_tool, mas se aparecer não usar)
+- Se em dúvida sobre onde escrever → `raw/` é sempre a opção segura
 
 ## Workflow padrão
 
-1. Lê `STATUS.md` (sempre — é o entry point).
-2. Identifica entidade na pergunta do Mario (agente, projeto, workspace).
-3. Pula pra pasta relevante via `INDEX.md` ou grep direto:
-   ```bash
-   grep -r "termo" /home/almarev/brain --include="*.md" -l | head -10
-   ```
-4. Lê o arquivo .md específico em vez de despejar pastas inteiras.
-5. Se faltar dado depois de grep + 2 reads, fala "não está no vault" — NÃO invente.
-
-## Operações permitidas
-- read, grep, find no vault.
-
-## Operações proibidas
-- write, edit, delete (POC read-only).
-- Mexer em `/home/almarev/agentic-v2/`, `/home/almarev/agentic/`, `/root/alma-aios/`.
-- Se Mario pedir pra escrever no vault, recusa explicando POC read-only.
+1. Mario pergunta algo → lê `STATUS.md` primeiro
+2. Cruza com entidade específica → `brain_search` na pasta certa
+3. Se faltar dado depois de 2 reads + 1 search → fala "não está no vault", NÃO inventa
+4. Se Mario manda anotar → escreve em `raw/` ou `agents/hermes/` com frontmatter, confirma path
 
 ## Trigger keywords
-status, pipeline, onde paramos, ORION, CLAIRE, Clara, ALMA Rev, alma-aios, agentic, JT Shirts, mtmalls, Workstream B, LANCE, IRIS, SCRIBE, Sentinel, Shield, Brain, workspace, tenant.
+
+**Leitura**: status, pipeline, onde paramos, ORION, CLAIRE, Clara, ALMA Rev, alma-aios, agentic, JT Shirts, mtmalls, Workstream B, LANCE, IRIS, SCRIBE, Sentinel, Shield, Brain, workspace, tenant.
+
+**Escrita**: anota, salva no brain, registra, grava, lembra disso, escreve no brain, captura.
