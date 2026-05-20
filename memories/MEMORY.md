@@ -83,3 +83,4 @@ Persistente entre sessões. Atualizar quando aprender algo novo. Linhas curtas; 
 - Skills `alma-*` devem ler `/home/almarev/brain`, NÃO `/root/.hermes/brain` (placeholder antigo — corrigido 2026-05-20).
 - Hot file: `/home/almarev/brain/wiki/hot.md` — LER PRIMEIRO sempre.
 <!-- autopush smoke 2026-05-20T17:36:26Z -->
+<!-- autopush 2 2026-05-20T17:37:08Z -->
