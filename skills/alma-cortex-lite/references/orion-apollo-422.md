@@ -59,8 +59,9 @@ You have insufficient credits! Upgrade your plan to increase your number of lead
 
 - Add a typed exception like `ApolloInsufficientCredits` in the adapter.
 - In `_search`, if `r.status_code == 422`, inspect `r.text`; raise the typed exception when body contains `insufficient credits`; otherwise log the 422 body and call `raise_for_status()`.
-- Let the worker catch the typed exception and exit with the service's `RestartPreventExitStatus` (`42` in ORION), marking heartbeat `quota_exhausted`.
 - Do not keep returning `[]`, because the worker treats empty pull as retryable and will loop forever.
+- If there is no alternative discovery path yet, let the worker catch the typed exception and exit with the service's `RestartPreventExitStatus` (`42` in ORION), marking heartbeat `quota_exhausted`.
+- If the objective is to keep lead generation running, implement degraded mode instead: catch `ApolloInsufficientCredits` in ORION core and fall back to Tavily candidate discovery plus existing Browserbase/Snov enrichment. See `references/orion-apollo-free-fallback.md`.
 
 ## Verification
 
@@ -73,11 +74,20 @@ systemctl show -p Result -p ExecMainStatus alma-orion@1.service --no-pager
 tail -120 /home/almarev/brain/agents/orion/logs/instance-1.jsonl
 ```
 
-Expected while Apollo has no credits:
+Expected while Apollo has no credits and no fallback is enabled:
 
 ```text
 Result=exit-code
 ExecMainStatus=42
 apollo quota depleted
 Apollo credits exhausted; stopping worker with RestartPreventExitStatus=42
+```
+
+Expected while Apollo-free fallback is enabled:
+
+```text
+apollo quota depleted
+Apollo credits exhausted; using Tavily candidate fallback
+tavily candidate fallback returned N firms
+delivered lead ...
 ```

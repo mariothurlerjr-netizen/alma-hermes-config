@@ -7,10 +7,9 @@ license: proprietary
 # Contexto ALMA
 
 ## Stack
-- VPS root, /home/almarev/agentic-v2/ (plataforma)
-- OpenClaw em paralelo (NÃO mexer)
-- n8n, Evolution API, Notion MCP
-- Workspaces: alma-rev, vet-agentic, jt-shirts
+- VPS root, repos ativos em `/home/almarev/agentic` (alma-agentic), `/root/alma-aios` (legacy), almarev-site, mtmalls, hermes-agent, brain-mcp
+- `cortex` FastAPI na porta `8002` (não confundir com `8001`, jt-sdr)
+- Workspaces: ALMA Rev, Vet Agentic, JT Shirts
 
 ## ALMA Rev produtos
 - Revenue Leak Diagnostic Standard: $7.5K / 4 semanas
@@ -21,9 +20,9 @@ license: proprietary
 - Outbound: Instantly, 4282 leads, warmup ativo
 
 ## ALMA Agentic
-- /home/almarev/agentic-v2/ (multi-tenant, em desenvolvimento)
-- LANCE (text SDR) e CLAIRE (voice ElevenLabs) ativos
-- Migração ElevenLabs > Vapi.ai planejada
+- `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
+- ORION lead-gen roda como `alma-orion@1..5.service`, gera lead-base e dashboard em `app.almarev.com/dashboard/leads`.
+- LANCE (text SDR), CLAIRE (voice SDR), Clara e AURA existem como agentes/workstreams.
 
 ## JT Shirts (engagement paralelo)
 - US uniform company, Fractional Head of Sales
