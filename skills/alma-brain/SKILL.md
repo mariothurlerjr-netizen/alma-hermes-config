@@ -14,9 +14,10 @@ license: proprietary
 
 ## Entry points de leitura (sempre nessa ordem)
 
-1. `STATUS.md` (auto-gerado 24h) — entry point pra qualquer pergunta de "como está / onde paramos / quantos / quando"
-2. `INDEX.md` — mapa do vault pra navegar pastas
-3. Pasta específica via `brain_search` ou `brain_read`
+1. `wiki/hot.md` se existir. Se não existir, não tratar como erro fatal.
+2. `STATUS.md` (auto-gerado 24h) — entry point pra qualquer pergunta de "como está / onde paramos / quantos / quando".
+3. `INDEX.md` — mapa do vault pra navegar pastas.
+4. Pasta específica via `brain_search` ou `brain_read`.
 
 ## Estrutura do vault
 
