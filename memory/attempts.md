@@ -15,3 +15,10 @@
 - Outcome: UNKNOWN
 - Sinal: nenhum alerta acionável encontrado; log append em /root/.hermes/memory/heartbeat-log.md
 - Próximo: continuar
+
+## 2026-05-22 07:33:18 UTC | heartbeat / ORION watchdog
+- Ação: Executei HEARTBEAT.md, detectei erro do cron watchdog ORION e corrigi script.
+- Abordagem: Root cause via health/state/cron status; patch mínimo para tratar delivered_24h como métrica rolling.
+- Outcome: SUCCESS
+- Sinal: py_compile OK, script manual exit 0, cron job fc52bbc58989 last_status=ok.
+- Próximo: continuar
