@@ -7,3 +7,5 @@
 ORION watchdog cron `fc52bbc58989` uses rolling `delivered_24h`; `/root/.hermes/scripts/orion_watchdog.py` treats flat or decreasing delivery counts as KPI movement, not worker-health failure. Hard failures are missing/stale/erroring workers or failed repairs.
 §
 ORION should not extract new leads from Apollo when Apollo credits are exhausted; it should process already extracted/stored Apollo leads whose credits were already consumed.
+§
+LANCE is intentionally paused because it is not fully configured yet. On 2026-05-24, `alma-lance.timer` was disabled and stopped; `alma-lance.service` remained inactive.

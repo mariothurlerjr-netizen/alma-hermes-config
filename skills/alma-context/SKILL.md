@@ -35,3 +35,6 @@ license: proprietary
 
 ## Regras de stack
 - OAuth SEMPRE preferido. API key só como último recurso.
+
+## Runbooks operacionais
+- LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
