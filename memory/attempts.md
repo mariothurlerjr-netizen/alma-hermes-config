@@ -57,3 +57,10 @@
 - Outcome: UNKNOWN
 - Sinal: checks OK, sem alerta enviado; resposta final inicial saiu vazia e Mario pediu processamento dos resultados.
 - Próximo: continuar; em CLI, mesmo com silêncio operacional, retornar confirmação mínima quando Mario pedir explicitamente execução manual.
+
+## 2026-05-24T17:01:20Z | alma-heartbeat
+- Ação: executei HEARTBEAT.md manualmente, chequei serviços críticos, ORION, watchdog, Postgres, disco, brain STATUS/open-loops, anti-spam e attempts/patterns.
+- Abordagem: verificação direta via systemd/curl/pg_isready/cronjob/brain MCP, silêncio por padrão, append obrigatório nos logs.
+- Outcome: UNKNOWN
+- Sinal: nenhum alerta novo, acionável e fora da janela anti-spam; heartbeat-log recebeu entrada 17:01 UTC.
+- Próximo: continuar
