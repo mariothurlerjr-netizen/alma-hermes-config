@@ -50,3 +50,10 @@
 - Outcome: UNKNOWN
 - Sinal: nenhum alerta novo, acionável e fora da janela anti-spam.
 - Próximo: continuar
+
+## 2026-05-24T16:04:23Z | heartbeat
+- Ação: executei alma-heartbeat manual, li HEARTBEAT/corrections/patterns/STATUS/log, verifiquei serviços críticos, ORION, cron, disco, LANCE/CLAIRE e open loops, registrei heartbeat-log.
+- Abordagem: silêncio por padrão, alertar só sinal novo acionável em menos de 5min fora da janela anti-spam.
+- Outcome: UNKNOWN
+- Sinal: checks OK, sem alerta enviado; resposta final inicial saiu vazia e Mario pediu processamento dos resultados.
+- Próximo: continuar; em CLI, mesmo com silêncio operacional, retornar confirmação mínima quando Mario pedir explicitamente execução manual.
