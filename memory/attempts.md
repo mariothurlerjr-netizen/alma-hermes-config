@@ -43,3 +43,10 @@
 - Outcome: UNKNOWN
 - Sinal: nenhum blocker novo acionável em menos de 5min; decisão registrada no heartbeat-log.md.
 - Próximo: continuar
+
+## 2026-05-24T15:33:07Z | alma-heartbeat
+- Ação: executei HEARTBEAT.md manualmente, chequei serviços críticos, ORION, Postgres, disco, brain STATUS/open-loops e anti-spam.
+- Abordagem: verificação direta via systemd/curl/psql/brain + registro obrigatório em heartbeat-log.md.
+- Outcome: UNKNOWN
+- Sinal: nenhum alerta novo, acionável e fora da janela anti-spam.
+- Próximo: continuar
