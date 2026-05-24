@@ -36,3 +36,10 @@
 - Outcome: UNKNOWN
 - Sinal: usuário notou resposta vazia e pediu processar resultados, silêncio pode ter sido correto pelo critério mas ruim para CLI manual.
 - Próximo: continuar; em execução manual CLI, retornar uma linha mínima confirmando silêncio operacional quando o usuário pedir continuação.
+
+## 2026-05-24T15:00:44Z | heartbeat
+- Ação: executei alma-heartbeat conforme HEARTBEAT.md, verifiquei serviços críticos, ORION, watchdog, disco, STATUS.md, roadmap Phase 2 e open loops do Brain.
+- Abordagem: leitura de skills/arquivos obrigatórios, probes locais via systemctl/curl/psql/cronjob e append de decisão.
+- Outcome: UNKNOWN
+- Sinal: nenhum blocker novo acionável em menos de 5min; decisão registrada no heartbeat-log.md.
+- Próximo: continuar
