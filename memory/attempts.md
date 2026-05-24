@@ -22,3 +22,10 @@
 - Outcome: SUCCESS
 - Sinal: py_compile OK, script manual exit 0, cron job fc52bbc58989 last_status=ok.
 - Próximo: continuar
+
+## 2026-05-24 13:01 UTC | alma-heartbeat manual run
+- Ação: executei HEARTBEAT.md, verifiquei serviços críticos, ORION, cron watchdog, disco, STATUS.md e open loops do Brain, registrei decisão no heartbeat-log.md.
+- Abordagem: leitura de skill + arquivos obrigatórios, health checks locais, consulta brain MCP, cronjob list e append de log.
+- Outcome: UNKNOWN
+- Sinal: execução técnica completou e log recebeu entrada 2026-05-24T13:01:30Z; resposta final anterior saiu vazia, Mario pediu processamento dos resultados.
+- Próximo: continuar, entregar síntese explícita quando o run for manual via CLI, mesmo mantendo regra de não enviar Telegram se nada acionável.
