@@ -28,7 +28,7 @@ Algum item em `00-execution-plans/` ou `02-alma-rev/` sem atualização há mais
 
 ### 5. Services críticos
 - alma-cortex.service (port 8002) — active?
-- hermes-gateway.service — active?
+- hermes-gateway.service — active as user service? Use `hermes gateway status` or `XDG_RUNTIME_DIR=/run/user/0 systemctl --user is-active hermes-gateway.service`; system unit inactive/absent alone is not down.
 - brain-mcp uvicorn (port 8003) — respondendo?
 - Postgres alma_agentic — acessível?
 

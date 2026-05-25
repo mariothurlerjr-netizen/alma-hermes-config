@@ -20,3 +20,6 @@ Não manda "tudo ok". Spam de heartbeat é pior que silêncio.
 
 ## Critério de envio
 Novo (não avisou em 4h) + acionável (sugestão concreta) + Mario age em menos de 5min.
+
+## Pitfalls conhecidos
+- Na VPS do Mario, `hermes-gateway` roda como user service de root. Validar com `hermes gateway status` ou `XDG_RUNTIME_DIR=/run/user/0 systemctl --user is-active hermes-gateway.service`. `systemctl is-active hermes-gateway.service` como system unit pode retornar inactive/absent e não significa gateway down.
