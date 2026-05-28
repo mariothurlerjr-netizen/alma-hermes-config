@@ -209,7 +209,7 @@ dashboard:
 privacy:
   redact_pii: false
 tts:
-  provider: edge
+  provider: elevenlabs
   edge:
     voice: en-US-AriaNeural
   elevenlabs:
