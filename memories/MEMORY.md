@@ -13,3 +13,5 @@ LANCE is intentionally paused because it is not fully configured yet. On 2026-05
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...` ou `hermes gateway status`); a system unit `hermes-gateway.service` pode aparecer ausente/inativa sem indicar falha.
 §
 Hermes TTS on Mario's VPS is configured to provider `elevenlabs`; `/root/.hermes/.env` contains `ELEVENLABS_API_KEY` copied from existing ALMA env. Reminder call script path: `/root/.hermes/scripts/reminder_reuniao_alisa_call.py`, uses Twilio env and requires `HERMES_REMINDER_TO_PHONE` or `MARIO_PHONE` for phone-call destination.
+§
+Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
