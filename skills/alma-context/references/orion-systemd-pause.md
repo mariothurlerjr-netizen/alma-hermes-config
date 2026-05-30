@@ -30,5 +30,6 @@ Use when Mario asks to stop, pause, freeze, or resume lead generation.
 ## Pitfalls
 
 - Stopping workers without pausing `orion-watchdog` is incomplete. The watchdog exists to repair/restart ORION.
+- Do not run `/root/.hermes/scripts/orion_watchdog.py` as a "check" while ORION is intentionally paused. It is not dry-run safe and will re-enable/start `alma-orion@1..5.service`; verify pause via `cronjob(action="list")`, `systemctl is-active/is-enabled`, and process table instead.
 - `disable --now` can leave units in `failed`; run `reset-failed` after confirming they are stopped so status output is clean.
 - Do not treat the systemd service absence/inactivity alone as sufficient. Verify watchdog, enabled state, active state, and process table.
