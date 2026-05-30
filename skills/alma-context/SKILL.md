@@ -38,3 +38,5 @@ license: proprietary
 
 ## Runbooks operacionais
 - LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
+- ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar/pausar/congelar geração de leads. Ordem crítica: pausar `orion-watchdog` antes de parar `alma-orion@1..5`, depois verificar cron, systemd enabled/active e process table.
+- ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar geração de leads, pausar ORION ou retomar lead-gen. Sequência correta: pausar `orion-watchdog`, parar/desabilitar `alma-orion@1..5`, limpar `failed` se necessário, verificar inactive/disabled/sem processo.
