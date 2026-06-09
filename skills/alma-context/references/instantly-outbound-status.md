@@ -18,6 +18,7 @@ Use when Mario asks whether outbound emails were sent, whether there are more to
 4. For per-campaign analytics, call:
    - `GET /campaigns/analytics/overview?id={campaign_id}`
    - Use `id=...`; `campaign_id=...` can return global/default-looking totals and mislead.
+   - If every timezone campaign shows the same `emails_sent_count` (ex: 55/55/55/55) or totals equal per-campaign count × campaign count, suspect this exact bug before interpreting volume. Patch any codepath using `campaign_id=` for analytics, including cron reporters and dashboard API routes.
 5. For lead inventory/status, call:
    - `POST /leads/list` with JSON `{ "campaign": campaign_id, "limit": 100, "starting_after": cursor }`
    - Use `campaign`, not `campaign_id`, for this endpoint in the app code path.
