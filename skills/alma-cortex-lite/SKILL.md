@@ -32,6 +32,7 @@ Referências de sessão:
 - `references/orion-apollo-422.md` — diagnosticar Apollo `422` por body e não por status.
 - `references/orion-apollo-free-fallback.md` — manter ORION entregando leads sem créditos Apollo usando Tavily + enriquecimento posterior.
 - `references/orion-stored-apollo-leads.md` — processar leads Apollo já pagos em `hub_leads` antes de live sourcing/fallback.
+- `references/orion-apollo-personal-credits.md` — trocar `APOLLO_API_KEY` para uma conta Apollo alternativa com créditos sem expor secret no chat, reiniciar workers e validar logs/output.
 
 1. Quando um erro externo vem só como status code (`422`, `400`, `403`, etc.), reproduz a chamada mínima e lê o body da resposta antes de patchar lógica. Em Apollo, `422` pode ser quota/credits exhausted, não payload inválido.
 2. Não trate bloqueio externo como resposta final se existe rota substituta. Se Mario disser que o objetivo é resolver, você é responsável por manter o pipeline produzindo: implemente fallback degradado, rode, valide entrega real e só então reporte tradeoffs.

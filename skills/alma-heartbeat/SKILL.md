@@ -23,3 +23,5 @@ Novo (não avisou em 4h) + acionável (sugestão concreta) + Mario age em menos 
 
 ## Pitfalls conhecidos
 - Na VPS do Mario, `hermes-gateway` roda como user service de root. Validar com `hermes gateway status` ou `XDG_RUNTIME_DIR=/run/user/0 systemctl --user is-active hermes-gateway.service`. `systemctl is-active hermes-gateway.service` como system unit pode retornar inactive/absent e não significa gateway down.
+- Quando Mario pedir para "pausar o alarme" ou reclamar de ruído, não olhe só `hermes cron list`: também inspecione o crontab (`/root/run-heartbeat.sh`) e diferencie watchdog específico (ex: `orion-watchdog`) de heartbeat geral. Se o watchdog já estiver pausado, o alarme pode estar vindo do checklist do heartbeat, então ajuste/silencie a condição ruidosa em vez de reportar "já está pausado".
+- Para ORION/Apollo quota: se Mario disser que quer "refresh/use it" e houver uma conta Apollo com créditos, trate como rota de recuperação ativa. Próximo passo é trocar `APOLLO_API_KEY` de forma secret-safe, reiniciar workers e validar logs, não repetir alerta de quota.
