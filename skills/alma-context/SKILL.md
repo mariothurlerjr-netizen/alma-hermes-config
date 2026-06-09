@@ -16,8 +16,8 @@ license: proprietary
 - Revenue Leak Diagnostic Lite: $3.5K / 2 semanas
 - Fractional Revenue Leadership
 - ICP: SaaS B2B + agencies + professional services, $500K-$5M ARR
-- Domínio: getalmarev.com (NUNCA almarev.com)
-- Outbound: Instantly, 4282 leads, warmup ativo
+- Domínios: `getalmarev.com` é usado para inbox/outbound; `almarev.com` é usado em assets públicos/campanhas como `/aura` e `/blog`. Não corrigir automaticamente um para o outro sem checar contexto.
+- Outbound: Instantly com campanhas `AlmaREV Launch`; status operacional via API v2 + Cortex AURA cross-check.
 
 ## ALMA Agentic
 - `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
@@ -37,6 +37,7 @@ license: proprietary
 - OAuth SEMPRE preferido. API key só como último recurso.
 
 ## Runbooks operacionais
+- Instantly outbound status: ver `references/instantly-outbound-status.md`. Use quando Mario perguntar se os emails/campanhas foram enviados, se ainda falta disparo, se houve reply/bounce/open, ou se alguém fez AURA Assessment.
 - LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
 - ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar/pausar/congelar geração de leads. Ordem crítica: pausar `orion-watchdog` antes de parar `alma-orion@1..5`, depois verificar cron, systemd enabled/active e process table.
 - ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar geração de leads, pausar ORION ou retomar lead-gen. Sequência correta: pausar `orion-watchdog`, parar/desabilitar `alma-orion@1..5`, limpar `failed` se necessário, verificar inactive/disabled/sem processo.
