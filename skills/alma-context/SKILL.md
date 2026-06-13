@@ -37,6 +37,7 @@ license: proprietary
 - OAuth SEMPRE preferido. API key só como último recurso.
 
 ## Runbooks operacionais
+- Agent/systemd health audit: ver `references/agent-systemd-health-audit.md`. Use quando Mario perguntar se os agentes estão instalados, vivos, “rotating”, rodando na VPS, ou quando houver falha em timers/services ALMA. Sempre cruzar Brain `STATUS.md` com systemd, timers, journal, failed units e health endpoints.
 - Instantly outbound status: ver `references/instantly-outbound-status.md`. Use quando Mario perguntar se os emails/campanhas foram enviados, se ainda falta disparo, se houve reply/bounce/open, ou se alguém fez AURA Assessment.
 - LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
 - ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar/pausar/congelar geração de leads. Ordem crítica: pausar `orion-watchdog` antes de parar `alma-orion@1..5`, depois verificar cron, systemd enabled/active e process table.

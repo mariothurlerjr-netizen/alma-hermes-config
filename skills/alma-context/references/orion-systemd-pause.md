@@ -4,20 +4,21 @@ Use when Mario asks to stop, pause, freeze, or resume lead generation.
 
 ## Pause ORION lead generation
 
-1. Pause the Hermes cron watchdog first, otherwise it may repair/restart workers:
+1. Pause the Hermes cron watchdog first, otherwise it may repair/restart workers if re-enabled:
    - cron job name: `orion-watchdog`
    - known job id: `fc52bbc58989`
    - action: `cronjob(action="pause", job_id="fc52bbc58989")`
-2. Stop and disable all ORION workers:
-   - `systemctl disable --now alma-orion@1.service alma-orion@2.service alma-orion@3.service alma-orion@4.service alma-orion@5.service`
+2. Stop and disable the systemd watchdog timer and all ORION workers:
+   - `systemctl disable --now alma-orion-watchdog.timer alma-orion@1.service alma-orion@2.service alma-orion@3.service alma-orion@4.service alma-orion@5.service`
 3. Clean noisy failed state if systemd shows stopped workers as failed after disable:
-   - `systemctl reset-failed alma-orion@1.service alma-orion@2.service alma-orion@3.service alma-orion@4.service alma-orion@5.service`
-4. Verify all three layers:
-   - cron: watchdog `enabled=false` / `state=paused`
-   - systemd active state: `inactive` for `alma-orion@1..5.service`
-   - systemd enabled state: `disabled` for `alma-orion@1..5.service`
+   - `systemctl reset-failed alma-orion-watchdog.service alma-orion@1.service alma-orion@2.service alma-orion@3.service alma-orion@4.service alma-orion@5.service`
+4. Verify all layers:
+   - Hermes cron: watchdog `enabled=false` / `state=paused`
+   - systemd watchdog timer: `inactive` and `disabled`
+   - systemd worker active state: `inactive` for `alma-orion@1..5.service`
+   - systemd worker enabled state: `disabled` for `alma-orion@1..5.service`
    - process table: no `alma-orion`, `agents/orion`, `orion_worker`, or lead-gen process remains
-5. Update durable state/memory: ORION is intentionally paused, watchdog paused, workers stopped/disabled.
+5. Update durable state/memory: ORION is intentionally paused, watchdogs paused, workers stopped/disabled.
 
 ## Resume ORION lead generation
 

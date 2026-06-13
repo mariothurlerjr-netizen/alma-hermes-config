@@ -377,8 +377,9 @@ approvals:
   mcp_reload_confirm: true
   destructive_slash_confirm: true
 command_allowlist:
-- stop/restart system service
+- overwrite system config
 - shell command via -c/-lc flag
+- stop/restart system service
 quick_commands: {}
 hooks: {}
 hooks_auto_accept: false
