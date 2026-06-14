@@ -35,10 +35,12 @@ license: proprietary
 
 ## Regras de stack
 - OAuth SEMPRE preferido. API key só como último recurso.
+- Na VPS ALMA atual não assumir Unix user `almarev`; serviços systemd rodam majoritariamente como root/dev. Antes de usar `User=almarev` em unit file, verificar se o usuário existe ou criar explicitamente.
 
 ## Runbooks operacionais
 - Agent/systemd health audit: ver `references/agent-systemd-health-audit.md`. Use quando Mario perguntar se os agentes estão instalados, vivos, “rotating”, rodando na VPS, ou quando houver falha em timers/services ALMA. Sempre cruzar Brain `STATUS.md` com systemd, timers, journal, failed units e health endpoints.
 - Instantly outbound status: ver `references/instantly-outbound-status.md`. Use quando Mario perguntar se os emails/campanhas foram enviados, se ainda falta disparo, se houve reply/bounce/open, ou se alguém fez AURA Assessment.
 - LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
-- ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar/pausar/congelar geração de leads. Ordem crítica: pausar `orion-watchdog` antes de parar `alma-orion@1..5`, depois verificar cron, systemd enabled/active e process table.
 - ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar geração de leads, pausar ORION ou retomar lead-gen. Sequência correta: pausar `orion-watchdog`, parar/desabilitar `alma-orion@1..5`, limpar `failed` se necessário, verificar inactive/disabled/sem processo.
+- CLAIRE dialer operations: ver `references/claire-dialer-operations.md`. Use quando Mario pedir pra pausar/retomar dialer, fim de semana, ligações da CLAIRE ou checar se ela está discando. Regra padrão: dialer só segunda a sexta; pausar outbound/reminder sem desligar polling/QA/coach.
+- ALMA Local CRM outcomes: ver `references/local-crm-outcomes.md`. Use quando Mario perguntar o significado de outcomes/tags/stages como `CHECK_SENT`, `BOOKED`, `CALLBACK`, ou quando uma notificação de call precisar ser interpretada.
