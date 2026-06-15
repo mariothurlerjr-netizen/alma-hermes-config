@@ -34,6 +34,14 @@ Referências de sessão:
 - `references/orion-stored-apollo-leads.md` — processar leads Apollo já pagos em `hub_leads` antes de live sourcing/fallback.
 - `references/orion-apollo-personal-credits.md` — trocar `APOLLO_API_KEY` para uma conta Apollo alternativa com créditos sem expor secret no chat, reiniciar workers e validar logs/output.
 - `references/alma-local-followup-timestamps.md` — diferenciar horário de criação do follow-up vs horário real da call (`local_call_follow_ups.created_at` vs `local_call_log.dispatched_at`).
+- `references/alma-local-callback-only-dialer.md` — pausar discagem de base fria/existente sem bloquear callback aceito; usar `local_call_follow_ups` como gate.
+
+### ALMA Local / CLAIRE dialer
+
+- Quando Mario pausar ou mudar a estratégia da CLAIRE Local, interprete como bloqueio da base fria/existente por padrão. Preserve follow-up de callback quando o prospect já aceitou ser chamado de volta.
+- Para callbacks aceitos, o gate canônico é `local_call_follow_ups.kind='callback' AND status='pending' AND due_at <= now()` com DNC/janela/max attempts preservados, não `local_leads.status IN ('new','retry')`.
+- Leads `completed` podem continuar elegíveis para callback aceito. Não usar status `completed` como veto absoluto nesse caso.
+- Antes de responder “vai ligar” ou “não vai ligar”, verifique systemd/cron e DB: timers ativos, `local_dialer_config.paused`, callbacks pendentes/vencidos, janela local.
 
 1. Quando um erro externo vem só como status code (`422`, `400`, `403`, etc.), reproduz a chamada mínima e lê o body da resposta antes de patchar lógica. Em Apollo, `422` pode ser quota/credits exhausted, não payload inválido.
 2. Não trate bloqueio externo como resposta final se existe rota substituta. Se Mario disser que o objetivo é resolver, você é responsável por manter o pipeline produzindo: implemente fallback degradado, rode, valide entrega real e só então reporte tradeoffs.
