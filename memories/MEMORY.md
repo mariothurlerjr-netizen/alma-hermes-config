@@ -10,7 +10,7 @@ LANCE is intentionally paused because it is not fully configured yet. On 2026-05
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
-Hermes TTS uses `elevenlabs`; reminder call script `/root/.hermes/scripts/reminder_reuniao_alisa_call.py` uses Twilio env and needs `HERMES_REMINDER_TO_PHONE` or `MARIO_PHONE`. CLAIRE outbound and related CLAIRE timers are weekday-gated (Mon..Fri UTC): outbound, intents, Calendly poll, QA, coach, local followups digest.
+Hermes TTS uses `elevenlabs`; reminder call script needs Twilio env + `HERMES_REMINDER_TO_PHONE` or `MARIO_PHONE`. CLAIRE Local paused: do not dial existing lead base or re-arm from transcript intents until Mario approves warm-trigger/disclosure strategy; `resume-claire-dialer-monday` removed; outbound+intents timers disabled.
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
