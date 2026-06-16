@@ -18,4 +18,4 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev Instantly sender ops: Mario expects daily mailbox warmup score checks and conservative active-campaign updates with warmed eligible accounts, silent unless change/error.
+ALMA Rev Instantly ops: use curl UA, not Python urllib (CF 1010); daily score checks and conservative campaign updates stay silent unless change/error.

@@ -15,6 +15,11 @@ Useful API endpoints:
 - `GET https://api.instantly.ai/api/v2/accounts?limit=100`
 - `GET https://api.instantly.ai/api/v2/campaigns?limit=100`
 - `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"email_list": [...]}` to update campaign sender pool
+- `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"sequences": [...]}` to update sequence bodies/signature variables
+
+API quirk:
+
+- Prefer `curl --compressed -A 'curl/8.5.0'` for Instantly API calls from Hermes scripts. Python `urllib` can trigger Cloudflare 1010 browser-signature blocks even with a valid API key. Capture the workaround as implementation detail, not as a claim that the API is down.
 
 Existing helper:
 
@@ -51,6 +56,19 @@ At the time of setup:
 - The 4 active regional campaigns originally used only `mario@getalmarev.com` and `m.thurler@getalmarev.com`.
 - `claire@getalmarev.com` had score 100 and was added to all 4 active regional campaigns.
 - The new domain accounts were left unused for cold campaigns because score 0.
+
+## Signature operations
+
+Use this when Mario asks whether campaign emails use mailbox signatures, account owner signatures, or copy-level signatures.
+
+- Instantly account-level signature variable is `{{accountSignature}}`, not `{{signature}}`.
+- Account signatures must be configured per mailbox/account first. The campaign sequence body imports the sender account's signature only when `{{accountSignature}}` is present.
+- To standardize active ALMA Rev campaigns, patch each sequence variant body to include `<div>{{accountSignature}}</div>` before the visible unsubscribe footer.
+- Remove old manual signoff blocks from the copy before inserting the variable to avoid duplicate sender identity. Common old blocks: `Mário`, `Mário Thurler`, `— Mario`, `AlmaREV · Revenue Architecture`, `almarev.com/blog · instagram.com/almarevenue`.
+- Keep visible unsubscribe footer/link in every step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
+- Do not edit placeholder routing campaigns whose body is just `{{body}}`; those inherit body content from lead/custom variables.
+- Before patching sequences, save a JSON backup of the target campaign objects under `/root/.hermes/tmp/`.
+- After patching, verify each targeted body has `{{accountSignature}}`, old manual blocks are gone, and the signature appears before the unsubscribe footer where present.
 
 ## Response pattern
 
