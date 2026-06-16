@@ -71,3 +71,10 @@
 - Outcome: UNKNOWN
 - Sinal: nenhum alerta novo, acionável e fora da janela anti-spam; heartbeat-log recebeu entrada 2026-05-24T17:32:36Z.
 - Próximo: continuar
+
+## 2026-06-16 18:57 UTC | instantly campaign optimizer
+- Ação: criei script diário de otimização Instantly, adicionei claire@getalmarev.com às 4 campanhas regionais ativas e agendei cron daily.
+- Abordagem: automação conservadora, só adiciona getalmarev.com com warmup score >=99, preserva contas existentes e não aumenta daily_limit.
+- Outcome: UNKNOWN
+- Sinal: API Instantly confirmou 3 inboxes nas 4 regionais; cron 48ee17f65d77 ativo para 13:00 UTC diário.
+- Próximo: continuar; se Mario quiser escalar volume, ajustar regra para incluir domínios novos com rampa por idade/score.

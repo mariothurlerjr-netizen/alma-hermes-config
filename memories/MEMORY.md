@@ -6,7 +6,7 @@
 §
 ORION watchdog cron `fc52bbc58989` uses rolling `delivered_24h`; `/root/.hermes/scripts/orion_watchdog.py` treats flat or decreasing delivery counts as KPI movement, not worker-health failure. Hard failures are missing/stale/erroring workers or failed repairs.
 §
-LANCE is intentionally paused because it is not fully configured yet. On 2026-05-24, `alma-lance.timer` was disabled and stopped; `alma-lance.service` remained inactive.
+LANCE paused intentionally; `alma-lance.timer` disabled/stopped, `alma-lance.service` inactive since 2026-05-24.
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
@@ -17,3 +17,5 @@ Reminder handling: if Mario asks in shorthand/noisy text to send or remind somet
 Mario has a personal Apollo account with roughly 2.5k credits available as a potential ORION credit source; do not paste Apollo secrets in chat, use secret-safe env update on the VPS.
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
+§
+ALMA Rev Instantly sender ops: Mario expects daily mailbox warmup score checks and conservative active-campaign updates with warmed eligible accounts, silent unless change/error.

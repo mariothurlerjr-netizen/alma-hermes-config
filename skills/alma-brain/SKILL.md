@@ -83,8 +83,10 @@ Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 1. Mario pergunta algo → lê `STATUS.md` primeiro
 2. Cruza com entidade específica → `brain_search` na pasta certa
 3. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados
-4. Se faltar dado depois de 2 reads + 1 search → fala "não está no vault", NÃO inventa
-5. Se Mario manda anotar → escreve em `raw/` ou `agents/hermes/` com frontmatter, confirma path
+4. Para status operacional de email/cadência/funil ALMA Rev (ex.: quantos receberam email 1/2/3, quantos estão na cadeia), usar o brain para contexto e depois buscar dado vivo no stack agentic/Instantly quando a pergunta for atual. Ver `references/alma-rev-email-funnel-status.md`.
+5. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
+6. Se faltar dado depois de 2 reads + 1 search → fala "não está no vault", NÃO inventa
+7. Se Mario manda anotar → escreve em `raw/` ou `agents/hermes/` com frontmatter, confirma path
 
 ## Trigger keywords
 
