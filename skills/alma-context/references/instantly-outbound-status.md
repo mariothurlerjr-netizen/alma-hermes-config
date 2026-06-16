@@ -37,9 +37,12 @@ Use when Mario asks whether outbound emails were sent, whether there are more to
    - body: `{ "emails": [...] }`
 
 ## Interpretation pitfalls
+- If Mario asks about “active accounts/contas ativas” in Instantly, disambiguate before answering: `accounts/mailboxes` are sender inboxes; `leads loaded in active campaigns` are campaign inventory; `contacted_count` is active outreach. Do not label loaded leads as active accounts.
+- Use this operational split for the launch campaigns: loaded = inventory/backlog in active campaigns; contacted = leads already touched and eligible for performance interpretation; queued = loaded - contacted, still waiting for first touch; emails_sent = total touches/messages.
+- In Cortex Agenda, `/api/agenda/email-capacity` exposes this split as `campaign_inventory` from `GET /campaigns/analytics`; prefer it over raw campaign lead counts when explaining current funnel state.
 - If `open_tracking=false`, report that opens cannot be meaningfully measured; do not say “nobody opened” as a behavioral conclusion.
 - Text-only/link-light campaigns may also have click tracking effectively unavailable.
-- `emails_sent_count` can count two inboxes/messages while `contacted_count` counts unique leads; explain both when totals look doubled.
+- `emails_sent_count` can count multiple touches/messages while `contacted_count` counts unique leads; explain both when totals look doubled.
 - Current timezone launch expected roughly 60/day across 2 getalmarev.com inboxes; incomplete totals during the day may simply mean a later timezone window is still open.
 - The original single campaign `ea5dbfd4-c9ad-481b-9ad9-0b985d2f31ca` was superseded/deleted; a 404 on `GET /campaigns/{id}` is not necessarily a failure if the 4 timezone campaigns exist.
 

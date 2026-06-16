@@ -18,6 +18,7 @@ license: proprietary
 - ICP: SaaS B2B + agencies + professional services, $500K-$5M ARR
 - Domínios: `getalmarev.com` é usado para inbox/outbound; `almarev.com` é usado em assets públicos/campanhas como `/aura` e `/blog`. Não corrigir automaticamente um para o outro sem checar contexto.
 - Outbound: Instantly com campanhas `AlmaREV Launch`; status operacional via API v2 + Cortex AURA cross-check.
+- Pitfall Instantly: “contas ativas” pode aparecer como contagem de **leads em campanhas ativas**, não mailboxes. Validar separando `/campaigns/analytics` (`leads_count`, `contacted_count`, `emails_sent_count`) de `/accounts` e do painel Cortex `/api/agenda/email-capacity`.
 
 ## ALMA Agentic
 - `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
