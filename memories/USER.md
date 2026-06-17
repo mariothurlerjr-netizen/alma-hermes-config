@@ -17,7 +17,7 @@
 ## Assinaturas mentais
 - OAuth-first principle: ChatGPT Pro + Anthropic Pro são default, API keys são fallback.
 - 1 conta = 1 SDR (JT Shirts CRM rule).
-- ALMA Rev é brand-master única (não 2 produtos com Agentic).
+- ALMA Rev é brand-master única; positioning atual (#182, 2026-06-17): Growth Operation para US professional-services firms, operator/done-for-you, Diagnostic US$2K + Retainer US$4K/mo, tecnologia backstage.
 - ALMA Rev produto/site/copy = EN-first. Conversa Mario↔Hermes = PT-BR.
 - Energia > profissionalismo em outbound voice (upbeat > polished).
 - UI ALMA: nada de lucide-react, nada de emoji Unicode. SVG inline custom geométrico, brand navy/gold/cream.
