@@ -35,6 +35,7 @@ Referências de sessão:
 - `references/orion-apollo-personal-credits.md` — trocar `APOLLO_API_KEY` para uma conta Apollo alternativa com créditos sem expor secret no chat, reiniciar workers e validar logs/output.
 - `references/alma-local-followup-timestamps.md` — diferenciar horário de criação do follow-up vs horário real da call (`local_call_follow_ups.created_at` vs `local_call_log.dispatched_at`).
 - `references/alma-local-callback-only-dialer.md` — pausar discagem de base fria/existente sem bloquear callback aceito; usar `local_call_follow_ups` como gate.
+- `references/alma-local-check-submit-phone-null.md` — corrigir `/api/local/check/submit` quando payload sem telefone tenta criar `local_leads` e viola `phone NOT NULL`.
 
 ### ALMA Local / CLAIRE dialer
 
