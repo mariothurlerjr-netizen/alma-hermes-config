@@ -15,6 +15,9 @@ Useful API endpoints:
 - `GET https://api.instantly.ai/api/v2/accounts?limit=100`
 - `GET https://api.instantly.ai/api/v2/campaigns?limit=100`
 - `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"email_list": [...]}` to update campaign sender pool
+- `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"sequences": [...]}` to update campaign email bodies
+
+Provider quirk: prefer `curl --compressed -A 'curl/8.5.0'` for Instantly API calls. Python `urllib` can trigger Cloudflare 1010 browser-signature blocks even with valid auth. Do not record the API key in logs or chat.
 - `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"sequences": [...]}` to update sequence bodies/signature variables
 
 API quirk:
@@ -46,6 +49,19 @@ Existing helper:
 6. Do not remove senders automatically.
 7. Do not raise `daily_limit` automatically.
 8. Stay silent when no changes are made; alert only on changes or errors.
+
+## Campaign signature ops
+
+Instantly account-level signatures are inserted in campaign bodies with `{{accountSignature}}`, not `{{signature}}`. When Mario asks to use the sender/account owner's signature across campaigns:
+
+1. Fetch campaign `sequences` live.
+2. Back up the original sequence JSON before patching.
+3. Skip placeholder campaigns whose body is only `{{body}}` unless explicitly asked.
+4. Replace manual signoffs such as `Mário`, `Mário Thurler`, or `— Mario` with `<div>{{accountSignature}}</div>`.
+5. Put `{{accountSignature}}` immediately before the visible unsubscribe footer when present.
+6. Verify every target body contains `{{accountSignature}}` and that manual signoff blocks are gone.
+
+Do not rely on the account signature being appended automatically. In sent-email inspection, rendered campaign emails only showed manual copy unless the sequence body included the account-signature variable.
 
 ## Current known shape from 2026-06-16 session
 
