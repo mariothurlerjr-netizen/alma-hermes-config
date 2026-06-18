@@ -42,6 +42,31 @@ GROUP BY 1,2 ORDER BY 3 DESC;
 - `emails_sent_count` is total touches, not unique accounts.
 - If email 1 and email 2 counts are equal, everyone who got email 1 has also got email 2. If email 3 is lower, the difference is waiting for email 3.
 - Untouched but active/enrolled = `active status total - contacted_count`.
+- `ops/funnel_report.py daily` aggregates every campaign with historical analytics, including older Clay copy tests and local campaigns. When Mario asks current ALMA Rev enviados, also filter Instantly analytics to active `AlmaREV Launch` campaigns so the answer separates active-launch totals from legacy/test residue.
+
+## Page visit / landing-page status
+
+When Mario asks for “visits to the pages” alongside enviados:
+
+1. Use Instantly for sent/contacted/replies, then nginx logs for site visits. PostHog may exist client-side, but nginx is the reliable server-side fallback on the VPS.
+2. Count public pageviews from `/var/log/nginx/access.log*`, including rotated `.gz` logs when the period spans multiple days.
+3. Filter aggressively before reporting:
+   - only `GET` with HTTP `200` for clean pageview counts
+   - exclude internal IP `72.60.136.186`, localhost, watchdogs, curl, Python/aiohttp, known scanners/bots, API/webhook/local/asset paths
+   - include real public routes like `/`, `/aura`, `/mario`, `/pt`, `/blog`, `/blog/...`
+   - exclude exploit/scanner paths under `/blog/vendor`, `/wp-*`, `phpunit`, encoded injection URLs
+4. For cold-email attribution, count URLs with `utm_source=email`; report both pageviews and unique IPs. In current ALMA Rev campaigns, email traffic has landed on `/aura` with `utm_campaign` values such as `launch_active` and `ybhadu_bdgvif`.
+5. Treat nginx unique IPs as directional identity only. Do not equate IPs with leads or accounts unless a lead-specific token is present in the URL.
+
+Useful one-off parser pattern:
+
+```bash
+python3 - <<'PY'
+# Parse /var/log/nginx/access.log* and .gz with regex, urllib.parse, gzip.
+# Filter: method GET, status 200, non-internal IP, non-bot UA, public paths only.
+# Report total public pageviews, unique IPs, page counts, and subset where qs['utm_source']==['email'].
+PY
+```
 
 ## Response shape Mario likes
 
@@ -52,5 +77,6 @@ Lead with exact numbers and source timestamp. Then give the operational reading 
 - untouched but in campaign
 - replies/bounces/unsubs
 - per-campaign breakdown only if useful
+- pageviews / unique IPs, with `utm_source=email` subset and top pages when asked for visits
 
 Avoid explaining Instantly concepts unless needed. Mario asked for the answer, not a tutorial.
