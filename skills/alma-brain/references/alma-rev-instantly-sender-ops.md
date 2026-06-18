@@ -14,7 +14,12 @@ Useful API endpoints:
 
 - `GET https://api.instantly.ai/api/v2/accounts?limit=100`
 - `GET https://api.instantly.ai/api/v2/campaigns?limit=100`
+- `GET https://api.instantly.ai/api/v2/accounts/analytics/daily?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD&emails=...` for per-mailbox campaign sends
+- `POST https://api.instantly.ai/api/v2/accounts/warmup-analytics` with `{"emails": [...]}` for warmup sent/received/inbox/spam per mailbox
 - `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"email_list": [...]}` to update campaign sender pool
+- `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"daily_limit": N}` to update campaign cap
+- `POST https://api.instantly.ai/api/v2/campaigns/{campaign_id}/pause` to pause campaigns. Prefer this over `PATCH {"status":2}` when PATCH returns Instantly 500.
+- `POST https://api.instantly.ai/api/v2/campaigns/{campaign_id}/activate` to activate campaigns
 - `PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}` with `{"sequences": [...]}` to update campaign email bodies
 
 Provider quirk: prefer `curl --compressed -A 'curl/8.5.0'` for Instantly API calls. Python `urllib` can trigger Cloudflare 1010 browser-signature blocks even with valid auth. Do not record the API key in logs or chat.
@@ -38,6 +43,8 @@ Existing helper:
 - Score `0` accounts stay in warmup only. Do not add them to cold campaigns.
 - `email_list` on a campaign is the actual sender pool for that campaign.
 - `daily_limit` is campaign-level volume. Updating sender pool without raising daily_limit improves distribution without increasing total volume.
+- Instantly does not reliably enforce a fixed per-mailbox quota inside one shared campaign sender pool. Treat per-mailbox numbers as an operating allocation/expectation derived from campaign caps and sender mix. If Mario needs hard per-score or per-mailbox control, split senders into separate campaigns/lane-specific caps.
+- When applying tomorrow's plan, patch `daily_limit` and `email_list` separately if a combined PATCH errors. Verify with a fresh `GET /campaigns?limit=100` after writes.
 
 ## Sender inventory classification
 
@@ -128,6 +135,24 @@ Lead with exact counts and timestamp, then state what is actually usable:
 - campaign sender pools
 - changes applied
 - whether cron will stay silent or alert
+
+When Mario asks why a daily limit is low, whether senders are being forgotten, or which campaign to use for the next day, give a **per-mailbox operating plan**, not just campaign-level totals. Include, for each relevant account:
+
+- email address
+- `stat_warmup_score`
+- `status`, `setup_pending`, `daily_limit`, `warmup_status`
+- campaign sent today and over the last 7 days from `GET /api/v2/accounts/analytics/daily`
+- warmup sent/received/inbox/spam from `POST /api/v2/accounts/warmup-analytics`
+- planned next-day send allocation for that mailbox
+
+Mario's preference in this class of task: do not wait for perfect 99-100 score if an inbox is connected, setup-clean, warmup-active, has real warmup traffic, and no bounce/reputation issue. Put lower-score healthy inboxes into a low-volume active lane instead of letting them be forgotten. Example operating lanes:
+
+- `active_full`: score 96-100, clean status, typical allocation 4-8 cold emails/day depending on recent sent volume and domain mix.
+- `active_low_volume`: score 80-95 with warmup healthy and only minor spam signal, typical allocation 1-3/day.
+- `warmup_only`: setup/config/status issue, broken warmup, or insufficient warmup traffic.
+- `quarantine`: explicit reputation/config/bounce issue.
+
+For next-day campaign plans, report both the summed campaign `daily_limit` and the implied per-mailbox allocation. Make the distinction explicit: campaign caps are the configured guarantees; per-mailbox counts are expected allocation unless senders are split into separate campaigns. If the allocation plan sums to 137, set campaign caps around 140 and split by region rather than over-allocating every regional campaign.
 
 For copy/language audits, answer in separated buckets:
 
