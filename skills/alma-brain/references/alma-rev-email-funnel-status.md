@@ -43,6 +43,9 @@ GROUP BY 1,2 ORDER BY 3 DESC;
 - If email 1 and email 2 counts are equal, everyone who got email 1 has also got email 2. If email 3 is lower, the difference is waiting for email 3.
 - Untouched but active/enrolled = `active status total - contacted_count`.
 - `ops/funnel_report.py daily` aggregates every campaign with historical analytics, including older Clay copy tests and local campaigns. When Mario asks current ALMA Rev enviados, also filter Instantly analytics to active `AlmaREV Launch` campaigns so the answer separates active-launch totals from legacy/test residue.
+- For “today” counts from Instantly, use `campaigns/analytics?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD`. The `start=`/`end=` and `from=`/`to=` query shapes may silently return accumulated totals, so do not use them for same-day sends.
+- Voice transcription may render “emails” as “months”. If Mario asks “how many months did we send today”, interpret as “how many emails did we send today” in the Instantly outbound context.
+- Response should separate at least: active `AlmaREV Launch` total, legacy Clay/test campaigns, ALMA Local if present, and all-Instanstly total. Lead with the number that matches the likely scope, then show the alternative total if ambiguity remains.
 
 ## Page visit / landing-page status
 

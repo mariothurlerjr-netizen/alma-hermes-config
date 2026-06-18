@@ -39,6 +39,24 @@ Existing helper:
 - `email_list` on a campaign is the actual sender pool for that campaign.
 - `daily_limit` is campaign-level volume. Updating sender pool without raising daily_limit improves distribution without increasing total volume.
 
+## Sender inventory classification
+
+When scaling ALMA Rev sender pools, do not treat excluded accounts as abandoned or deleted. "Exclude" should mean excluded from the current cold-campaign sender pool only. Keep every mailbox classified so warming/near-ready accounts are not forgotten.
+
+Use this operating model:
+
+- `active`: score 99-100, `status=1`, no setup issue. Eligible for real campaign volume.
+- `near-ready`: score 96-98, `status=1`, no setup issue. Eligible only for controlled low-volume drip if Mario wants capillarity, typically 1-2 cold emails/day per inbox, or keep warmup-only if risk control matters more.
+- `warming`: below 96 or recently added. Keep warmup active, zero cold outbound.
+- `quarantine`: bounce/error/reputation/config issue. Zero cold outbound until the issue is resolved.
+
+Daily limit semantics matter: Instantly campaign `daily_limit` is campaign-level volume, not per-sender volume. Adding more senders improves distribution and reputation load, but it does not increase total campaign sends unless `daily_limit` is also raised. If four regional campaigns each have `daily_limit=110`, the total ceiling is 440/day.
+
+For scaling plans, report both:
+
+- campaign total daily ceiling, summed across active campaigns
+- average expected sends per eligible mailbox/day
+
 ## Conservative optimization rule used for ALMA Rev
 
 1. List all accounts and campaigns.
