@@ -86,6 +86,19 @@ Use this when Mario asks whether campaign emails use mailbox signatures, account
 - Before patching sequences, save a JSON backup of the target campaign objects under `/root/.hermes/tmp/`.
 - After patching, verify each targeted body has `{{accountSignature}}`, old manual blocks are gone, and the signature appears before the unsubscribe footer where present.
 
+## Campaign copy and language audit
+
+Use this when Mario asks whether active ALMA Rev outbound copy contains Portuguese, broken links, footer leakage, or other copy-level issues.
+
+1. Fetch live `campaigns?limit=100` and filter active regional campaigns whose name starts with `AlmaREV Launch`.
+2. Inspect every `sequences[].steps[].variants[]` subject and body, not just step 1.
+3. Strip HTML for readable text, but also inspect raw HTML when auditing links because malformed anchors can hide inside tags.
+4. For language checks, distinguish persuasive copy from compliance/legal footer. Portuguese in `Alma Consultoria em TI LTDA`, `Avenida das Nações Unidas`, `São Paulo`, or `Brasil/Brazil` is mailing-address/legal signal, not sales copy.
+5. Also inspect account signatures via `accounts?limit=100` for Portuguese leakage because `{{accountSignature}}` renders from the sender account, not from the campaign body.
+6. Treat non-breaking spaces and legal address accents as false positives in automated PT detection. Report them separately as footer/legal, not as body copy.
+7. If minimizing Brazilian signal for US outbound, prefer changing only country display to `Brazil` and keep official street names intact.
+8. When auditing CTAs, verify both visible text and `href`; broken `href` can exist even when visible URL text looks correct. Save backups under `/root/.hermes/tmp/` before patching sequence JSON.
+
 ## Response pattern
 
 Lead with exact counts and timestamp, then state what is actually usable:
@@ -98,4 +111,13 @@ Lead with exact counts and timestamp, then state what is actually usable:
 - changes applied
 - whether cron will stay silent or alert
 
-Avoid saying all registered accounts are production capacity.
+For copy/language audits, answer in separated buckets:
+
+- subject lines
+- body copy
+- CTA/link text
+- unsubscribe/compliance text
+- account signatures
+- legal mailing address/footer
+
+Avoid saying all registered accounts are production capacity. Avoid calling legal-address Portuguese "copy" unless explicitly discussing visual country/company-origin signal.
