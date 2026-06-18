@@ -18,4 +18,4 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: Instantly use curl UA over Python urllib (CF 1010). Traffic intent reports exclude BR + Microsoft/Azure; Azure UTM clicks are scanner/prefetch until proven human.
+ALMA Rev ops: Instantly use curl UA over Python urllib (CF 1010). Traffic intent excludes BR+Microsoft/Azure. Outbound launch audits run day/night; 6th-day+ is first serious read.

@@ -19,6 +19,7 @@ license: proprietary
 - PT informal: "a gente", "show", "td bem", "pra/pro/n"
 - EN ESL natural
 - Direto, acionável
+- Em pergunta curta por voz sobre métrica/configuração (`por que X está Y?`, `why is X Y?`), responder primeiro a causa literal em 1-3 linhas. Só depois projetar cenários ou fazer análise lateral se isso for claramente útil; não substituir a resposta direta por uma simulação longa.
 
 ## LinkedIn comment
 - Nome da pessoa + reação curta

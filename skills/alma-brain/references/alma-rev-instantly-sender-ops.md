@@ -34,6 +34,7 @@ Existing helper:
 - `/home/almarev/agentic/integrations/instantly/accounts.py`
 - Cron script created for the daily conservative optimizer: `~/.hermes/scripts/instantly_campaign_optimizer.py`
 - Cron job: `instantly-campaign-optimizer-daily`, job id `48ee17f65d77`, schedule `0 13 * * *`, `no_agent=True`
+- Daily campaign audit details: `references/alma-rev-campaign-audit.md` (covers end-of-day Telegram report, cap verification, sent/click/reply/check metrics, and scanner-vs-human traffic read)
 
 ## Interpretation
 
@@ -123,6 +124,26 @@ Use this when Mario asks whether active ALMA Rev outbound copy contains Portugue
 6. Treat non-breaking spaces and legal address accents as false positives in automated PT detection. Report them separately as footer/legal, not as body copy.
 7. If minimizing Brazilian signal for US outbound, prefer changing only country display to `Brazil` and keep official street names intact.
 8. When auditing CTAs, verify both visible text and `href`; broken `href` can exist even when visible URL text looks correct. Save backups under `/root/.hermes/tmp/` before patching sequence JSON.
+
+## Campaign audit automation
+
+When Mario asks for “audit day/night”, “audits from day to night”, or continuous review of an ALMA Rev outbound launch, create or update a script-only cron that reports twice daily rather than relying on one-off manual checks.
+
+Default audit content:
+
+- Instantly campaign state: active regional campaigns, `daily_limit`, sender count, total configured cap.
+- Instantly account analytics for today and launch window: sent, contacted, bounced, clicks, unique clicks, replies, unique replies, bounce rate, click rate.
+- AURA/Postgres funnel: check started (`aura_sessions.started_at`), check completed (`completed_at`), completed with phone, `claire_meetings`, `inbox_messages` replies.
+- Traffic signal: run/filter ALMA geo traffic report and separate non-BR, email UTM, and Microsoft/Azure scanner-like traffic.
+- Alerts: configured cap drift from expected plan, bounce rate above threshold, click rate below 1% after meaningful send volume.
+
+Implementation pattern used successfully:
+
+- Script path: `/root/.hermes/scripts/alma_rev_campaign_audit.py`.
+- Cron shape: `no_agent=True`, schedule `0 15,23 * * *`, deliver to origin/current Telegram thread.
+- Use Instantly via curl with `-A 'curl/8.5.0'`; build auth header inside script without printing the token.
+- Use `psql "$POSTGRES_URL"` for DB metrics if Python `psycopg2` is unavailable in the Hermes runtime.
+- For the launch read, treat day 6 onward as the first serious interpretation window; before that, report data but avoid overfitting.
 
 ## Response pattern
 

@@ -84,8 +84,9 @@ Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 2. Cruza com entidade específica → `brain_search` na pasta certa
 3. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados
 4. Para status operacional de email/cadência/funil ALMA Rev (ex.: quantos receberam email 1/2/3, quantos estão na cadeia), usar o brain para contexto e depois buscar dado vivo no stack agentic/Instantly quando a pergunta for atual. Ver `references/alma-rev-email-funnel-status.md`.
-5. Para visitas de páginas ALMA Rev, país/estado, exclusão de Brasil, ou correlação entre campanha e tráfego, usar logs nginx + GeoIP e seguir `references/alma-rev-traffic-geo-reporting.md`.
-6. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`, assinatura de campanhas), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
+5. Para auditoria diária de campanha ALMA Rev (confirmar envio, cap, clicks, replies, checks, scanner vs humano, ou report proativo no Telegram), seguir `references/alma-rev-campaign-audit.md`.
+6. Para visitas de páginas ALMA Rev, país/estado, exclusão de Brasil, ou correlação entre campanha e tráfego, usar logs nginx + GeoIP e seguir `references/alma-rev-traffic-geo-reporting.md`.
+7. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`, assinatura de campanhas), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
 5. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
 6. Para CLAIRE / ALMA Local call follow-ups (quem pediu email/callback em ligação, se os emails foram enviados, pendências `CHECK_SENT`), consultar dado vivo no Postgres e seguir `references/alma-rev-claire-call-followups.md`. Não confundir “emails passados” nesse contexto com Instantly sequence emails.
 7. Se faltar dado depois de 2 reads + 1 search → fala "não está no vault", NÃO inventa
