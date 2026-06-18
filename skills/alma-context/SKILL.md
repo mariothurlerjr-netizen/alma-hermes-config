@@ -12,13 +12,13 @@ license: proprietary
 - Workspaces: ALMA Rev, Vet Agentic, JT Shirts
 
 ## ALMA Rev produtos
-- Revenue Leak Diagnostic Standard: $7.5K / 4 semanas
-- Revenue Leak Diagnostic Lite: $3.5K / 2 semanas
-- Fractional Revenue Leadership
-- ICP: SaaS B2B + agencies + professional services, $500K-$5M ARR
+- Estado canônico muda rápido: antes de responder sobre positioning, pricing, ICP, funnel ou oferta ALMA Rev, ler `02-alma-rev/_CURRENT.md` no brain. Se houver conflito, o brain vence este resumo.
+- Current baseline 2026-06-17: ALMA Rev é Growth Operation para US professional-services firms, operator/done-for-you, Diagnostic US$2K + Retainer US$4K/mo, tecnologia backstage.
+- Funnel atual: cold email com CTA AURA → reunião usando resultado AURA → VERA paid diagnostic → implementação/retainer via Hub agents.
 - Domínios: `getalmarev.com` é usado para inbox/outbound; `almarev.com` é usado em assets públicos/campanhas como `/aura` e `/blog`. Não corrigir automaticamente um para o outro sem checar contexto.
 - Outbound: Instantly com campanhas `AlmaREV Launch`; status operacional via API v2 + Cortex AURA cross-check.
 - Pitfall Instantly: “contas ativas” pode aparecer como contagem de **leads em campanhas ativas**, não mailboxes. Validar separando `/campaigns/analytics` (`leads_count`, `contacted_count`, `emails_sent_count`) de `/accounts` e do painel Cortex `/api/agenda/email-capacity`.
+- Adjacent/opportunity exploration: se Mario falar de cobrança, recuperação de recebíveis, FIDC, carteiras vencidas, success fee ou “dinheiro parado”, usar `references/alma-recovery-market-wedge.md`.
 
 ## ALMA Agentic
 - `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
