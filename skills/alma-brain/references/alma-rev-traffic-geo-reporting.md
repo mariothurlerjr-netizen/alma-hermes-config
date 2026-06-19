@@ -54,6 +54,9 @@ Keep only ALMA Rev public pages such as:
 
 - `/`
 - `/aura`
+- `/local`
+- `/local/check`
+- `/assessment` and `/assessment/...` when measuring the newer AURA/hub assessment path
 - `/mario`
 - `/blog`
 - `/pt`
@@ -61,6 +64,8 @@ Keep only ALMA Rev public pages such as:
 - `/diagnostic`
 - `/contact`
 - real `/blog/...` article slugs
+
+Pitfall: the reusable script may lag behind live campaign paths. Before concluding “zero visits” for Local or assessment funnels, verify the script allowlist includes `/local`, `/local/check`, and `/assessment`; if not, run a targeted nginx-log count for those paths or update the script allowlist.
 
 ## Campaign lane mapping from UTM
 
