@@ -18,4 +18,4 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: Instantly UA; exclude BR+MS/Azure; serious read d6+; check delivery before window close. Mario wants max safe outbound until meetings/replies/reputation force throttle.
+ALMA Rev ops: Instantly UA; exclude BR+MS/Azure; safe sender cap 25-30/day. After 3rd email, next step is CLAIRE call attempt for eligible leads, not 4th email.
