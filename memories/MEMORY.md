@@ -18,4 +18,4 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: Instantly UA; exclude BR+MS/Azure; cap 25-30/day. Post-3rd email: CLAIRE call, separate Rev/Local scripts; Rev no-phone -> ORION enrichment.
+ALMA Rev ops: Instantly cap 25-30/day per warmed inbox; Launch LEGO/Domino's may run as AB for old leads if separate inbox/domain from Clay v5; post-E3 -> CLAIRE; no-phone -> ORION.
