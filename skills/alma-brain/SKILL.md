@@ -82,7 +82,9 @@ Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 
 1. Mario pergunta algo → lê `STATUS.md` primeiro
 2. Cruza com entidade específica → `brain_search` na pasta certa
-3. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados
+3. Para perguntas sobre papel/função de agente ALMA (ex.: IRIS, LUNA, MUSE, LANCE), não confiar em uma única fonte: comparar `STATUS.md`, `platform/runbooks/<agente>.md`, `03-alma-agentic/agent-roster-map.md`, `03-alma-agentic/decisions.md` e arquivos recentes do agente. Se houver drift entre desenho antigo, uso atual e decisão explícita do Mario, declarar a inconsistência e tratar a decisão mais recente do Mario como operacional.
+   - Decisão operacional explícita do Mario (2026-06-19): **IRIS = metrics/dashboard/analytics/digest/anomaly detection/cost-performance reporting**. Não tratar IRIS como sales closer, account research ou marketing sem nova revisão explícita. Marketing fica em LUNA/MUSE/SOL/ALEXANDER; vendas/outbound ficam em ORION/LANCE/CLAIRE/NOVA/TRUTH ENGINE conforme contexto.
+4. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados
 4. Para status operacional de email/cadência/funil ALMA Rev (ex.: quantos receberam email 1/2/3, quantos estão na cadeia), usar o brain para contexto e depois buscar dado vivo no stack agentic/Instantly quando a pergunta for atual. Ver `references/alma-rev-email-funnel-status.md`.
 5. Para auditoria diária de campanha ALMA Rev (confirmar envio, cap, clicks, replies, checks, scanner vs humano, ou report proativo no Telegram), seguir `references/alma-rev-campaign-audit.md`.
 6. Para visitas de páginas ALMA Rev, país/estado, exclusão de Brasil, ou correlação entre campanha e tráfego, usar logs nginx + GeoIP e seguir `references/alma-rev-traffic-geo-reporting.md`.

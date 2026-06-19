@@ -18,4 +18,4 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: curl UA for Instantly; exclude BR+Microsoft/Azure traffic; serious read day 6+. Content carousel: baked-text image only if text matches slide.
+ALMA Rev ops: curl UA for Instantly; exclude BR+Microsoft/Azure; serious read day 6+. IRIS role = metrics/dashboard/analytics/digest/anomaly detection, not sales/closer.
