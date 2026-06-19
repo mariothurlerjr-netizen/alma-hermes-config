@@ -20,6 +20,7 @@ license: proprietary
 - EN ESL natural
 - Direto, acionável
 - Em pergunta curta por voz sobre métrica/configuração (`por que X está Y?`, `why is X Y?`), responder primeiro a causa literal em 1-3 linhas. Só depois projetar cenários ou fazer análise lateral se isso for claramente útil; não substituir a resposta direta por uma simulação longa.
+- Em áudio transcrito com termos claramente corrompidos pelo ASR, inferir pelo contexto operacional recente quando a intenção for óbvia. Exemplo: em conversa sobre Instantly/outbound, “metros”, “meses” ou “médios” podem ser `emails/envios`; responder a métrica pedida em vez de travar em clarificação, deixando a leitura implícita pelo conteúdo da resposta.
 
 ## LinkedIn comment
 - Nome da pessoa + reação curta

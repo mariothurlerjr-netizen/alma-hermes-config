@@ -36,7 +36,13 @@ Use when Mario asks whether outbound emails were sent, whether there are more to
    - `step.delay` + `delay_unit` gives spacing between touches
    - current ALMA Rev launch pattern should be D0, D+3, D+6, D+9, D+12 when every step has delay 3 days after step 1
    - remind Mario that Mon-Fri scheduling can turn D+3 into 4-5 calendar days when the due date lands on a weekend
-8. Cross-check AURA conversions by POSTing unique lead emails to Cortex:
+8. For delivery-guarantee / "will these all go today?" questions, do not wait until the final send window closes. Compute backlog by campaign (`loaded - contacted`, minus bounced/suppressed where identifiable), compare against remaining window + daily limit, then schedule or run checks before each relevant timezone window closes:
+   - mid-window check while there is still time to react
+   - pre-close check 10-20 minutes before CT/ET/unzoned windows close
+   - pre-close check before West closes
+   - final post-window check only as verification, not first detection
+   - Phrase answer as "capacity and window exist; Instantly can still throttle by warmup/reputation/eligibility" unless you have verified zero backlog.
+9. Cross-check AURA conversions by POSTing unique lead emails to Cortex:
    - `POST {CORTEX_URL}/api/dashboard/aura-by-emails`
    - headers: `X-API-Key`, `X-Workspace-Id: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa`, `X-Caller-Role: mario_admin`
    - body: `{ "emails": [...] }`
