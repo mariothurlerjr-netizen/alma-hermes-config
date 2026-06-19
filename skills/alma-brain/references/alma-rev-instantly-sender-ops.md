@@ -145,6 +145,40 @@ Implementation pattern used successfully:
 - Use `psql "$POSTGRES_URL"` for DB metrics if Python `psycopg2` is unavailable in the Hermes runtime.
 - For the launch read, treat day 6 onward as the first serious interpretation window; before that, report data but avoid overfitting.
 
+## Lead inventory and plan-capacity planning
+
+Use this when Mario asks whether to upgrade Instantly, how many leads to load, whether the current day is capped, or how to use maximum sender capacity.
+
+Key distinction:
+
+- Campaign lead count and workspace lead cap are different. Always count both active launch campaign leads and all workspace/campaign leads, including paused old campaigns and separate products such as ALMA Local, because they can still consume the Instantly plan lead cap.
+- Do not infer inventory from one campaign. For ALMA Rev Launch, also scan all Instantly campaigns and local CSV exports under `/home/almarev/agentic` before saying lead shortage is the bottleneck.
+- Sender capacity is not the same as available sends today. A low send day can be caused by cadence timing, timezone windows, and not-yet-due steps even when sender capacity is much higher.
+
+Live lookup pattern for this class of question:
+
+1. `GET /campaigns?limit=100`, then `POST /leads/list` for every campaign, not just active `AlmaREV Launch`, to compute total loaded lead rows and unique emails consuming cap.
+2. `GET /accounts?limit=100` to compute active account capacity: sum `daily_limit` for `status=1` accounts.
+3. For launch step status, use `GET /campaigns/analytics/steps?campaign_id=...` with and without today's `start_date/end_date`. Instantly step is zero-based: `0=first email`, `1=second`, `2=third`.
+4. For local ready inventory, inspect known CSV exports such as `almarev-CLEI-ready-final.csv`, `almarev-CLEI-969_ready_instantly.csv`, `reports/alma-rev-enrichment-split-*/alma_rev_enrichment_not_worked.csv`, and `exports/alma_local_icp_wave_latest.csv`; dedupe against Instantly-loaded emails before claiming net-new inventory.
+
+Capacity math:
+
+- For a 3-step cadence, sustainable new leads/day = `active_sender_daily_capacity / 3`.
+- With 30 active accounts and about 891 sends/day, sustained intake is about 297 new leads/day.
+- With 60 accounts at the same average, capacity is about 1,782 sends/day and sustained intake is about 594 new leads/day.
+- Batch duration at full capacity = `(loaded_new_leads * sequence_steps) / daily_send_capacity`.
+- 1,000 leads at 3 steps yields 3,000 sends, about 3.4 business days at 891/day, or 1.7 days at 1,782/day.
+- 10,000 leads at 3 steps yields 30,000 sends, about 34 business days at 891/day, or 17 days at 1,782/day.
+
+Recommendation pattern:
+
+- If active send capacity is far above projected sends but due-step inventory is low, say the bottleneck is cadence timing / eligible inventory, not mailbox capacity.
+- If total workspace loaded leads are near the plan cap, say the bottleneck is plan lead cap even if the launch campaign itself has few leads.
+- For 30 accounts, recommend at least a 10k lead cap and roughly 300 net-new clean leads/day to run near max without daily micromanagement.
+- For 60 accounts, recommend 25k lead cap and roughly 600 net-new clean leads/day.
+- Increase volume until operational counter-signals appear: meetings/replies exceed Mario's handling capacity, bounce/spam/inbox placement degrades, or domain reputation deteriorates. Before those signals, Mario prefers max-capacity growth over conservative throttling.
+
 ## Response pattern
 
 Lead with exact counts and timestamp, then state what is actually usable:

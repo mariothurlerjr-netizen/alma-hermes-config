@@ -30,6 +30,7 @@
 - Não mocka database em testes (queimado por isso no passado).
 - Não comite secrets, nunca ecoa no chat. Pattern SSH heredoc.
 - Backticks/`${var}` em TS são comidos pelo shell em SSH heredoc — use arquivo .py + scp.
+- Espera que Hermes sinalize proativamente quando ALMA outbound/ops não está maximizando capacidade ou resultado, propondo uma estratégia concreta de maximização.
 
 ## Stack que ele toca diariamente
 - VPS: `root@72.60.136.186:/root/alma-aios` (Ubuntu, systemd, Postgres local).
