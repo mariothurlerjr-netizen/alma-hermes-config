@@ -89,15 +89,16 @@ Instantly account-level signatures are inserted in campaign bodies with `{{accou
 
 Do not rely on the account signature being appended automatically. In sent-email inspection, rendered campaign emails only showed manual copy unless the sequence body included the account-signature variable.
 
-## Current known shape from 2026-06-16 session
+## Current known shape from 2026-06-21 live check
 
-At the time of setup:
+At the latest live Instantly check:
 
 - 31 Instantly accounts registered.
-- 5 accounts score >=99, 1 account score 98, 25 accounts score 0.
-- The 4 active regional campaigns originally used only `mario@getalmarev.com` and `m.thurler@getalmarev.com`.
-- `claire@getalmarev.com` had score 100 and was added to all 4 active regional campaigns.
-- The new domain accounts were left unused for cold campaigns because score 0.
+- 30 accounts connected/active (`status=1`), 1 disconnected/inactive (`mario@tryalmarev.com`, `status=-1`).
+- 11 connected accounts have score >=99; 15 connected accounts have score >=96; 21 connected accounts have score >=95.
+- Connected-account daily-limit sum is 291/day; score >=96 connected daily-limit sum is 171/day.
+- The 4 active `AlmaREV Launch` regional campaigns each have `daily_limit=105` and 18 senders in `email_list`, total configured campaign cap 420/day.
+- Many new-domain inboxes now have per-account `daily_limit=8`; do not confuse that with Instantly workspace seat count.
 
 ## Signature operations
 
