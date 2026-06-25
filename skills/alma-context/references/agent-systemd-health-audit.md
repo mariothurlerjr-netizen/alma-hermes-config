@@ -60,6 +60,12 @@ When Mario says “pause all agents”, treat it as pausing proactive/agentic wo
    ```
 4. Pause Hermes cron jobs that run ALMA agent work (`cronjob action=list`, then `pause` every active agent job). Do not guess IDs.
 5. Comment root crontab proactives with a dated marker instead of deleting them. Include `/root/run-heartbeat.sh`, ALMA brain state refresh/update/status/hygiene, and warmup monitor if the user asked for all agents paused.
+
+   Exception, Instantly warmup/readiness: if Mario clarifies that account warmup must keep being observed, remember that Instantly itself does the warming. ALMA should only keep read-only readiness monitors alive, not outbound/leadgen agents. Re-enable or keep only:
+   - `alma-warmup-snapshot.timer`, reads Instantly warmup into `warmup_history`.
+   - `alma-deliverability.timer`, reports per-inbox warmup health and `ready-to-activate` status.
+   - `alma-lance-inbox-health.timer`, classifies inbox health and may pause risky accounts.
+   Keep outbound, leadgen, content, digest, heartbeat, ORION and LANCE work paused unless explicitly resumed.
 6. Kill detached agent processes after stopping their services, then re-check for respawn:
    ```bash
    pkill -f '/home/almarev/agentic/.venv/bin/python -u -m agents\.leadgen\.overnight' 2>/dev/null || true

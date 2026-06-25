@@ -14,6 +14,6 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: Instantly cap 25-30/day per warmed inbox; Launch LEGO/Domino's may run as AB for old leads if separate inbox/domain from Clay v5; post-E3 -> CLAIRE; no-phone -> ORION.
+ALMA Rev ops: Instantly handles inbox warmup; ORION only does lead-gen/enrichment. Cap 25-30/day per warmed inbox; post-E3 -> CLAIRE; no-phone -> ORION.
 §
 ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
