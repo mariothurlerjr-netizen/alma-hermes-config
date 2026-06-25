@@ -9,6 +9,7 @@ Use when Mario asks what an ALMA Rev weekly email/newsletter is, whether it was 
 - Script: `/home/almarev/agentic/agents/luna/content_digest.py`
 - Module run: `cd /home/almarev/agentic && .venv/bin/python -m agents.luna.content_digest`
 - Sender: `Mario Thurler Jr <mario@almarev.com>` via Resend
+- Sender policy: this address is acceptable for owned/warm newsletter-style communication only. Do not move this digest to cold Instantly outbound. Cold/outbound should use warmed `@getalmarev.com` accounts, especially `mario@getalmarev.com`, once ready.
 - Subject currently set in code: `What's new from alma rev this week`
 - Purpose: weekly warm content digest for AURA completers, not Instantly cold outbound.
 

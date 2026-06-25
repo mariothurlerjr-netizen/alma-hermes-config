@@ -1,6 +1,6 @@
 # ALMA agent/systemd health audit
 
-Use when Mario asks whether the VPS agents are installed, rotating, alive, or healthy.
+Use when Mario asks whether the VPS agents are installed, rotating, alive, healthy, or asks to pause/stop all agents temporarily.
 
 ## Scope
 
@@ -34,6 +34,50 @@ This checks the live VPS/service layer, not just Brain status. Brain `STATUS.md`
    journalctl -u alma-watchdog.service --since '30 minutes ago' --no-pager -n 80 -o short-iso
    ```
 6. Check Hermes cron jobs only as supplemental state. ORION may be intentionally maintained by systemd while old Hermes cron `fc52bbc58989` remains paused.
+
+## Pause-all agents runbook
+
+When Mario says “pause all agents”, treat it as pausing proactive/agentic work, not core infra. Keep core serving layers alive unless explicitly told otherwise: `alma-aios`, `alma-cortex`, `alma-hub`, `alma-brain-mcp`, plus Hermes gateway for communication.
+
+1. Snapshot before changing state:
+   ```bash
+   stamp=$(date -u +%Y%m%dT%H%M%SZ)
+   out=/root/alma-agents-paused-$stamp.txt
+   systemctl list-unit-files 'alma-*.timer' --no-pager --plain > "$out"
+   systemctl list-units --all --type=service --type=timer 'alma-*' 'leadgen-*' --no-pager --plain >> "$out"
+   crontab -l > /root/crontab-before-agent-pause-$stamp.txt 2>/dev/null || true
+   ```
+2. Disable and stop systemd agent timers:
+   ```bash
+   mapfile -t timers < <(systemctl list-unit-files 'alma-*.timer' --no-pager --plain | awk '$2=="enabled"{print $1}')
+   ((${#timers[@]})) && systemctl disable --now "${timers[@]}"
+   ```
+3. Stop/disable long-running agent services that are not named `alma-*`. Durable pitfall: `leadgen-loop.service` respawns ALMA Rev leadgen and will survive an `alma-*` timer sweep.
+   ```bash
+   systemctl disable --now leadgen-loop.service alma-telegram-bot.service 2>/dev/null || true
+   systemctl stop alma-inbox-sync.service 2>/dev/null || true
+   systemctl reset-failed leadgen-loop.service alma-inbox-sync.service alma-telegram-bot.service 2>/dev/null || true
+   ```
+4. Pause Hermes cron jobs that run ALMA agent work (`cronjob action=list`, then `pause` every active agent job). Do not guess IDs.
+5. Comment root crontab proactives with a dated marker instead of deleting them. Include `/root/run-heartbeat.sh`, ALMA brain state refresh/update/status/hygiene, and warmup monitor if the user asked for all agents paused.
+6. Kill detached agent processes after stopping their services, then re-check for respawn:
+   ```bash
+   pkill -f '/home/almarev/agentic/.venv/bin/python -u -m agents\.leadgen\.overnight' 2>/dev/null || true
+   pkill -f 'mirofish run --files uploads/seed-alma-local' 2>/dev/null || true
+   pkill -f '/usr/bin/claude -p --output-format json --model haiku Classify this email reply' 2>/dev/null || true
+   sleep 3
+   ps -eo pid,ppid,etimes,stat,cmd --sort=cmd | egrep -i 'agents\.|orion|lance|claire|iris|sentinel|shield|granola|mirofish run|claude -p --output-format json --model haiku Classify this email reply' | grep -v grep || true
+   ```
+7. Write an operational note in `agents/hermes/` in the brain with what was paused and what core services were intentionally left alive.
+
+Verification before saying “paused”:
+
+```bash
+systemctl list-unit-files 'alma-*.timer' --no-pager --plain | awk '$2=="enabled"{print $1}'
+systemctl list-units --type=timer 'alma-*' --state=active --no-pager --plain
+ps -eo pid,ppid,etimes,stat,cmd --sort=cmd | egrep -i 'agents\.|orion|lance|claire|iris|sentinel|shield|granola|mirofish run' | grep -v grep || true
+systemctl list-units --all --type=service 'alma-aios.service' 'alma-cortex.service' 'alma-hub.service' 'alma-brain-mcp.service' --no-pager --plain
+```
 
 ## Known durable pitfalls
 
