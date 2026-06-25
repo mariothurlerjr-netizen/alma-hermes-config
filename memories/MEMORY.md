@@ -12,6 +12,6 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Cap 25-30/day/warmed inbox. post-E3 -> CLAIRE; no-phone -> ORION. Only `getalmarev.com`/`tryalmarev.com` ready now; other sender domains warmup-only until next Tuesday.
+ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Hard gate: enable only accounts with zero warmup spam in last 7d. Only `getalmarev.com` partially usable now; `tryalmarev.com` and other domains warmup-only until next Tuesday.
 §
 ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.

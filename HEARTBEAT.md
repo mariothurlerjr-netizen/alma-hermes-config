@@ -66,5 +66,24 @@ Critério geral: novo + acionável (Mario age em menos de 5min) + não foi avisa
 ## Silêncio é positivo
 Não manda "tudo ok". Spam é pior que silêncio.
 
+### 11. Sintese cross-agent (IRIS + Sentinel + Shield)
+
+Rodar UMA VEZ POR DIA (anti-spam 24h, checar no heartbeat-log antes).
+
+Verificar se ha output novo de hoje dos tres agentes:
+- /home/almarev/brain/09-iris-reports/YYYY-MM/DD/ (iris_*.md)
+- /home/almarev/brain/10-signals/YYYY-MM/DD/ (sentinel_*.md e shield_*.md)
+
+Se os tres ou pelo menos dois tem output de hoje e nao foram sintetizados:
+1. Ler os tres arquivos
+2. Consolidar em 1 mensagem [SINTESE AGENTES] com:
+   - Highlights operacionais de IRIS (mudancas no vault, KPIs)
+   - Top 2-3 sinais de Sentinel (noticias acionaveis para ALMA)
+   - Alerts de Shield (saude de clientes ou deals em risco)
+3. Enviar no Telegram
+4. Registrar: "sintese cross-agent enviada"
+
+Se agentes estao desabilitados (disabled): silencio, registrar "agentes pausados - sem sintese".
+
 ## Onde escrever
 SEMPRE append em `/root/.hermes/memory/heartbeat-log.md` com timestamp + decisão (mandou ou ficou em silêncio + razão de uma linha).

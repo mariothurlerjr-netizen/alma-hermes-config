@@ -199,6 +199,8 @@ When checking account health, separate **warmup traffic** from **cold/campaign s
 - `POST /accounts/warmup-analytics` gives warmup sent/inbox/spam/received by email/date.
 - `GET /accounts/analytics/daily?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD&emails=...` gives real campaign metrics per mailbox: sent, bounced, contacted, replies, clicks.
 - A mailbox can show `stat_warmup_score=100` while `warmup_status=-1` and zero warmup traffic today. Treat that as mature but not currently warming; flag it instead of calling the account fully clean.
+- Domain readiness beats raw account score. If Mario says a sender domain is still warming, or if the domain shows recent warmup spam, keep that whole domain `warmup_only` until the agreed gate date even when individual accounts score 96-100.
+- For ALMA Rev sender readiness, always check the last 7 days of warmup spam by mailbox and by domain before recommending production use. Hard gate from Mario: only enable mailboxes with zero warmup spam in the last 7 days. Any mailbox with `landed_spam > 0` in that rolling window stays warmup-only, even with score 99-100. Example pitfall from 2026-06-25: `tryalmarev.com` had score-high accounts but 17 warmup spam placements over 280 warmup sends, with `iris@tryalmarev.com` at 10/67 spam, so the correct operational call was warmup-only until the next readiness gate.
 - If cold sends are concentrated in a small sender subset while many connected accounts are warm, call out sender-pool underutilization explicitly.
 
 When Mario asks why a daily limit is low, whether senders are being forgotten, or which campaign to use for the next day, give a **per-mailbox operating plan**, not just campaign-level totals. Include, for each relevant account:

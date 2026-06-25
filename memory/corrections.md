@@ -26,3 +26,15 @@ Formato:
 - Correção: Tirando getslmarev/getalmarev e tryslmarev/tryalmarev, todas as contas estão aquecendo ainda. Vão ficar prontas na próxima terça.
 - Lição: Para ALMA Rev Instantly, readiness operacional por domínio vence score bruto da API. Até terça, tratar só getalmarev.com e tryalmarev.com como domínios prontos; demais domínios permanecem warmup-only mesmo com score alto.
 - Status: APPLIED
+
+## 2026-06-25T23:00:53+00:00 | Instantly sender readiness
+- O que fiz: mantive `tryalmarev.com` como domínio pronto depois da correção anterior.
+- Correção: tryalmarev teve envios para spam esta semana; deixar aquecer até terça também.
+- Lição: Para ALMA Rev Instantly, `tryalmarev.com` deve ficar warmup-only até terça quando houver spam recente no warmup, mesmo com score alto ou cold sends sem bounce.
+- Status: APPLIED
+
+## 2026-06-25T23:03:43+00:00 | Instantly sender readiness
+- O que fiz: usei score e domínio como critérios principais de readiness.
+- Correção: só habilitar contas que não tiveram spam nos últimos 7 dias.
+- Lição: Para ALMA Rev Instantly, zero warmup spam nos últimos 7 dias é hard gate por mailbox antes de colocar em cold outbound.
+- Status: APPLIED
