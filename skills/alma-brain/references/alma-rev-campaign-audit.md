@@ -34,7 +34,8 @@ Despite the historical job name containing `day-night`, after Mario's correction
 
 Instantly:
 
-- active regional campaigns whose name starts with `AlmaREV Launch`
+- active ALMA Rev outbound campaigns, including both legacy `AlmaREV Launch...` and newer `ALMA Rev | ...` names
+- exclude `[OBSOLETE]` campaigns and `ALMA FORMAT TEST` campaigns from operational active-cap math
 - configured `daily_limit` by campaign and summed cap
 - sender count per campaign
 - sent, contacted, bounced
@@ -92,6 +93,7 @@ python3 /root/.hermes/scripts/alma_geo_traffic_report.py
 
 ## Interpretation rules
 
+- If the audit reports `0 active campaigns` or `0 sends since launch`, first verify the campaign-name filter against the live Instantly campaign list. A stale prefix filter can miss newer `ALMA Rev | ...` campaigns while old `[OBSOLETE] AlmaREV Launch...` campaigns remain paused.
 - With very low sent volume, for example under ~100 sends, treat zero clicks/checks as noise.
 - Start making a serious signal read after day 6, stronger read after day 10, and hard decision around business day 15-17.
 - Keep Microsoft/Azure UTM traffic out of human-intent counts unless there is stronger evidence such as multi-page navigation, active time, form events, or non-cloud company network.

@@ -43,9 +43,20 @@ Use this when Mario asks to reactivate ORION, produce homologated ALMA Rev leads
 - Instantly workspace capacity should be based on total loaded rows for cap accounting, while dedupe should use normalized existing email addresses.
 - If multiple `.env` files carry Apollo keys, do a live low-cost API probe and prefer the key that authenticates; do not assume the repo-local `.env` is current.
 
+## Implementation notes from 2026-06-25
+
+- When the daily briefing says ORION is projecting zero leads, first distinguish legacy workers from the controlled factory: legacy `orion-watchdog`/`alma-orion@1..5` may be intentionally paused while `orion-lead-factory-daily-briefing` remains active and should be repaired independently.
+- For ALMA Rev controlled factory throughput, prioritize vertical searches that have better contactability: `interior_design_firm` and `public_relations_agency` before broader consulting/law/accounting fallback.
+- The wrapper may need to run with the Hermes/agentic Python venv when reusable dependencies like `tavily-python` are installed there. Prefer setting `PY=/home/almarev/agentic-v2/hermes-agent/.venv/bin/python` in `/root/.hermes/scripts/orion_lead_factory_daily.sh` over silently using `/usr/bin/python3`.
+- When owner-id/Tavily yields zero accepted firms but Apollo org search is healthy, add a Snov domain-search fallback for verified personal prospects on the same domain. Count a fallback lead only when it has non-generic email, first/last name, and acceptable or absent decision-maker title.
+- Empty env values can mask valid later values in another `.env`. While loading env files, skip blank values and only set defaults from non-empty values.
+- Keep the run CSV-only unless Mario explicitly asks for Instantly import. Use smoke runs like `--target 3 --max-raw 80 --per-page 10 --max-apollo-reveal 0 --sleep 0` to verify yield without filling campaigns.
+
 ## Pitfalls
 
 - Do not count a lead as homologated unless it has a valid non-generic personal email and all required fields.
 - Do not spend Apollo reveal credits before the candidate passes ICP.
 - Do not treat a smoke run with zero accepted leads as infra failure if reject reasons show filters are active; inspect source quality/query next.
 - Do not auto-enable legacy ORION full-blast workers/watchdogs when Mario asks for controlled daily lead production.
+- Do not let an exhausted Apollo key in `/root/alma-aios/.env` shadow a working key in `/home/almarev/agentic/.env`; probe each candidate key with a low-cost organization search and select the usable one.
+- Do not rely solely on Tavily/owner-id for acceptance when Tavily quota is exhausted or site pages are thin. Fall back to domain-level verified personal emails, then report the weaker source in `source_quality`.

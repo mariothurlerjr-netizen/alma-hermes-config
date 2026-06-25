@@ -48,5 +48,14 @@ For 60 accounts around 1,800/day and 5 steps:
 - Sustainable intake is roughly 360 new leads/day.
 - 10k lead cap becomes minimum; 25k is the more comfortable operating cap.
 
+## Conservative domain-only relaunch
+When outbound is at zero and Mario asks to turn on only a specific safe domain, optimize for clean re-entry, not max capacity:
+- Restrict `email_list` to that domain before activation.
+- Set a deliberately low campaign cap first, for example 10/day per campaign or roughly 80/day across 8 Launch/Clay campaigns, even if sender-side capacity is higher.
+- Verify no other active ALMA-ish campaign is using non-approved domains.
+- Increase volume only after bounce/complaint/inbox-placement signals are acceptable.
+
+This is a temporary deliverability-protection mode. Once signals are clean, move back to the normal capacity math.
+
 ## Response style for Mario
 Start with the literal answer in 1-3 lines, then show the capacity math. If capacity is under 70% utilized without an explicit reason, call it out as a red flag and give the exact bottleneck and next action.

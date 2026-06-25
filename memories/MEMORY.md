@@ -1,8 +1,4 @@
-### ORION
-- Path: `/home/almarev/agentic/agents/orion/`; dashboard `app.almarev.com/dashboard/leads`.
-- `claude -p` em systemd precisa `stdin=DEVNULL`.
-- Apollo 422 pode ser `insufficient credits`; com créditos exauridos, processar leads já extraídos, não extrair novos. Fallback Apollo-free: Tavily + Snov/Browserbase.
-- ORION pausado intencionalmente desde 2026-06-13: Hermes cron `fc52bbc58989` pausado, `alma-orion-watchdog.timer` disabled/inactive e `alma-orion@1..5` disabled/inactive.
+Legacy ORION workers remain intentionally paused since 2026-06-13 (`fc52bbc58989` paused, `alma-orion@1..5` disabled), but controlled ORION Lead Factory cron `5cd7d23f5197` is active in CSV-only mode for ALMA Rev lead production.
 §
 ORION watchdog cron `fc52bbc58989` uses rolling `delivered_24h`; `/root/.hermes/scripts/orion_watchdog.py` treats flat or decreasing delivery counts as KPI movement, not worker-health failure. Hard failures are missing/stale/erroring workers or failed repairs.
 §

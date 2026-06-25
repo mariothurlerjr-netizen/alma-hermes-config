@@ -3,9 +3,10 @@
 Use when Mario asks whether outbound emails were sent, whether there are more to send, opens/replies/bounces, or AURA Assessment conversions.
 
 ## Context
-- Current ALMA Rev launch outbound was split into timezone campaigns named `AlmaREV Launch — ...`.
+- Historical ALMA Rev launch outbound used timezone campaigns named `AlmaREV Launch`.
+- Current/newer ALMA Rev campaigns may use `ALMA Rev | <segment> | <region>` naming instead. Do not filter only by the old prefix.
 - Source of truth for live sends is Instantly API v2, not ORION logs.
-- Relevant UI/API code exists in:
+
   - `/root/alma-aios/ops/outbound_report.py`
   - `/home/almarev/agentic/hub/src/app/api/outbound/route.ts`
   - `/home/almarev/agentic/hub/src/app/api/prospecting/funnel/route.ts`
@@ -14,7 +15,10 @@ Use when Mario asks whether outbound emails were sent, whether there are more to
 ## Safe status check pattern
 1. Load env from `/root/alma-aios/.env` without printing secrets.
 2. Call `GET https://api.instantly.ai/api/v2/campaigns?limit=100` with `Authorization: Bearer $INSTANTLY_API_KEY`.
-3. Filter campaigns where `name` starts with `AlmaREV Launch`.
+3. Filter campaigns using current ALMA Rev naming, not a single hardcoded legacy prefix:
+   - include active/prospecting campaign names that start with `AlmaREV Launch` or `ALMA Rev |`
+   - exclude names starting with `[OBSOLETE]` and format/test campaigns such as `ALMA FORMAT TEST`
+   - if an audit says `0 active campaigns` but the workspace has campaigns named `ALMA Rev | ...`, treat it as an auditor/filter bug before concluding outbound is fully stopped
 4. For per-campaign analytics, call:
    - `GET /campaigns/analytics/overview?id={campaign_id}`
    - Use `id=...`; `campaign_id=...` can return global/default-looking totals and mislead.
@@ -47,8 +51,22 @@ Use when Mario asks whether outbound emails were sent, whether there are more to
    - headers: `X-API-Key`, `X-Workspace-Id: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa`, `X-Caller-Role: mario_admin`
    - body: `{ "emails": [...] }`
 
+## Activation / reactivation pattern
+When Mario says shorthand like “liga o getalmarev apenas” or ASR typo such as `getslmarev`, interpret as: reactivate ALMA Rev outbound with only `@getalmarev.com` sender accounts, unless another domain is explicitly named.
+
+Safe write sequence:
+1. Load Instantly API key from env without printing secrets.
+2. Verify the intended sender accounts exist and are healthy, currently: `claire@getalmarev.com`, `m.thurler@getalmarev.com`, `mario@getalmarev.com`.
+3. Back up target campaign JSON before writes under `/home/almarev/agentic/backups/instantly-*`.
+4. Patch each target campaign with `email_list` exactly equal to the allowed sender list, `open_tracking=false`, and a conservative `daily_limit` when relaunching from zero.
+5. Activate via `POST /campaigns/{id}/activate`; Instantly status `1` means active, `2` paused, `3` finished/completed, `0` draft.
+6. Re-fetch campaigns and verify every active ALMA-ish outbound campaign has domains `['getalmarev.com']`; report any non-getalmarev leakage as a blocker.
+
+Known ALMA Rev wave-1 campaign IDs may still be named `[OBSOLETE]` in Instantly, but they are the historical Launch/Clay IDs used by the wave1 runbook. Do not skip them solely because of the display prefix; verify by ID, sender list, lead/contacted counts, and current runbook context.
+
 ## Interpretation pitfalls
 - If Mario asks about “active accounts/contas ativas” in Instantly, disambiguate before answering: `accounts/mailboxes` are sender inboxes; `leads loaded in active campaigns` are campaign inventory; `contacted_count` is active outreach. Do not label loaded leads as active accounts.
+- Instantly campaign statuses are numeric: `1` active, `2` paused, `3` finished/completed, `0` draft. Do not treat `3` as active just because it is nonzero.
 - Use this operational split for the launch campaigns: loaded = inventory/backlog in active campaigns; contacted = leads already touched and eligible for performance interpretation; queued = loaded - contacted, still waiting for first touch; emails_sent = total touches/messages.
 - In Cortex Agenda, `/api/agenda/email-capacity` exposes this split as `campaign_inventory` from `GET /campaigns/analytics`; prefer it over raw campaign lead counts when explaining current funnel state.
 - If `open_tracking=false`, report that opens cannot be meaningfully measured; do not say “nobody opened” as a behavioral conclusion.
