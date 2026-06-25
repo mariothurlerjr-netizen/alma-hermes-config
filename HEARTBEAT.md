@@ -9,7 +9,7 @@ Roda a cada 30min via cron. Para cada item:
 - LÊ `/root/.hermes/memory/corrections.md` (não repete erro)
 - LÊ `/root/.hermes/memory/patterns.md` (padrões de falha)
 - LÊ `/home/almarev/brain/STATUS.md` (estado real, auto-gerado 24h — agentes, ORION metrics, workspaces)
-- LÊ `/root/.hermes/memory/heartbeat-log.md` (últimas 8 entradas, anti-spam — não repete aviso em 4h)
+- LÊ `/root/.hermes/memory/heartbeat-log.md` (últimas 8 entradas, anti-spam)
 
 ## Checklist
 
@@ -37,8 +37,34 @@ Qualquer down → mensagem objetiva imediata.
 ### 6. VPS disk
 Disco > 80%? Avisa com cleanup candidate (cache npm/pip/whisper geralmente).
 
+### 7. Síntese estratégica do Brain
+- Algum arquivo em `00-execution-plans/` ou `02-alma-rev/` foi atualizado nas últimas 24h mas o Mario não foi avisado?
+- Há decisões em `03-alma-agentic/decisions.md` marcadas como pendentes de ação há >72h?
+- `STATUS.md` mostra alguma métrica fora do padrão (ORION leads < média semanal, reply rate caindo, funnel travado)?
+- Se detectar padrão ou oportunidade clara, sintetiza em 2-3 linhas e envia — não espera estar quebrado.
+
+### 8. Sinais de funil
+- Novas sessões em `web_events` sem follow-up programado nas últimas 24h?
+- Algum lead chegou ao stage AURA Assessment mas não foi contatado?
+- Emails `@getalmarev.com` com bounce rate >3% nesta semana?
+
+### 9. Ritmo de conteúdo
+- Última publicação no blog foi há >7 dias? (verificar `content_queue` no DB cortex)
+- `content_publisher.timer` ativo e rodando?
+
+### 10. Hermes sobre si mesmo
+- Tem erros no heartbeat-log das últimas 4 entradas que nunca foram reportados?
+- Tem items marcados como TODO em `~/.hermes/memories/MEMORY.md`?
+
+## Critério de envio
+
+**Alertas operacionais** (service down, disk, erro): não repetir em **4h**
+**Síntese de negócio / insights / open loops**: não repetir em **24h**
+
+Critério geral: novo + acionável (Mario age em menos de 5min) + não foi avisado no window acima.
+
 ## Silêncio é positivo
-Não manda "tudo ok". Spam é pior que silêncio. Critério: novo (não avisou em 4h) + acionável (sugestão concreta) + Mario age em menos de 5min.
+Não manda "tudo ok". Spam é pior que silêncio.
 
 ## Onde escrever
 SEMPRE append em `/root/.hermes/memory/heartbeat-log.md` com timestamp + decisão (mandou ou ficou em silêncio + razão de uma linha).

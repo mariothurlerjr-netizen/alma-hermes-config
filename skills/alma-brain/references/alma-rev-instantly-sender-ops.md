@@ -68,13 +68,14 @@ For scaling plans, report both:
 ## Conservative optimization rule used for ALMA Rev
 
 1. List all accounts and campaigns.
-2. Find active regional campaigns where name starts with `AlmaREV Launch`.
-3. Find warmed accounts on the same mature sending domain, currently `getalmarev.com`, with `stat_warmup_score >= 99` and `status=1`.
-4. Patch each active regional campaign's `email_list` to include those warmed same-domain accounts.
-5. Preserve existing senders.
-6. Do not remove senders automatically.
-7. Do not raise `daily_limit` automatically.
-8. Stay silent when no changes are made; alert only on changes or errors.
+3. Find active outbound campaigns by `status=1`, then classify them by name. Do **not** rely only on `name.startswith("AlmaREV Launch")`: newer production campaigns may be named like `ALMA Rev | Professional Services | US-Other`, and obsolete campaigns can still be active with `[OBSOLETE]` prefixes.
+4. Report any `[OBSOLETE]` campaign that is still `status=1` as operational drift before making sender-pool changes.
+5. Find warmed accounts on the same mature sending domain, currently `getalmarev.com`, with `stat_warmup_score >= 99` and `status=1`.
+6. Patch each active production campaign's `email_list` to include those warmed same-domain accounts, after excluding obsolete/test campaigns unless Mario explicitly asks to include them.
+7. Preserve existing senders.
+8. Do not remove senders automatically.
+9. Do not raise `daily_limit` automatically.
+10. Stay silent when no changes are made; alert only on changes or errors.
 
 ## Campaign signature ops
 
@@ -185,12 +186,20 @@ Recommendation pattern:
 Lead with exact counts and timestamp, then state what is actually usable:
 
 - total registered accounts
-- warmed/usable accounts
-- nearly ready accounts
-- cold/warmup-only accounts
-- campaign sender pools
+- connected accounts (`status=1`) and setup-pending count
+- warmed/usable accounts (`score >= 96`) and very mature accounts (`score >= 99`)
+- low-volume healthy accounts (`score 80-95` with live warmup traffic)
+- warmup-only/quarantine accounts
+- campaign sender pools, including active obsolete/test campaigns if any are still `status=1`
 - changes applied
 - whether cron will stay silent or alert
+
+When checking account health, separate **warmup traffic** from **cold/campaign sends**:
+
+- `POST /accounts/warmup-analytics` gives warmup sent/inbox/spam/received by email/date.
+- `GET /accounts/analytics/daily?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD&emails=...` gives real campaign metrics per mailbox: sent, bounced, contacted, replies, clicks.
+- A mailbox can show `stat_warmup_score=100` while `warmup_status=-1` and zero warmup traffic today. Treat that as mature but not currently warming; flag it instead of calling the account fully clean.
+- If cold sends are concentrated in a small sender subset while many connected accounts are warm, call out sender-pool underutilization explicitly.
 
 When Mario asks why a daily limit is low, whether senders are being forgotten, or which campaign to use for the next day, give a **per-mailbox operating plan**, not just campaign-level totals. Include, for each relevant account:
 

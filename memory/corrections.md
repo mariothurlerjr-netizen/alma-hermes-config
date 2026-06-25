@@ -20,3 +20,9 @@ Formato:
 [2026-05-28T16:54:24Z] Mario correction: I incorrectly told Mario there was no message job after cron list showed `lembrete-reuniao-alisa-rogerio-video` scheduled for 2026-05-29 11:00 UTC, equivalent to 08:00 Brazil. SWITCH_STRATEGY: when checking missed reminders, interpret existing cron jobs by timezone and inspect prompt/script before saying no job exists.
 
 [2026-06-19T18:25:00Z] Mario correction: I said 77 leads that received the 3rd email should be treated as sequence-closed/cooldown. Correction: after the 3rd email, the agreed next step is a connection/call via CLAIRE for eligible leads. SWITCH_STRATEGY: for ALMA Rev cadence status, treat post-3rd-email as call-readiness/CLAIRE queue, not recycle/cooldown by default.
+
+## 2026-06-25T22:58:14+00:00 | Instantly sender readiness
+- O que fiz: interpretei contas com score alto no Instantly como usáveis para produção controlada.
+- Correção: Tirando getslmarev/getalmarev e tryslmarev/tryalmarev, todas as contas estão aquecendo ainda. Vão ficar prontas na próxima terça.
+- Lição: Para ALMA Rev Instantly, readiness operacional por domínio vence score bruto da API. Até terça, tratar só getalmarev.com e tryalmarev.com como domínios prontos; demais domínios permanecem warmup-only mesmo com score alto.
+- Status: APPLIED
