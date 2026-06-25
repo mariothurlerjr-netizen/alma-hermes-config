@@ -59,4 +59,5 @@ Use this when Mario asks to reactivate ORION, produce homologated ALMA Rev leads
 - Do not treat a smoke run with zero accepted leads as infra failure if reject reasons show filters are active; inspect source quality/query next.
 - Do not auto-enable legacy ORION full-blast workers/watchdogs when Mario asks for controlled daily lead production.
 - Do not let an exhausted Apollo key in `/root/alma-aios/.env` shadow a working key in `/home/almarev/agentic/.env`; probe each candidate key with a low-cost organization search and select the usable one.
+- If all Apollo keys return `insufficient credits`, the daily briefing must not exit 1. Fall back to cached Instantly reorg exports in CSV-only mode, report `apollo_insufficient_credits`, and state the fallback count clearly. This is a continuity mode, not real fresh generation.
 - Do not rely solely on Tavily/owner-id for acceptance when Tavily quota is exhausted or site pages are thin. Fall back to domain-level verified personal emails, then report the weaker source in `source_quality`.
