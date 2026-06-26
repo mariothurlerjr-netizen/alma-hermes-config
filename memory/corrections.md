@@ -38,3 +38,15 @@ Formato:
 - Correção: só habilitar contas que não tiveram spam nos últimos 7 dias.
 - Lição: Para ALMA Rev Instantly, zero warmup spam nos últimos 7 dias é hard gate por mailbox antes de colocar em cold outbound.
 - Status: APPLIED
+
+## 2026-06-26T02:46:15Z | alma-brain freshness
+- O que fiz: eu e outros agentes confundimos fontes antigas com estado vigente no brain e às vezes puxamos informação velha.
+- Correção: “vc e o claude se confundem muito no brain... as vezes vcs puxam informcoes antigas”.
+- Lição: Para qualquer resposta baseada no brain, primeiro estabelecer hierarquia temporal e canônica: STATUS/_CURRENT/business-plan canônico + decisões recentes + dado vivo quando operacional. Arquivo antigo só entra como histórico, nunca como verdade final sem checar `status`, `last_reviewed`, timestamp e conflito com fontes mais novas.
+- Status: APPLIED
+
+## 2026-06-26T02:51:58Z | project-status
+- O que fiz: Tratei JT Shirts e mtmalls como projetos/workstreams ativos na lista de stack.
+- Correção: "jtshirts e mtmalls estao encerrados"
+- Lição: JT Shirts e mtmalls são workstreams encerrados; só tratar como ativos se Mario reabrir explicitamente.
+- Status: APPLIED

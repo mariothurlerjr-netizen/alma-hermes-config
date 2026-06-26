@@ -181,6 +181,16 @@ Recommendation pattern:
 - For 60 accounts, recommend 25k lead cap and roughly 600 net-new clean leads/day.
 - Increase volume until operational counter-signals appear: meetings/replies exceed Mario's handling capacity, bounce/spam/inbox placement degrades, or domain reputation deteriorates. Before those signals, Mario prefers max-capacity growth over conservative throttling.
 
+## Drift / stuck-domain diagnostic pattern
+
+Use this when Mario asks why a sender domain/campaign is “travado” or asks to reread the brain and revise a deliverability diagnosis.
+
+1. Read canonical brain first: `STATUS.md`, `03-alma-agentic/_CURRENT.md`, `02-alma-rev/business-plan.md` if GTM/outbound framing matters, then specific `deliverability-*` and `outbound-*` notes.
+2. Verify live Instantly state before finalizing: all accounts for the domain (`provider_code`, `warmup_status`, `stat_warmup_score`, `daily_limit`, `setup_pending`), all active campaigns, and campaign sender pools.
+3. Distinguish DNS-auth state from send-path state. A domain can have green SPF/DKIM/DMARC in the brain while Instantly is still connected to the wrong provider. Example durable pitfall: `getalmarev.com` DNS was Maildoso/M365 and DMARC `p=reject`, but live Instantly accounts remained `provider_code=2` Google, with two `warmup_status=-1`; that points to stale connection/auth-alignment risk, not “missing DKIM”.
+4. Check for operational drift: active `[OBSOLETE]` campaigns, obsolete copy-test campaigns, or paused/current campaign mismatch. If obsolete campaigns are active, pause them via Instantly API and verify only intended production campaigns remain active.
+5. Report in three buckets: **brain/canonical**, **live state**, **action taken / remaining blocker**. If the remaining blocker is panel/vendor-only (reconnect mailbox provider, seed placement, Maildoso shared IP), say so directly.
+
 ## Response pattern
 
 Lead with exact counts and timestamp, then state what is actually usable:

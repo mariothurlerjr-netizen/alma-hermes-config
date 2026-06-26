@@ -7,9 +7,10 @@ license: proprietary
 # Contexto ALMA
 
 ## Stack
-- VPS root, repos ativos em `/home/almarev/agentic` (alma-agentic), `/root/alma-aios` (legacy), almarev-site, mtmalls, hermes-agent, brain-mcp
-- `cortex` FastAPI na porta `8002` (não confundir com `8001`, jt-sdr)
-- Workspaces: ALMA Rev, Vet Agentic, JT Shirts
+- VPS root, repos ativos em `/home/almarev/agentic` (alma-agentic), `/root/alma-aios` (legacy), almarev-site, hermes-agent, brain-mcp
+- `cortex` FastAPI na porta `8002` (não confundir com `8001`, legado jt-sdr)
+- Workspaces ativos: ALMA Rev, Vet Agentic
+- Workstreams encerrados: JT Shirts e mtmalls. Não tratar como projetos ativos, clientes ativos, labs ativos, ou próximos passos operacionais sem Mario reabrir explicitamente.
 
 ## ALMA Rev produtos
 - Estado canônico muda rápido: antes de responder sobre positioning, pricing, ICP, funnel ou oferta ALMA Rev, ler `02-alma-rev/_CURRENT.md` no brain. Se houver conflito, o brain vence este resumo.
@@ -26,10 +27,10 @@ license: proprietary
 - ORION lead-gen roda como `alma-orion@1..5.service`, gera lead-base e dashboard em `app.almarev.com/dashboard/leads`.
 - LANCE (text SDR), CLAIRE (voice SDR), Clara e AURA existem como agentes/workstreams.
 
-## JT Shirts (engagement paralelo)
-- US uniform company, Fractional Head of Sales
-- ICP: restaurants/franchises, field service, multi-site healthcare
-- Stack: Snov.io, Instantly, Python Google Places API
+## Encerrados / histórico
+- JT Shirts: encerrado. Contexto histórico: US uniform company, Fractional Head of Sales, ICP restaurants/franchises, field service, multi-site healthcare, stack Snov.io/Instantly/Python Google Places API. Usar só para arqueologia, migração, cleanup ou análise histórica.
+- mtmalls: encerrado. Usar só para arqueologia, cleanup ou referência histórica.
+- Pitfall: se STATUS.md, brain antigo, memória antiga ou resumo de stack listar JT Shirts/mtmalls como ativos, tratar como stale até haver decisão nova explícita do Mario reabrindo.
 
 ## Job Search ativo
 - Posicionamento: Sales Director / VP Sales / CRO. NÃO General Manager.

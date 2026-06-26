@@ -19,6 +19,21 @@ license: proprietary
 3. `INDEX.md` — mapa do vault pra navegar pastas.
 4. Pasta específica via `brain_search` ou `brain_read`.
 
+## Protocolo anti-stale / anti-confusão
+
+Antes de responder com base no brain, montar explicitamente a hierarquia de verdade:
+
+1. **Estado vivo** quando a pergunta for operacional (Instantly, Postgres, systemd, nginx, APIs, repo): brain dá contexto, mas a resposta final usa dado live verificado.
+2. **Arquivos canônicos atuais**: `STATUS.md`, `_CURRENT.md`, `business-plan.md` com `status: canonical`, docs marcados como fonte canônica no próprio `_CURRENT.md`.
+3. **Decisões recentes**: `decisions.md`, notas com timestamp mais novo e updates/addenda. Se uma nota antiga tem addendum mais novo, o addendum vence.
+4. **Arquivos históricos**: qualquer nota sem `status: canonical`, com `obsolete`, `superseded`, nome antigo, ou timestamp anterior a uma decisão mais nova. Usar só como contexto, não como verdade operacional.
+
+Regras obrigatórias:
+- Sempre verificar `frontmatter.status`, `last_reviewed`, `timestamp`, `last_modified` e termos como `OBSOLETO`, `superseded`, `CURRENT`, `canonical`, `pendente`.
+- Se duas fontes conflitarem, declarar o conflito e escolher a fonte canônica mais recente ou o dado vivo.
+- Nunca responder “o brain diz X” quando X veio de arquivo antigo sem cruzar com `_CURRENT.md`/`STATUS.md`.
+- Para pedidos do tipo “leia o brain inteiro e reveja”, tratar como sinal de stale-read: refazer leitura ampla, listar fontes mais recentes consideradas e corrigir a conclusão anterior.
+
 ## Estrutura do vault
 
 | Pasta | Conteúdo | Hermes pode escrever? |
@@ -86,8 +101,9 @@ Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
    - Decisão operacional explícita do Mario (2026-06-19): **IRIS = metrics/dashboard/analytics/digest/anomaly detection/cost-performance reporting**. Não tratar IRIS como sales closer, account research ou marketing sem nova revisão explícita. Marketing fica em LUNA/MUSE/SOL/ALEXANDER; vendas/outbound ficam em ORION/LANCE/CLAIRE/NOVA/TRUTH ENGINE conforme contexto.
 4. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados
 4. Para status operacional de email/cadência/funil ALMA Rev (ex.: quantos receberam email 1/2/3, quantos estão na cadeia), usar o brain para contexto e depois buscar dado vivo no stack agentic/Instantly quando a pergunta for atual. Ver `references/alma-rev-email-funnel-status.md`.
-5. Para auditoria diária de campanha ALMA Rev (confirmar envio, cap, clicks, replies, checks, scanner vs humano, ou report proativo no Telegram), seguir `references/alma-rev-campaign-audit.md`.
-6. Para ORION Lead Factory controlado (leads homologados, CSV Instantly-ready, dedupe, Prospeo/Findymail/Apollo reveal waterfall, cap 25k), seguir `references/orion-lead-factory-controlled.md` antes de mexer em workers/cron.
+5. Para diagnóstico de “travado”, deliverability, domínio/sender ou campanha ALMA Rev (`getalmarev`, `tryalmarev`, Instantly, warmup, reply rate), NÃO responder só de memória nem só com um arquivo. Ler o estado canônico (`STATUS.md`, `03-alma-agentic/_CURRENT.md`, `02-alma-rev/business-plan.md` quando envolver GTM), depois as notas específicas (`deliverability-*`, `outbound-*`) e então verificar dado vivo no Instantly/env/systemd. Separar: (a) decisão/brain canônico, (b) estado live, (c) drift operacional encontrado. Checar explicitamente campanhas `[OBSOLETE]` ainda ativas e conexões `provider_code`/`warmup_status` das caixas antes de concluir causa-raiz. Se Mario mandar “leia o brain inteiro e reveja”, tratar como correção: refazer a leitura ampla e entregar diagnóstico corrigido direto.
+6. Para auditoria diária de campanha ALMA Rev (confirmar envio, cap, clicks, replies, checks, scanner vs humano, ou report proativo no Telegram), seguir `references/alma-rev-campaign-audit.md`.
+7. Para ORION Lead Factory controlado (leads homologados, CSV Instantly-ready, dedupe, Prospeo/Findymail/Apollo reveal waterfall, cap 25k), seguir `references/orion-lead-factory-controlled.md` antes de mexer em workers/cron.
 7. Para visitas de páginas ALMA Rev, país/estado, exclusão de Brasil, ou correlação entre campanha e tráfego, usar logs nginx + GeoIP e seguir `references/alma-rev-traffic-geo-reporting.md`.
 7. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`, assinatura de campanhas), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
 5. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
