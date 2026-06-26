@@ -21,3 +21,5 @@ Hermes secret redaction can corrupt example shell snippets that contain secret-l
 Mario clarified that “memória cheia” in the Hermes bug report can mean runtime/RSS or configured process memory around 2.5GB, not only MEMORY.md/USER.md char usage; future Hermes diagnostics must separate OS/RSS memory, model context overflow, and persistent memory char budgets.
 §
 Mario is willing to give Hermes access to Claude Code for use when necessary; prefer OAuth/device-flow or existing local Claude CLI auth, never paste Anthropic/Claude secrets in chat.
+§
+Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account. `/usr/local/bin/hermes-claude` is the safe Hermes wrapper for one-shot Claude Code delegation; bwrap and socat are installed so `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1` works.
