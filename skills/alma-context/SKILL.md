@@ -21,7 +21,8 @@ license: proprietary
 - Separação de sender ALMA Rev: `mario@almarev.com` fica para canal owned/warm, newsletter, digest e relacionamento com quem já interagiu com AURA/conteúdo. Cold/outbound deve usar contas aquecidas `@getalmarev.com`, especialmente `mario@getalmarev.com`, quando estiverem prontas.
 - Outbound: Instantly with campaigns `AlmaREV Launch`; status operational via API v2 + Cortex AURA cross-check.
 - Pitfall Instantly: “contas ativas” pode aparecer como contagem de **leads em campanhas ativas**, não mailboxes. Validar separando `/campaigns/analytics` (`leads_count`, `contacted_count`, `emails_sent_count`) de `/accounts` e do painel Cortex `/api/agenda/email-capacity`.
-- Deliverability / daily outbound ops: quando Mario falar de volume diário, aquecimento, spam, contas prontas ou “usar todos os leads”, seguir `references/alma-rev-deliverability-daily-ops.md`.
+- Deliverability / daily outbound ops: when Mario falar de volume diário, aquecimento, spam, contas prontas ou “usar todos os leads”, seguir `references/alma-rev-deliverability-daily-ops.md`.
+- Email base hygiene: use `references/email-verification.md`. Default verifier for lead hygiene is MillionVerifier; treat Snov as retired for this workflow unless Mario explicitly reopens it.
 - Daily operating loop: when Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch. Quando houver conteúdo externo para mineração de GTM, incluir vídeos do Alfredo Soares como fonte recorrente de ideias, não como one-off.
 
 
@@ -53,6 +54,7 @@ license: proprietary
 - Instantly capacity maximization: ver `references/instantly-capacity-maximization.md`. Use quando Mario perguntar sobre plano Instantly, cap de leads, volume diário, capacidade das contas, tamanho de cadência, campanhas pausadas/ativas, ou se estamos maximizando outbound. Sempre separar lead cap workspace-wide, capacidade de mailboxes, daily_limit de campanhas e número real de steps na sequência.
 - `Telegram agent topics`: ver `references/telegram-agent-topics.md`. Use quando Mario perguntar por que agentes como IRIS/MUSE não aparecem no canal/grupo `Alma AIOS`, ou pedir pra criar lanes/tópicos de agentes no Telegram. Primeiro verificar targets do gateway; distinguir canal vs supergrupo/forum; bot precisa ser admin com permissão de gerenciar tópicos.
 - `Telegram inter-bot conversations`: ver `references/telegram-interbot-conversations.md`. Use quando Mario pedir para bots/agentes ALMA conversarem entre si em grupo Telegram. Validar gateways, `getMe`, `getChatMember`, `TELEGRAM_ALLOW_BOTS=mentions`, bot IDs na allowlist e caveat de `can_manage_topics`.
+- `Granola meeting context`: ver `references/granola-meeting-notes.md`. Use quando Mario pedir para ler recaps de reuniões, extrair follow-ups, ou reutilizar contexto de calls; trate como insumo recorrente, não como verdade canônica se conflitar com STATUS/_CURRENT/decisions.
 - `HERALD activity notification`: ver `references/herald-activity-notification.md`. Use quando o problema for mensagem entrando mas o alerta não disparar, ou quando for preciso garantir notificação em tempo real com fallback de watchdog.
 - `Hermes Telegram agent fleet`: ver `references/hermes-telegram-agent-fleet.md`. Use quando Mario pedir migração de agentes Claude/LangGraph/OpenClaw para Hermes profiles/bots, criação de um bot por agente, troca de token do BotFather, ou start/validação de gateways por profile.
 

@@ -12,7 +12,7 @@ ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visibl
 §
 ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Mario usa todos os leads, inclusive ICPs errados, como insumo para copy e entregabilidade. Sender gate: zero warmup spam in last 7d. `getalmarev.com` parcialmente usable; `tryalmarev.com`/others warmup-only até o próximo gate.
 §
-ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
+ALMA Rev sender separation: the `@getalmarev.com` sending accounts live in Gmail Workspace; `mario@almarev.com` is reserved for owned/warm newsletter-style communication, and cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
 Hermes default profile has `security.redact_secrets=false` after Composio/snippet corruption; keep handling secrets operationally safe by never printing/pasting them, using env files or Python writers instead of chat snippets.
 §

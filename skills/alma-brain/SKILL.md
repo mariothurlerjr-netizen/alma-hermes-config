@@ -18,6 +18,7 @@ license: proprietary
 2. `STATUS.md` (auto-gerado 24h) — entry point pra qualquer pergunta de "como está / onde paramos / quantos / quando".
 3. `INDEX.md` — mapa do vault pra navegar pastas.
 4. Pasta específica via `brain_search` ou `brain_read`.
+5. Se o tema for reuniões/calls/recaps, ler `references/granola-meeting-notes.md` e depois buscar em `05-meeting-notes/granola/`.
 
 ## Protocolo anti-stale / anti-confusão
 
@@ -113,6 +114,6 @@ Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 
 ## Trigger keywords
 
-**Leitura**: status, pipeline, onde paramos, ORION, CLAIRE, Clara, ALMA Rev, alma-aios, agentic, JT Shirts, mtmalls, Workstream B, LANCE, IRIS, SCRIBE, Sentinel, Shield, Brain, workspace, tenant.
+**Leitura**: status, pipeline, onde paramos, ORION, CLAIRE, Clara, ALMA Rev, alma-aios, agentic, JT Shirts, mtmalls, Workstream B, LANCE, IRIS, SCRIBE, Sentinel, Shield, Brain, workspace, tenant, Granola, meeting notes, recap, calls.
 
 **Escrita**: anota, salva no brain, registra, grava, lembra disso, escreve no brain, captura.
