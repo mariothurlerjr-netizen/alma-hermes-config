@@ -6,7 +6,7 @@ Hermes TTS uses `elevenlabs`; Twilio voice number for Hermes is a local São Pau
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
-Mario prefere usar um verificador de email mais barato e direto, como MillionVerifier/Mailverifier, e retirar o verificador legado/cancelado do caminho principal.
+Mario prefere MillionVerifier/MailVerifier em vez do verificador legado/cancelado.
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
@@ -34,4 +34,4 @@ No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlo
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
 §
-Hermes voice stack on Mario's VPS defaults to Retell (`VOICE_PROVIDER=retell`) with `CLAIRE_CALLS_ENABLED=1`; Vapi remains available as a parallel fallback. The active Retell webhook is mounted at `/retell/webhook` on Cortex.
+Hermes voice stack on Mario's VPS still has Retell/Vapi plumbing, but Bland AI is now the preferred call-flow path when switching away from ElevenLabs-style orchestration.
