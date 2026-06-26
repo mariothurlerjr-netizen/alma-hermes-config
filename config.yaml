@@ -552,6 +552,9 @@ mcp_servers:
         - SUPABASE_SELECT_FROM_TABLE
       resources: false
       prompts: false
+  granola:
+    url: https://mcp.granola.ai/mcp
+    auth: oauth
 platform_toolsets:
   telegram:
   - web

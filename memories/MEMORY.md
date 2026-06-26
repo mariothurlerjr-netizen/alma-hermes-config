@@ -32,6 +32,6 @@ Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gp
 §
 Manual Telegram getUpdates calls against an already-polling Hermes bot gateway can trigger HTTP 409 Conflict and log a polling-conflict warning. For live gateway verification, prefer systemd/journal/service state or a non-polling probe rather than calling getUpdates directly on the active bot token.
 §
-No perfil default do Hermes, o MCP Composio está filtrado para ferramentas core de Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` estão desativados no server config.
+No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` ficam desativados. Granola também foi registrado no MCP do perfil e exige OAuth para uso.
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
