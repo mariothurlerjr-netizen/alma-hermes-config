@@ -2,11 +2,11 @@ ORION legacy workers are paused/disabled since 2026-06-13; Lead Factory cron `5c
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
-Hermes TTS uses `elevenlabs`; Twilio env + phone vars needed. Mario prefere voz JARVIS, grave e limpa, e quer usar um número local de São Paulo no Twilio para calls de voz, separado do stack ALMA Rev.
+Hermes TTS uses `elevenlabs`; Twilio voice number for Hermes is a local São Paulo BR number, +551150281678, SID PN890f19fb4c1d2e370f6d20679da8c61e. It has Voice/Fax/SIP capabilities, messaging is unavailable, and inbound call webhooks point to ElevenLabs/Twilio endpoints.
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
-Mails.so está ativo no ambiente do Mario e a conta mostra 50.050 créditos restantes; o 402 anterior provavelmente veio de credencial/env incorreto ou stale config, não de cancelamento da conta.
+Mario prefere usar um verificador de email mais barato e direto, como MillionVerifier/Mailverifier, e retirar o verificador legado/cancelado do caminho principal.
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
