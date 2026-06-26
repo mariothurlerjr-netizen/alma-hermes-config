@@ -90,7 +90,7 @@ tool_loop_guardrails:
     idempotent_no_progress: 5
 compression:
   enabled: true
-  threshold: 0.5
+  threshold: 0.75
   target_ratio: 0.2
   protect_last_n: 20
   hygiene_hard_message_limit: 400
@@ -300,8 +300,8 @@ context:
 memory:
   memory_enabled: true
   user_profile_enabled: true
-  memory_char_limit: 2200
-  user_char_limit: 1375
+  memory_char_limit: 5000
+  user_char_limit: 3000
   provider: ''
 delegation:
   model: ''
@@ -479,9 +479,3 @@ mcp_servers:
       Authorization: Bearer ${ALMA_BRAIN_MCP_KEY}
     timeout: 60
     connect_timeout: 15
-  composio:
-    url: https://backend.composio.dev/v3.1/mcp/2045bba0-8829-4a73-ac03-4e7b509c408c?include_composio_helper_actions=true&user_id=mario
-    timeout: 60
-    connect_timeout: 15
-    headers:
-      x-api-key: ${COMPOSIO_API_KEY}

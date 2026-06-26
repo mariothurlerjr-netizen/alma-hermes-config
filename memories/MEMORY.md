@@ -15,3 +15,5 @@ ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visibl
 ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Sender gate: zero warmup spam in last 7d. `getalmarev.com` partially usable; `tryalmarev.com`/others warmup-only until next gate. Mario flagged stale brain confusion: use live data + STATUS/_CURRENT/canonical recent docs before treating old notes as current.
 §
 ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
+§
+Hermes secret redaction can corrupt example shell snippets that contain secret-looking env assignments such as `COMPOSIO_API_KEY=...` before delivery/persistence; for secret-save instructions, avoid emitting literal assignment snippets and prefer an attached script file or Python writer that never prints the secret.
