@@ -21,6 +21,7 @@ license: proprietary
 - Separação de sender ALMA Rev: `mario@almarev.com` fica para canal owned/warm, newsletter, digest e relacionamento com quem já interagiu com AURA/conteúdo. Cold/outbound deve usar contas aquecidas `@getalmarev.com`, especialmente `mario@getalmarev.com`, quando estiverem prontas.
 - Outbound: Instantly com campanhas `AlmaREV Launch`; status operacional via API v2 + Cortex AURA cross-check.
 - Pitfall Instantly: “contas ativas” pode aparecer como contagem de **leads em campanhas ativas**, não mailboxes. Validar separando `/campaigns/analytics` (`leads_count`, `contacted_count`, `emails_sent_count`) de `/accounts` e do painel Cortex `/api/agenda/email-capacity`.
+- Daily operating loop: quando Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch.
 - Adjacent/opportunity exploration: se Mario falar de cobrança, recuperação de recebíveis, FIDC, carteiras vencidas, success fee ou “dinheiro parado”, usar `references/alma-recovery-market-wedge.md`.
 
 ## ALMA Agentic

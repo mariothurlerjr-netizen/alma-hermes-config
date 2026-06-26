@@ -236,7 +236,7 @@ display:
   user_message_preview:
     first_lines: 2
     last_lines: 2
-  interim_assistant_messages: true
+  interim_assistant_messages: false
   tool_progress_command: false
   tool_progress_overrides: {}
   tool_preview_length: 0
@@ -297,7 +297,7 @@ stt:
 voice:
   record_key: ctrl+b
   max_recording_seconds: 120
-  auto_tts: true
+  auto_tts: false
   beep_enabled: true
   silence_threshold: 200
   silence_duration: 3.0
@@ -502,6 +502,38 @@ mcp_servers:
     timeout: 60
     connect_timeout: 15
     enabled: true
+    tools:
+      include:
+        - GMAIL_CREATE_EMAIL_DRAFT
+        - GMAIL_FETCH_EMAILS
+        - GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID
+        - GMAIL_FETCH_MESSAGE_BY_THREAD_ID
+        - GMAIL_GET_PROFILE
+        - GMAIL_LIST_THREADS
+        - GMAIL_REPLY_TO_THREAD
+        - GMAIL_SEARCH_PEOPLE
+        - GMAIL_SEND_EMAIL
+        - NOTION_APPEND_TEXT_BLOCKS
+        - NOTION_CREATE_NOTION_PAGE
+        - NOTION_GET_PAGE_MARKDOWN
+        - NOTION_QUERY_DATABASE
+        - NOTION_RETRIEVE_PAGE
+        - NOTION_SEARCH_NOTION_PAGE
+        - NOTION_UPDATE_PAGE
+        - OUTLOOK_CALENDAR_CREATE_EVENT
+        - OUTLOOK_CREATE_DRAFT
+        - OUTLOOK_GET_PROFILE
+        - OUTLOOK_LIST_EVENTS
+        - OUTLOOK_LIST_MESSAGES
+        - OUTLOOK_REPLY_EMAIL
+        - OUTLOOK_SEARCH_MESSAGES
+        - OUTLOOK_SEND_EMAIL
+        - OUTLOOK_UPDATE_CALENDAR_EVENT
+        - SUPABASE_GET_PROJECT
+        - SUPABASE_LIST_ALL_PROJECTS
+        - SUPABASE_LIST_TABLES
+        - SUPABASE_RUN_SQL_QUERY
+        - SUPABASE_SELECT_FROM_TABLE
 platform_toolsets:
   telegram:
   - web
