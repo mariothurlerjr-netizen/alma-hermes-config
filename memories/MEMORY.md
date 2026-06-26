@@ -24,10 +24,12 @@ Telegram bot @username is effectively fixed after bot creation for normal BotFat
 §
 ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways for orchestrator, orion, lance, sentinel, shield, iris, muse, aura, claire, clara, and austen are stopped/disabled as user systemd services. Profiles, tokens, SOUL/CLAUDE files, and registry remain for on-demand reactivation if overload signals warrant workers.
 §
-ALMA agent operating model: default is Hermes as single operator/cockpit with former agents represented as playbooks/skills loaded on demand. Additional bot profiles should be proposed only when operational overload signals appear: SLA misses, continuous monitoring need, high-volume queue, compliance/infra risk, or context contamination. Hermes should proactively tell Mario when more bots/workers become warranted.
+ALMA agent operating model: Hermes is the default cockpit, additional bots only when overload signals appear. Mario sees LinkedIn as useful for filtering jobs, Instagram for campaign monitoring, and All Grow may also be worth connecting.
 §
 On Mario's VPS Hermes default profile uses OpenAI Codex provider with model `gpt-5.5`; OpenAI Codex OAuth credential has ~3h+ cooldown remaining but reverted to original config. OpenRouter fallback available. For Hermes slowness, check provider rate limits first, then model latency and context compression before blaming VPS CPU/RAM.
 §
 Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gpt-5.5`; auxiliary compression/title/search/etc use OpenRouter `openai/gpt-4o-mini`; Telegram/CLI toolsets are trimmed; emergency fallback is OpenRouter `anthropic/claude-sonnet-4` only after primary failure/quota. Backup: `/root/.hermes/config.yaml.bak-speed-tuning-20260626-1300`.
 §
 Manual Telegram getUpdates calls against an already-polling Hermes bot gateway can trigger HTTP 409 Conflict and log a polling-conflict warning. For live gateway verification, prefer systemd/journal/service state or a non-polling probe rather than calling getUpdates directly on the active bot token.
+§
+No profile default do Hermes, o MCP do Composio foi reativado em /root/.hermes/config.yaml como mcp_servers.composio usando o server filtrado hermes-filtered-core (Gmail, Notion, Supabase, Outlook).

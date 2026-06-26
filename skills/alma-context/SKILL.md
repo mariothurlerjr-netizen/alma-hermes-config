@@ -35,7 +35,10 @@ license: proprietary
 
 ## Job Search ativo
 - Posicionamento: Sales Director / VP Sales / CRO. NÃO General Manager.
-- Estratégia: passa em todo processo, decide no offer
+- Estratégia: passa em todo processo, decide no offer.
+- LinkedIn entra como filtro de vagas e triagem de oportunidades, não como fonte genérica de browsing contínuo.
+- Instagram entra mais como canal de monitoramento de campanha do que como superfície operacional primária.
+- Para reativação de integrações Composio com toolkit filtrado, ver `references/composio-app-priorities.md`.
 
 ## Regras de stack
 - OAuth SEMPRE preferido. API key só como último recurso.
