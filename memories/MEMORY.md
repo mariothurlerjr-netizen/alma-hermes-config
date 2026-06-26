@@ -2,7 +2,7 @@ ORION legacy workers are paused/disabled since 2026-06-13; Lead Factory cron `5c
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
-Hermes TTS uses `elevenlabs`; Twilio env + phone vars needed. Mario prefere voz JARVIS, grave e limpa. JT Shirts and mtmalls are closed; cold-base dialing stays paused unless Mario reabrir.
+Hermes TTS uses `elevenlabs`; Twilio env + phone vars needed. Mario prefere voz JARVIS, grave e limpa, e quer usar um número local de São Paulo no Twilio para calls de voz, separado do stack ALMA Rev.
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
@@ -30,8 +30,8 @@ On Mario's VPS Hermes default profile uses OpenAI Codex provider with model `gpt
 §
 Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gpt-5.5`; auxiliary compression/title/search/etc use OpenRouter `openai/gpt-4o-mini`; Telegram/CLI toolsets are trimmed; emergency fallback is OpenRouter `anthropic/claude-sonnet-4` only after primary failure/quota. Backup: `/root/.hermes/config.yaml.bak-speed-tuning-20260626-1300`.
 §
-Manual Telegram getUpdates calls against an already-polling Hermes bot gateway can trigger HTTP 409 Conflict and log a polling-conflict warning. For live gateway verification, prefer systemd/journal/service state or a non-polling probe rather than calling getUpdates directly on the active bot token.
-§
 No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` ficam desativados. Granola também foi registrado no MCP do perfil e exige OAuth para uso.
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
+§
+Hermes voice stack on Mario's VPS defaults to Retell (`VOICE_PROVIDER=retell`) with `CLAIRE_CALLS_ENABLED=1`; Vapi remains available as a parallel fallback. The active Retell webhook is mounted at `/retell/webhook` on Cortex.
