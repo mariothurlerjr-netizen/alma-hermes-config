@@ -38,6 +38,17 @@ Use when Mario asks to migrate Claude/LangGraph/OpenClaw-style agents into Herme
    - the loaded SOUL identity matches the profile,
    - session/memory does not bleed across agents.
 
+## Inter-bot communication rollout
+
+When enabling agents to converse with each other in Telegram:
+
+1. Treat this as a separate authorization layer after token migration. Token validation and gateway startup are prerequisites, not proof that inter-bot routing works.
+2. Add the ALMA bot Telegram IDs to the relevant profiles' `TELEGRAM_ALLOWED_USERS` alongside Mario's ID. Do not use `TELEGRAM_ALLOW_ALL_USERS` for this.
+3. Set `TELEGRAM_ALLOW_BOTS=mentions` for profiles that should accept bot-authored messages.
+4. Keep mention-gated group behavior on. Bots should talk in a shared group/forum/topic by explicitly mentioning the target bot, not by trying bot-to-bot DM.
+5. If bot messages are still unauthorized, verify the Hermes Telegram adapter sets `SessionSource.is_bot` from `message.from_user.is_bot` and that `GatewayRunner._is_user_authorized` maps `Platform.TELEGRAM` to `TELEGRAM_ALLOW_BOTS`.
+6. Run a real Telegram smoke test: bot A mentions bot B in the shared group/topic; bot B responds with its own profile identity and does not wake unrelated agents.
+
 ## Rollout sequence
 
 1. Inventory current profiles with `hermes profile list` and verify each profile has `SOUL.md`, `CLAUDE.md`, `.env`.

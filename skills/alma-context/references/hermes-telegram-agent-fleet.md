@@ -14,6 +14,16 @@ Use when migrating ALMA agents from Claude/LangGraph/legacy workflows into Herme
 6. Run each bot gateway as an isolated user systemd instance, e.g. `hermes-gateway@orion.service`, with `ExecStart=... hermes_cli.main --profile %i gateway run --replace`.
 7. Validate with Telegram `getMe`, profile list, process list, and failed units. Report usernames and running states, never token values.
 
+## Inter-bot Telegram coordination
+
+Use when Mario asks to let ALMA bots talk to each other.
+
+- Telegram bot-to-bot DMs are not a usable control plane. Put the bots in the same approved group/forum/topic and route by explicit `@botusername` mentions.
+- One bot should only answer when directly mentioned or replied to. Keep `telegram.require_mention: true` / exclusive mention routing enabled so a group message does not wake the whole fleet.
+- Human authorization and bot authorization are separate. Keep Mario in `TELEGRAM_ALLOWED_USERS`; add ALMA bot IDs there only when needed for inter-bot traffic, and set `TELEGRAM_ALLOW_BOTS=mentions` rather than opening `TELEGRAM_ALLOW_ALL_USERS`.
+- Hermes Telegram must propagate Telegram's `from_user.is_bot` into `SessionSource.is_bot`; otherwise the central gateway authorizer cannot distinguish ALMA bot senders from unauthorized humans. If inter-bot messages are dropped, inspect `gateway/platforms/telegram.py::_build_message_event` and `gateway/run.py::_is_user_authorized` before blaming tokens or group permissions.
+- Smoke test in the real group/topic with two bots and an explicit mention chain. A passing `getMe` only proves the token identity, not inter-bot delivery.
+
 ## Suggested ALMA profile roles
 
 - `jarvis`: main executive entry and router.
