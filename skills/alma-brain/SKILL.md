@@ -96,23 +96,35 @@ Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 
 ## Workflow padrão
 
-1. Mario pergunta algo → lê `STATUS.md` primeiro
-2. Cruza com entidade específica → `brain_search` na pasta certa
+1. Mario pergunta algo → lê `STATUS.md` primeiro quando a pergunta for sobre estado, depois cruza com a entidade/pasta específica.
+2. Quando Mario pedir **“all status”**, **“tudo que temos”** ou equivalente, sintetizar em mapa operacional por área, sempre nesta ordem:
+   - `STATE CURRENT` com uma linha de verdade viva, se houver.
+   - `Infra / serviços`
+   - `Agentes / automações`
+   - `Business P0`
+   - `Pendências manuais`
+   - `In progress` e `Blocked`
+   - `Próximo movimento`
+   Usar `STATUS.md` + `_CURRENT.md` + notas/recentes relevantes, sem misturar histórico velho com estado vivo. Se houver execução-plan ativa ou task list atual, incluir só o que ainda está aberto.
 3. Para perguntas sobre papel/função de agente ALMA (ex.: IRIS, LUNA, MUSE, LANCE), não confiar em uma única fonte: comparar `STATUS.md`, `platform/runbooks/<agente>.md`, `03-alma-agentic/agent-roster-map.md`, `03-alma-agentic/decisions.md` e arquivos recentes do agente. Se houver drift entre desenho antigo, uso atual e decisão explícita do Mario, declarar a inconsistência e tratar a decisão mais recente do Mario como operacional.
    - Decisão operacional explícita do Mario (2026-06-19): **IRIS = metrics/dashboard/analytics/digest/anomaly detection/cost-performance reporting**. Não tratar IRIS como sales closer, account research ou marketing sem nova revisão explícita. Marketing fica em LUNA/MUSE/SOL/ALEXANDER; vendas/outbound ficam em ORION/LANCE/CLAIRE/NOVA/TRUTH ENGINE conforme contexto.
-4. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados
-4. Para status operacional de email/cadência/funil ALMA Rev (ex.: quantos receberam email 1/2/3, quantos estão na cadeia), usar o brain para contexto e depois buscar dado vivo no stack agentic/Instantly quando a pergunta for atual. Ver `references/alma-rev-email-funnel-status.md`.
-5. Para perguntas do tipo "empresa/processos/sugestões de implementação", separar sempre em `already implemented`, `still on paper` e `recommended next move`. A referência compacta está em `references/strategy-implementation-split.md`.
-6. Para diagnóstico de “travado”, deliverability, domínio/sender ou campanha ALMA Rev (`getalmarev`, `tryalmarev`, Instantly, warmup, reply rate), NÃO responder só de memória nem só de um arquivo. Ler o estado canônico (`STATUS.md`, `03-alma-agentic/_CURRENT.md`, `02-alma-rev/business-plan.md` quando envolver GTM), depois as notas específicas (`deliverability-*`, `outbound-*`) e então verificar dado vivo no Instantly/env/systemd. Separar: (a) decisão/brain canônico, (b) estado live, (c) drift operacional encontrado. Checar explicitamente campanhas `[OBSOLETE]` ainda ativas e conexões `provider_code`/`warmup_status` das caixas antes de concluir causa-raiz. Se Mario mandar “leia o brain inteiro e reveja”, tratar como correção: refazer a leitura ampla e entregar diagnóstico corrigido direto.
-7. Para auditoria diária de campanha ALMA Rev (confirmar envio, cap, clicks, replies, checks, scanner vs humano, ou report proativo no Telegram), seguir `references/alma-rev-campaign-audit.md`.
-8. Para ORION Lead Factory controlado (leads homologados, CSV Instantly-ready, dedupe, Prospeo/Findymail/Apollo reveal waterfall, cap 25k), seguir `references/orion-lead-factory-controlled.md` antes de mexer em workers/cron.
-9. Para visitas de páginas ALMA Rev, país/estado, exclusão de Brasil, ou correlação entre campanha e tráfego, usar logs nginx + GeoIP e seguir `references/alma-rev-traffic-geo-reporting.md`.
-10. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`, assinatura de campanhas), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
-11. Para CLAIRE / ALMA Local call follow-ups (quem pediu email/callback em ligação, se os emails foram enviados, pendências `CHECK_SENT`), consultar dado vivo no Postgres e seguir `references/alma-rev-claire-call-followups.md`. Não confundir “emails passados” nesse contexto com Instantly sequence emails.
-12. Se faltar dado depois de 2 reads + 1 search → fala "não está no vault", NÃO inventa
-13. Se Mario manda anotar → escreve em `raw/` ou `agents/hermes/` com frontmatter, confirma path
-14. Quando um passo de verificação ou refresh for o próximo passo natural e for de baixo risco, execute-o sem pedir permissão. Não pare em um artefato intermediário se a próxima checagem honesta já estiver clara, por exemplo, depois de registrar um estado `PROVISIONAL`, refrescar `STATUS.md` ou checar resposta live antes de devolver a conclusão.
+4. Se a pergunta gira em torno de um número específico (ex.: "630 contas ativas"), fazer também busca exata pelo número no vault antes de concluir que não está registrado; auditorias e logs costumam conter o número sem os termos semânticos esperados.
+5. Para status operacional de email/cadência/funil ALMA Rev (ex.: quantos receberam email 1/2/3, quantos estão na cadeia), usar o brain para contexto e depois buscar dado vivo no stack agentic/Instantly quando a pergunta for atual. Ver `references/alma-rev-email-funnel-status.md`.
+6. Para perguntas do tipo "empresa/processos/sugestões de implementação", separar sempre em `already implemented`, `still on paper` e `recommended next move`. A referência compacta está em `references/strategy-implementation-split.md`.
+7. Para diagnóstico de “travado”, deliverability, domínio/sender ou campanha ALMA Rev (`getalmarev`, `tryalmarev`, Instantly, warmup, reply rate), NÃO responder só de memória nem só de um arquivo. Ler o estado canônico (`STATUS.md`, `03-alma-agentic/_CURRENT.md`, `02-alma-rev/business-plan.md` quando envolver GTM), depois as notas específicas (`deliverability-*`, `outbound-*`) e então verificar dado vivo no Instantly/env/systemd. Separar: (a) decisão/brain canônico, (b) estado live, (c) drift operacional encontrado. Checar explicitamente campanhas `[OBSOLETE]` ainda ativas e conexões `provider_code`/`warmup_status` das caixas antes de concluir causa-raiz. Se Mario mandar “leia o brain inteiro e reveja”, tratar como correção: refazer a leitura ampla e entregar diagnóstico corrigido direto.
+8. Para auditoria diária de campanha ALMA Rev (confirmar envio, cap, clicks, replies, checks, scanner vs humano, ou report proativo no Telegram), seguir `references/alma-rev-campaign-audit.md`.
+9. Para ORION Lead Factory controlado (leads homologados, CSV Instantly-ready, dedupe, Prospeo/Findymail/Apollo reveal waterfall, cap 25k), seguir `references/orion-lead-factory-controlled.md` antes de mexer em workers/cron.
+10. Para visitas de páginas ALMA Rev, país/estado, exclusão de Brasil, ou correlação entre campanha e tráfego, usar logs nginx + GeoIP e seguir `references/alma-rev-traffic-geo-reporting.md`.
+11. Para sender ops do Instantly (quantas contas existem, score/warmup, quais podem entrar em campanha, otimização diária de `email_list`, assinatura de campanhas), consultar dado vivo e seguir `references/alma-rev-instantly-sender-ops.md`.
+12. Para CLAIRE / ALMA Local call follow-ups (quem pediu email/callback em ligação, se os emails foram enviados, pendências `CHECK_SENT`), consultar dado vivo no Postgres e seguir `references/alma-rev-claire-call-followups.md`. Não confundir “emails passados” nesse contexto com Instantly sequence emails.
+13. Se faltar dado depois de 2 reads + 1 search → fala "não está no vault", NÃO inventa.
+14. Se Mario manda anotar → escreve em `raw/` ou `agents/hermes/` com frontmatter, confirma path.
+15. Quando um passo de verificação ou refresh for o próximo passo natural e for de baixo risco, execute-o sem pedir permissão. Não pare em um artefato intermediário se a próxima checagem honesta já estiver clara, por exemplo, depois de registrar um estado `PROVISIONAL`, refrescar `STATUS.md` ou checar resposta live antes de devolver a conclusão.
 
+## Status delivery rules
+- Em respostas de status, evitar narrativa genérica. Preferir blocos curtos com estado atual, pendências, bloqueios e próximo movimento.
+- Se a sessão tiver um plano ativo, task list ou execução em andamento, refletir isso no status em vez de ignorar.
+- Se a resposta for por voz ou o usuário mandar áudio, manter a versão verbal curta e operacional, e deixar o fallback texto mínimo.
 ## Trigger keywords
 
 **Leitura**: status, pipeline, onde paramos, ORION, CLAIRE, Clara, ALMA Rev, alma-aios, agentic, JT Shirts, mtmalls, Workstream B, LANCE, IRIS, SCRIBE, Sentinel, Shield, Brain, workspace, tenant, Granola, meeting notes, recap, calls.
