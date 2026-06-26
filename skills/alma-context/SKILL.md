@@ -11,6 +11,7 @@ license: proprietary
 - `cortex` FastAPI na porta `8002` (não confundir com `8001`, legado jt-sdr)
 - Workspaces ativos: ALMA Rev, Vet Agentic
 - Workstreams encerrados: JT Shirts e mtmalls. Não tratar como projetos ativos, clientes ativos, labs ativos, ou próximos passos operacionais sem Mario reabrir explicitamente.
+- Model routing: veja `references/model-routing.md` quando o usuário perguntar sobre usar modelos mais leves para conversa e modelos mais fortes para execução.
 
 ## ALMA Rev produtos
 - Estado canônico muda rápido: antes de responder sobre positioning, pricing, ICP, funnel ou oferta ALMA Rev, ler `02-alma-rev/_CURRENT.md` no brain. Se houver conflito, o brain vence este resumo.
