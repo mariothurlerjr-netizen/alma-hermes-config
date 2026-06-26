@@ -21,5 +21,8 @@ license: proprietary
 ## Início de sessão
 Lê últimas 10 entries de corrections.md ANTES de responder. Aplica silenciosamente.
 
+## Revisão de conversa / atualização de persistência
+Quando Mário pedir review de uma conversa para atualizar memória e skills, extrai somente preferências estáveis e lições recorrentes, salva no USER.md/MEMORY.md e atualiza o skill governante afetado, em vez de tratar como resposta descartável. Detalhe de sessão pode ir para references/ dentro do skill afetado.
+
 ## Quando Mário aceitar sem correção
 Marca último attempts.md como SUCCESS. Não escreve em corrections.

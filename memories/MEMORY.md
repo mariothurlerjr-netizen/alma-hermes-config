@@ -2,7 +2,7 @@ ORION state: legacy workers paused/disabled since 2026-06-13; controlled ORION L
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
-Hermes TTS uses `elevenlabs`; reminder calls need Twilio env + phone vars. JT Shirts and mtmalls are closed workstreams. CLAIRE/ALMA Local cold-base dialing stays paused unless Mario reopens it; accepted callback follow-ups are allowed.
+Hermes TTS uses `elevenlabs`; Twilio env + phone vars needed. Mario prefere voz JARVIS, grave e limpa. JT Shirts and mtmalls are closed; cold-base dialing stays paused unless Mario reabrir.
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
@@ -32,4 +32,4 @@ Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gp
 §
 Manual Telegram getUpdates calls against an already-polling Hermes bot gateway can trigger HTTP 409 Conflict and log a polling-conflict warning. For live gateway verification, prefer systemd/journal/service state or a non-polling probe rather than calling getUpdates directly on the active bot token.
 §
-No profile default do Hermes, o MCP do Composio foi reativado em /root/.hermes/config.yaml como mcp_servers.composio usando o server filtrado hermes-filtered-core (Gmail, Notion, Supabase, Outlook).
+No perfil default do Hermes, o Composio MCP está ativo em `/root/.hermes/config.yaml` apontando para `https://backend.composio.dev/v3/mcp/21c80646-00d9-45bc-a84a-52e3f1d3ba66?user_id=mario` com `x-api-key: ${COMPOSIO_API_KEY}`; `hermes mcp test composio` conectou e descobriu 508 tools.
