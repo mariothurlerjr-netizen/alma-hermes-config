@@ -38,6 +38,8 @@
 - LLM default: Claude Code (Anthropic Pro Max) + OpenAI Codex (ChatGPT Pro).
 - Infra: FastAPI + Next.js + Postgres async (SQLAlchemy) + Twilio + ElevenLabs + Vapi + HubSpot + Stripe.
 §
-Mario prefers operational command batches to be delivered as a single Claude Code prompt when he will run them himself; if Hermes can safely implement directly on the VPS, do it directly. Hermes should keep going until the task is complete and follow the next relevant step proactively.
+Mario prefere comandos operacionais em um único prompt e que Hermes siga para o próximo passo relevante sem perguntar.
 §
 Mario prefers Hermes to support a split-model workflow, using lighter/faster models for normal conversation and stronger models like gpt-5.5 for execution-heavy tasks, ideally with explicit model selection by mode or profile.
+§
+Mario prefere que Hermes seja ensinado por camadas, separando fatos duráveis, procedimentos, contexto operacional e handoffs self-contained para outros agentes.
