@@ -23,3 +23,7 @@ Mario clarified that “memória cheia” in the Hermes bug report can mean runt
 Mario is willing to give Hermes access to Claude Code for use when necessary; prefer OAuth/device-flow or existing local Claude CLI auth, never paste Anthropic/Claude secrets in chat.
 §
 Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account. `/usr/local/bin/hermes-claude` is the safe Hermes wrapper for one-shot Claude Code delegation; bwrap and socat are installed so `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1` works.
+§
+Telegram bot @username is effectively fixed after bot creation for normal BotFather operations; BotFather can change display name via /setname/Edit Name, but clean path for a new @ is creating a new bot with /newbot and replacing the token in the relevant Hermes profile .env. @BotSupport exceptions are possible but not reliable.
+§
+ALMA Hermes Telegram bot migration: per-profile gateways are enabled via user systemd template `/root/.config/systemd/user/hermes-gateway@.service`. Running profiles include orchestrator `@Nyx_Mario_bot`, orion `@ALMAAILeadBot`, lance `@ALMACriticBot`, sentinel `@sentinel_almabot`, shield `@ALMACOOBot`, iris `@ALMACTOBot`, muse `@alma_aios_bot`, aura `@almaco_ceo_bot`, claire `@alma_cfo_bot`, and austen `@alma_cmo_bot`. CLARA remains stopped and needs its own unique bot token if it should run separately.
