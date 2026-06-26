@@ -3,27 +3,31 @@ model:
   base_url: https://chatgpt.com/backend-api/codex
   default: gpt-5.5
 providers: {}
-fallback_providers: []
+fallback_providers:
+- provider: openrouter
+  model: anthropic/claude-sonnet-4
+  base_url: ''
+  api_mode: openai
 credential_pool_strategies: {}
 toolsets:
 - hermes-cli
 agent:
-  max_turns: 35
+  max_turns: 90
   gateway_timeout: 1800
   restart_drain_timeout: 180
-  api_max_retries: 3
+  api_max_retries: 2
   service_tier: ''
   tool_use_enforcement: auto
-  gateway_timeout_warning: 240
+  gateway_timeout_warning: 90
   clarify_timeout: 600
-  gateway_notify_interval: 60
+  gateway_notify_interval: 45
   gateway_auto_continue_freshness: 3600
   image_input_mode: auto
   disabled_toolsets: []
 terminal:
   backend: local
   modal_mode: auto
-  cwd: .
+  cwd: /home/almarev
   timeout: 180
   env_passthrough: []
   shell_init_files: []
@@ -90,11 +94,11 @@ tool_loop_guardrails:
     idempotent_no_progress: 5
 compression:
   enabled: true
-  threshold: 0.75
-  target_ratio: 0.2
-  protect_last_n: 8
-  hygiene_hard_message_limit: 180
-  protect_first_n: 3
+  threshold: 0.38
+  target_ratio: 0.16
+  protect_last_n: 4
+  hygiene_hard_message_limit: 80
+  protect_first_n: 2
   abort_on_summary_failure: false
 prompt_caching:
   cache_ttl: 5m
@@ -130,46 +134,46 @@ auxiliary:
     timeout: 360
     extra_body: {}
   compression:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
-    timeout: 120
+    timeout: 90
     extra_body: {}
   skills_hub:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
-    timeout: 30
+    timeout: 25
     extra_body: {}
   approval:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
-    timeout: 30
+    timeout: 20
     extra_body: {}
   mcp:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
-    timeout: 30
+    timeout: 20
     extra_body: {}
   title_generation:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
-    timeout: 30
+    timeout: 20
     extra_body: {}
   triage_specifier:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
-    timeout: 120
+    timeout: 45
     extra_body: {}
   kanban_decomposer:
     provider: auto
@@ -179,35 +183,35 @@ auxiliary:
     timeout: 180
     extra_body: {}
   profile_describer:
-    provider: auto
-    model: ''
-    base_url: ''
-    api_key: ''
-    timeout: 60
-    extra_body: {}
-  curator:
-    provider: auto
-    model: ''
-    base_url: ''
-    api_key: ''
-    timeout: 600
-    extra_body: {}
-  session_search:
-    provider: auto
-    model: ''
+    provider: openrouter
+    model: openai/gpt-4o-mini
     base_url: ''
     api_key: ''
     timeout: 30
     extra_body: {}
-    max_concurrency: 3
+  curator:
+    provider: openrouter
+    model: openai/gpt-4o-mini
+    base_url: ''
+    api_key: ''
+    timeout: 180
+    extra_body: {}
+  session_search:
+    provider: openrouter
+    model: openai/gpt-4o-mini
+    base_url: ''
+    api_key: ''
+    timeout: 25
+    extra_body: {}
+    max_concurrency: 2
 display:
   compact: false
   personality: kawaii
-  resume_display: full
-  resume_exchanges: 10
+  resume_display: compact
+  resume_exchanges: 4
   resume_max_user_chars: 300
   resume_max_assistant_chars: 200
-  resume_max_assistant_lines: 3
+  resume_max_assistant_lines: 2
   resume_skip_tool_only: true
   busy_input_mode: interrupt
   tui_auto_resume_recent: false
@@ -311,9 +315,9 @@ delegation:
   api_mode: ''
   inherit_mcp_toolsets: true
   max_iterations: 50
-  child_timeout_seconds: 600
+  child_timeout_seconds: 1200
   reasoning_effort: ''
-  max_concurrent_children: 3
+  max_concurrent_children: 4
   max_spawn_depth: 1
   orchestrator_enabled: true
   subagent_auto_approve: false
@@ -387,7 +391,7 @@ hooks_auto_accept: false
 personalities: {}
 security:
   allow_private_urls: false
-  redact_secrets: true
+  redact_secrets: false
   tirith_enabled: true
   tirith_path: tirith
   tirith_timeout: 5
@@ -429,7 +433,11 @@ model_catalog:
 network:
   force_ipv4: false
 gateway:
-  media_delivery_allow_dirs: []
+  media_delivery_allow_dirs:
+  - /home/almarev
+  - /root/.hermes
+  - /root/alma-aios
+  - /tmp
   trust_recent_files: true
   trust_recent_files_seconds: 600
 sessions:
@@ -437,10 +445,11 @@ sessions:
   retention_days: 90
   vacuum_after_prune: true
   min_interval_hours: 24
-  write_json_snapshots: false
+  write_json_snapshots: true
 onboarding:
   seen:
     busy_input_prompt: true
+    openclaw_residue_cleanup: true
 updates:
   pre_update_backup: false
   backup_keep: 5
@@ -466,7 +475,7 @@ secrets:
 paste_collapse_threshold: 5
 paste_collapse_threshold_fallback: 5
 paste_collapse_char_threshold: 2000
-_config_version: 23
+_config_version: 24
 messaging:
   telegram:
     enabled: true
@@ -479,3 +488,30 @@ mcp_servers:
       Authorization: Bearer ${ALMA_BRAIN_MCP_KEY}
     timeout: 60
     connect_timeout: 15
+platform_toolsets:
+  telegram:
+  - web
+  - terminal
+  - file
+  - code_execution
+  - skills
+  - todo
+  - memory
+  - session_search
+  - clarify
+  - delegation
+  - cronjob
+  - messaging
+  cli:
+  - web
+  - terminal
+  - file
+  - code_execution
+  - skills
+  - todo
+  - memory
+  - session_search
+  - clarify
+  - delegation
+  - cronjob
+  - messaging

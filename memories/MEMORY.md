@@ -1,6 +1,4 @@
-Legacy ORION workers remain intentionally paused since 2026-06-13 (`fc52bbc58989` paused, `alma-orion@1..5` disabled), but controlled ORION Lead Factory cron `5cd7d23f5197` is active in CSV-only mode for ALMA Rev lead production.
-§
-ORION watchdog cron `fc52bbc58989` uses rolling `delivered_24h`; `/root/.hermes/scripts/orion_watchdog.py` treats flat or decreasing delivery counts as KPI movement, not worker-health failure. Hard failures are missing/stale/erroring workers or failed repairs.
+ORION state: legacy workers paused/disabled since 2026-06-13; controlled ORION Lead Factory cron `5cd7d23f5197` is active in CSV-only mode. Watchdog `fc52bbc58989` treats flat/decreasing `delivered_24h` as KPI movement, not worker-health failure; hard failures are missing/stale/erroring workers or failed repairs.
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
@@ -16,16 +14,18 @@ ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Sender ga
 §
 ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
-Hermes secret redaction can corrupt example shell snippets that contain secret-looking env assignments such as `COMPOSIO_API_KEY=...` before delivery/persistence; for secret-save instructions, avoid emitting literal assignment snippets and prefer an attached script file or Python writer that never prints the secret.
+Hermes default profile has `security.redact_secrets=false` after Composio/snippet corruption; keep handling secrets operationally safe by never printing/pasting them, using env files or Python writers instead of chat snippets.
 §
 Mario clarified that “memória cheia” in the Hermes bug report can mean runtime/RSS or configured process memory around 2.5GB, not only MEMORY.md/USER.md char usage; future Hermes diagnostics must separate OS/RSS memory, model context overflow, and persistent memory char budgets.
 §
-Mario is willing to give Hermes access to Claude Code for use when necessary; prefer OAuth/device-flow or existing local Claude CLI auth, never paste Anthropic/Claude secrets in chat.
-§
-Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account. `/usr/local/bin/hermes-claude` is the safe Hermes wrapper for one-shot Claude Code delegation; bwrap and socat are installed so `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1` works.
+Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account; use `/usr/local/bin/hermes-claude` for safe one-shot delegation. Prefer OAuth/device-flow or existing local auth, never paste Anthropic/Claude secrets in chat.
 §
 Telegram bot @username is effectively fixed after bot creation for normal BotFather operations; BotFather can change display name via /setname/Edit Name, but clean path for a new @ is creating a new bot with /newbot and replacing the token in the relevant Hermes profile .env. @BotSupport exceptions are possible but not reliable.
 §
 ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways for orchestrator, orion, lance, sentinel, shield, iris, muse, aura, claire, clara, and austen are stopped/disabled as user systemd services. Profiles, tokens, SOUL/CLAUDE files, and registry remain for on-demand reactivation if overload signals warrant workers.
 §
 ALMA agent operating model: default is Hermes as single operator/cockpit with former agents represented as playbooks/skills loaded on demand. Additional bot profiles should be proposed only when operational overload signals appear: SLA misses, continuous monitoring need, high-volume queue, compliance/infra risk, or context contamination. Hermes should proactively tell Mario when more bots/workers become warranted.
+§
+On Mario's VPS Hermes default profile currently uses OpenAI Codex provider with model `gpt-5.5`; logs show intermittent chatgpt.com/backend-api/codex stalls/context-overflow/compression failures. For Hermes slowness diagnostics, check provider/model latency and context compression before blaming VPS CPU/RAM.
+§
+Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gpt-5.5`; auxiliary compression/title/search/etc use OpenRouter `openai/gpt-4o-mini`; Telegram/CLI toolsets are trimmed; emergency fallback is OpenRouter `anthropic/claude-sonnet-4` only after primary failure/quota. Backup: `/root/.hermes/config.yaml.bak-speed-tuning-20260626-1300`.
