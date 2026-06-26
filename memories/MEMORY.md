@@ -6,7 +6,7 @@ Hermes TTS uses `elevenlabs`; Twilio env + phone vars needed. Mario prefere voz 
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
-Mario has a personal Apollo account with roughly 2.5k credits available as a potential ORION credit source; do not paste Apollo secrets in chat, use secret-safe env update on the VPS.
+Mario prefers Mails.so for email verification; it is the preferred verifier for leadgen hygiene instead of the older verification stack.
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
