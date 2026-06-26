@@ -26,6 +26,6 @@ ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways f
 §
 ALMA agent operating model: default is Hermes as single operator/cockpit with former agents represented as playbooks/skills loaded on demand. Additional bot profiles should be proposed only when operational overload signals appear: SLA misses, continuous monitoring need, high-volume queue, compliance/infra risk, or context contamination. Hermes should proactively tell Mario when more bots/workers become warranted.
 §
-On Mario's VPS Hermes default profile currently uses OpenAI Codex provider with model `gpt-5.5`; logs show intermittent chatgpt.com/backend-api/codex stalls/context-overflow/compression failures. For Hermes slowness diagnostics, check provider/model latency and context compression before blaming VPS CPU/RAM.
+On Mario's VPS Hermes default profile uses OpenAI Codex provider with model `gpt-5.5`; OpenAI Codex OAuth credential has ~3h+ cooldown remaining but reverted to original config. OpenRouter fallback available. For Hermes slowness, check provider rate limits first, then model latency and context compression before blaming VPS CPU/RAM.
 §
 Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gpt-5.5`; auxiliary compression/title/search/etc use OpenRouter `openai/gpt-4o-mini`; Telegram/CLI toolsets are trimmed; emergency fallback is OpenRouter `anthropic/claude-sonnet-4` only after primary failure/quota. Backup: `/root/.hermes/config.yaml.bak-speed-tuning-20260626-1300`.
