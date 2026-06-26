@@ -45,3 +45,5 @@ Mario prefere split-model workflow.
 Mario prefere ensino em camadas: fatos duráveis, procedimentos, contexto operacional e handoffs.
 §
 Mario quer o daily do Hermes em 4 frentes: Instantly/email, balanceamento de leads entre ICPs, completude/enrichment da base, e market/content watch para Instagram, blog e email.
+§
+Mario quer que vídeos do Alfredo Soares sejam acompanhados como fonte recorrente de ideias de GTM e marketing.

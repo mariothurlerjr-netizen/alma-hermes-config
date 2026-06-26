@@ -10,7 +10,7 @@ Mario has a personal Apollo account with roughly 2.5k credits available as a pot
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Sender gate: zero warmup spam in last 7d. `getalmarev.com` partially usable; `tryalmarev.com`/others warmup-only until next gate. Mario flagged stale brain confusion: use live data + STATUS/_CURRENT/canonical recent docs before treating old notes as current.
+ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Mario usa todos os leads, inclusive ICPs errados, como insumo para copy e entregabilidade. Sender gate: zero warmup spam in last 7d. `getalmarev.com` parcialmente usable; `tryalmarev.com`/others warmup-only até o próximo gate.
 §
 ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
@@ -32,4 +32,6 @@ Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gp
 §
 Manual Telegram getUpdates calls against an already-polling Hermes bot gateway can trigger HTTP 409 Conflict and log a polling-conflict warning. For live gateway verification, prefer systemd/journal/service state or a non-polling probe rather than calling getUpdates directly on the active bot token.
 §
-No perfil default do Hermes, o Composio MCP está ativo em `/root/.hermes/config.yaml` apontando para `https://backend.composio.dev/v3/mcp/21c80646-00d9-45bc-a84a-52e3f1d3ba66?user_id=mario` com `x-api-key: ${COMPOSIO_API_KEY}`; `hermes mcp test composio` conectou e descobriu 508 tools.
+No perfil default do Hermes, o MCP Composio está filtrado para ferramentas core de Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` estão desativados no server config.
+§
+Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.

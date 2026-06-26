@@ -19,10 +19,11 @@ license: proprietary
 - Funnel atual: cold email com CTA AURA → reunião usando resultado AURA → VERA paid diagnostic → implementação/retainer via Hub agents.
 - Domínios: `getalmarev.com` é usado para inbox/outbound; `almarev.com` é usado em assets públicos/campanhas como `/aura` e `/blog`. Não corrigir automaticamente um para o outro sem checar contexto.
 - Separação de sender ALMA Rev: `mario@almarev.com` fica para canal owned/warm, newsletter, digest e relacionamento com quem já interagiu com AURA/conteúdo. Cold/outbound deve usar contas aquecidas `@getalmarev.com`, especialmente `mario@getalmarev.com`, quando estiverem prontas.
-- Outbound: Instantly com campanhas `AlmaREV Launch`; status operacional via API v2 + Cortex AURA cross-check.
+- Outbound: Instantly with campaigns `AlmaREV Launch`; status operational via API v2 + Cortex AURA cross-check.
 - Pitfall Instantly: “contas ativas” pode aparecer como contagem de **leads em campanhas ativas**, não mailboxes. Validar separando `/campaigns/analytics` (`leads_count`, `contacted_count`, `emails_sent_count`) de `/accounts` e do painel Cortex `/api/agenda/email-capacity`.
-- Daily operating loop: quando Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch.
-- Adjacent/opportunity exploration: se Mario falar de cobrança, recuperação de recebíveis, FIDC, carteiras vencidas, success fee ou “dinheiro parado”, usar `references/alma-recovery-market-wedge.md`.
+- Deliverability / daily outbound ops: quando Mario falar de volume diário, aquecimento, spam, contas prontas ou “usar todos os leads”, seguir `references/alma-rev-deliverability-daily-ops.md`.
+- Daily operating loop: when Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch.
+
 
 ## ALMA Agentic
 - `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
