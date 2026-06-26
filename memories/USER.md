@@ -11,3 +11,5 @@ Mario quer o daily do Hermes em 4 frentes: Instantly/email, balanceamento de lea
 Mario quer que vídeos do Alfredo Soares sejam acompanhados como fonte recorrente de ideias de GTM e marketing.
 §
 Mario prefere continuar conversas hands-free quando está dirigindo e considera uma interface de voz por ligação telefônica uma opção válida se for simples e prática.
+§
+Mario prefere respostas em áudio/voz quando estiver dirigindo ou quando o contexto vier por voz, e quer que Hermes responda também ao áudio que ele enviar.
