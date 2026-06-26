@@ -28,10 +28,12 @@ ALMA agent operating model: Hermes is the default cockpit, additional bots only 
 §
 On Mario's VPS Hermes default profile uses OpenAI Codex provider with model `gpt-5.5`; OpenAI Codex OAuth credential has ~3h+ cooldown remaining but reverted to original config. OpenRouter fallback available. For Hermes slowness, check provider rate limits first, then model latency and context compression before blaming VPS CPU/RAM.
 §
-Hermes speed tuning applied on default profile: primary remains OpenAI Codex `gpt-5.5`; auxiliary compression/title/search/etc use OpenRouter `openai/gpt-4o-mini`; Telegram/CLI toolsets are trimmed; emergency fallback is OpenRouter `anthropic/claude-sonnet-4` only after primary failure/quota. Backup: `/root/.hermes/config.yaml.bak-speed-tuning-20260626-1300`.
+Hermes default profile speed tuning keeps OpenAI Codex `gpt-5.5` as primary, with lighter OpenRouter models for auxiliary tasks and a fallback to Claude Sonnet 4.
 §
 No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` ficam desativados. Granola também foi registrado no MCP do perfil e exige OAuth para uso.
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
 §
 Hermes voice stack on Mario's VPS still has Retell/Vapi plumbing, but Bland AI is now the preferred call-flow path when switching away from ElevenLabs-style orchestration.
+§
+No perfil default do Hermes, o Telegram home channel ficou configurado em `TELEGRAM_HOME_CHANNEL=8293697290`, então DMs do Mario passam a ter destino padrão para respostas e deliveries proativos.

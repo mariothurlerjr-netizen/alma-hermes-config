@@ -12,4 +12,4 @@ Mario quer que vídeos do Alfredo Soares sejam acompanhados como fonte recorrent
 §
 Mario prefere continuar conversas hands-free quando está dirigindo e considera uma interface de voz por ligação telefônica uma opção válida se for simples e prática.
 §
-Mario prefere respostas em áudio/voz quando estiver dirigindo ou quando o contexto vier por voz, e quer que Hermes responda também ao áudio que ele enviar.
+Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
