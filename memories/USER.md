@@ -37,3 +37,5 @@
 - Repos ativos: alma-aios, alma-agentic, almarev-site, mtmalls, hermes-agent, brain-mcp.
 - LLM default: Claude Code (Anthropic Pro Max) + OpenAI Codex (ChatGPT Pro).
 - Infra: FastAPI + Next.js + Postgres async (SQLAlchemy) + Twilio + ElevenLabs + Vapi + HubSpot + Stripe.
+§
+Mario prefers operational command batches to be delivered as a single Claude Code prompt when he will run them himself; if Hermes can safely implement directly on the VPS, do it directly instead of giving step-by-step commands.

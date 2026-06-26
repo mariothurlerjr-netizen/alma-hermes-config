@@ -17,3 +17,7 @@ ALMA Rev ops: Instantly warms inboxes; ORION only lead-gen/enrichment. Sender ga
 ALMA Rev sender separation: `mario@almarev.com` is reserved for owned/warm newsletter-style communication; cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
 Hermes secret redaction can corrupt example shell snippets that contain secret-looking env assignments such as `COMPOSIO_API_KEY=...` before delivery/persistence; for secret-save instructions, avoid emitting literal assignment snippets and prefer an attached script file or Python writer that never prints the secret.
+§
+Mario clarified that “memória cheia” in the Hermes bug report can mean runtime/RSS or configured process memory around 2.5GB, not only MEMORY.md/USER.md char usage; future Hermes diagnostics must separate OS/RSS memory, model context overflow, and persistent memory char budgets.
+§
+Mario is willing to give Hermes access to Claude Code for use when necessary; prefer OAuth/device-flow or existing local Claude CLI auth, never paste Anthropic/Claude secrets in chat.
