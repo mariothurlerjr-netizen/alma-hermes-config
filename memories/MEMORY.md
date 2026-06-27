@@ -1,4 +1,4 @@
-ORION legacy workers are paused/disabled since 2026-06-13; Lead Factory cron `5cd7d23f5197` remains active in CSV-only mode, and the watchdog treats flat/decreasing `delivered_24h` as KPI movement rather than worker failure.
+ORION lead factory was resumed on 2026-06-27: `orion-watchdog` cron resumed and `alma-orion@1..5.service` plus `alma-orion-watchdog.timer` are active/enabled.
 §
 Na VPS do Mario, `hermes-gateway` roda como user service de root (`XDG_RUNTIME_DIR=/run/user/0 systemctl --user ...`); não há Unix user `almarev`, então units ALMA não devem usar `User=almarev` sem criar o user.
 §
