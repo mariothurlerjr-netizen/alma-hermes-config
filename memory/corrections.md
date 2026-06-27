@@ -56,3 +56,9 @@ Formato:
 - Correção: "Eu acho q vc entendeu errado"
 - Lição: quando a correção vier sem o ponto exato, parar e pedir a distinção específica antes de assumir qual parte está errada.
 - Status: APPLIED
+
+## 2026-06-27T00:00:00Z | lead factory flow
+- O que fiz: associei o lead factory a verifier errado e tratei a etapa de verificação como genérica.
+- Correção: "Lead factory: vc busca as contas no icp, rodarmos o mails.do e verificamos a conta"
+- Lição: o fluxo canônico do Lead Factory é ICP search -> mails.do -> account verification.
+- Status: APPLIED
