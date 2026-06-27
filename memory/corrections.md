@@ -50,3 +50,9 @@ Formato:
 - Correção: "jtshirts e mtmalls estao encerrados"
 - Lição: JT Shirts e mtmalls são workstreams encerrados; só tratar como ativos se Mario reabrir explicitamente.
 - Status: APPLIED
+
+## 2026-06-27T00:00:00Z | clarification
+- O que fiz: interpretei a mensagem do Mario sem o contexto suficiente.
+- Correção: "Eu acho q vc entendeu errado"
+- Lição: quando a correção vier sem o ponto exato, parar e pedir a distinção específica antes de assumir qual parte está errada.
+- Status: APPLIED

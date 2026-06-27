@@ -6,7 +6,7 @@ Hermes TTS uses `elevenlabs`; Twilio voice number for Hermes is a local São Pau
 §
 Reminder handling: if Mario asks in shorthand/noisy text to send or remind something at a time, schedule a durable Telegram reminder when the time can be inferred; ask only for missing reminder text or genuinely impossible timing, and state explicitly if no job was created.
 §
-Mario prefere MillionVerifier/MailVerifier em vez do verificador legado/cancelado.
+Mario prefere mails.so para lead verification/enrichment no lugar do MillionVerifier/MailVerifier legado/cancelado.
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
