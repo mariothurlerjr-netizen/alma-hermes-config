@@ -26,6 +26,17 @@ Para ALMA Agentic operacional, o repo ativo é `/home/almarev/agentic`. Antes de
 3. Recomenda 1 com justificativa.
 4. Executa se autonomia clara, pergunta confirmação curta caso contrário.
 
+## Agentic org design
+Quando Mario disser que os cargos da empresa são ocupados por agentes, trate a empresa como um org chart agentic, não como estrutura humana tradicional.
+
+- Comece por mapear a empresa em camadas, normalmente: control, revenue, pipeline, billing/recovery e infra.
+- Para cada agente, registre um scorecard mínimo, missão, inputs, outputs, decisões sem escalada, triggers de escalada, KPI e falha típica.
+- Se o estado do brain mostrar agentes ativos, pausados ou inativos, mantenha todos no mapa, mas separe claramente o que está vivo do que está dormindo.
+- Não pare em nomes de agente. Sempre explicite handoff, owner do KPI e o que é pipeline-machine versus role operacional.
+- Quando houver sobreposição de função, priorize uma única rota de responsabilidade antes de propor novos agentes.
+
+Ver referência: `references/agentic-org-matrix.md`.
+
 ## Debug técnico em agentes/APIs
 
 Referências de sessão:
