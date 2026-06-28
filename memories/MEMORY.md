@@ -39,3 +39,5 @@ Hermes voice stack on Mario's VPS still has Retell/Vapi plumbing, but Bland AI i
 No perfil default do Hermes, o Telegram home channel ficou configurado em `TELEGRAM_HOME_CHANNEL=8293697290`, então DMs do Mario passam a ter destino padrão para respostas e deliveries proativos.
 §
 Mario clarified that getalmarev.com is a functioning workspace; the active problem is sender/provider alignment and deliverability (not a workspace outage).
+§
+Na empresa do Mario, os cargos operacionais são ocupados por agentes, não por humanos.
