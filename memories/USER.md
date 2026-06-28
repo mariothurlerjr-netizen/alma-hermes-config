@@ -15,3 +15,5 @@ Mario prefere continuar conversas hands-free quando está dirigindo e considera 
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
 §
 Mario prefere que, quando houver caminho claro de execução, Hermes responda com plano de execução e recomendação passo a passo e siga executando em vez de terminar com sugestões genéricas.
+§
+Mario wants end-of-week reports from each agent summarizing daily output, quantities, blockers, and the next-day plan.

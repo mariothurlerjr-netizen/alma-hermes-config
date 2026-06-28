@@ -60,7 +60,9 @@ Regras obrigatórias:
 
 ## Protocolo de escrita
 
-Quando Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
+Support file with a concise write-validation + reporting note: `references/brain-write-frontmatter-and-report-matrix.md`.
+
+When Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 
 1. **Decide WHERE**:
    - Captura rápida sem categoria clara → `raw/YYYY-MM-DD-<slug>.md`
