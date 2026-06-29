@@ -85,4 +85,10 @@
     78|- Outcome: UNKNOWN
     79|- Sinal: API Instantly confirmou 3 inboxes nas 4 regionais; cron 48ee17f65d77 ativo para 13:00 UTC diário.
     80|- Próximo: continuar; se Mario quiser escalar volume, ajustar regra para incluir domínios novos com rampa por idade/score.
-    81|
+    81|## 2026-06-29T13:28:24+00:00 | research-validation-response
+- Ação: pesquisei benchmarks de cold email e funnel de vendas para responder a dúvida sobre conversão.
+- Abordagem: dupla checagem com brain + web via terminal, depois síntese com faixas de mercado.
+- Outcome: SUCCESS
+- Sinal: benchmarks encontrados para reply rate, meeting rate e close rate.
+- Próximo: continuar usando o mesmo padrão em hipóteses de mercado.
+

@@ -62,3 +62,9 @@ Formato:
 - Correção: "Lead factory: vc busca as contas no icp, rodarmos o mails.do e verificamos a conta"
 - Lição: o fluxo canônico do Lead Factory é ICP search -> mails.do -> account verification.
 - Status: APPLIED
+## 2026-06-29T13:28:24+00:00 | research-double-check
+- O que fiz: respondi sem explicitar a regra de devil's advocate e double-check do número do mercado.
+- Correção: Mario quer que eu revise as informações que ele passa, pesquise, valide se faz sentido e o corrija quando não fizer.
+- Lição: antes de aceitar uma tese operacional, fazer checagem externa e contradizer a hipótese se o mercado não sustentar.
+- Status: APPLIED
+

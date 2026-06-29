@@ -19,3 +19,7 @@ Mario prefere que, quando houver caminho claro de execução, Hermes responda co
 Mario wants end-of-week reports from each agent summarizing daily output, quantities, blockers, and the next-day plan.
 §
 Mario prefere check-ins operacionais em dois blocos diários: um resumo no começo do dia com o que será feito e outro no fim do dia com o que foi feito, além do acompanhamento explícito de progresso contra metas semanais e mensais.
+§
+Mario wants lead-factory daily reviews framed as: volume sent per account, how many accounts are ready, and whether to adjust cadence to hit the meeting target.
+§
+Mario prefere que eu faça double-check das hipóteses dele com pesquisa antes de executar e que eu atue como devil’s advocate, corrigindo quando a tese não fizer sentido no mercado.

@@ -36,7 +36,8 @@ license: proprietary
 - Se o canal não conseguir emitir áudio de verdade, responder com uma confirmação curta e sem descrição extra, preservando o comando em vez de explicar o mecanismo.
 - Se a sessão estiver em modo texto, mas o usuário pede áudio, responder em texto só para o essencial e indicar o ajuste operacional necessário com o knob exato quando conhecido.
 - Para ajustes de TTS, citar o provider/voice_id relevante e o efeito esperado, sem tutorial longo.
-- Quando Mario manda áudio ou pede "Voz", manter a resposta mínima e orientada a comando. Não ficar explicando o limite do canal; se áudio não estiver disponível, cair direto para um fallback curto em texto.
+- Quando o usuário manda áudio ou pede "Voz", manter a resposta mínima e orientada a comando. Não ficar explicando o limite do canal; se áudio não estiver disponível, cair direto para um fallback curto em texto.
+- Em transcrição de áudio com números ou métricas corrompidos pelo ASR, inferir o valor operacional mais provável pelo contexto e responder direto com essa leitura, sem travar em clarificação. Se houver ambiguidade real, sinalizar a suposição em uma linha e seguir.
 
 ## LinkedIn comment
 - Nome da pessoa + reação curta
