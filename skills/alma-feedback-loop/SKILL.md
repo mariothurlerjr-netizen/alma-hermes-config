@@ -38,9 +38,13 @@ Quando Mário trouxer números, projeções, taxas, metas, tese de mercado ou qu
 8. Para perguntas operacionais, sempre feche com um próximo passo concreto + a métrica que define se a etapa foi concluída.
 9. Se a conversa virar revisão de funil ou cadência, explicite o gargalo dominante antes de sugerir escala.
 10. Quando o usuário pedir revisão de conversa, conserve a lição estável na memória e, se for workflow recorrente, atualize o skill governante em vez de responder só no improviso.
+11. Antes de citar totais de contas, caixas, leads ou qualquer inventário operacional que pode mudar durante o dia, revalide o snapshot live imediatamente e trate qualquer contagem anterior como stale.
+12. Se o usuário apontar que o inventário mudou, recompute a classificação inteira em cima do estado atual, não só o delta.
+13. Quando citar contagens, diga explicitamente qual snapshot, filtro ou critério foi usado naquela rechecagem.
 
 Reference: `references/devil-advocate-next-step-2026-06-29.md`.
 Reference: `references/user-double-check-preference-2026-06-29.md`.
+Reference: `references/live-inventory-revalidation-2026-06-29.md`.
 
 ## Quando Mário aceitar sem correção
 Marca último attempts.md como SUCCESS. Não escreve em corrections.

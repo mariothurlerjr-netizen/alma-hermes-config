@@ -32,8 +32,10 @@ Mario prefere receber um status intermediário quando eu estiver trabalhando em 
 §
 Mario wants explicit verdicts on operational claims, with reason, next action, and closure metric.
 §
-Mario prefers that when an email account recently sent spam, the ramp-up starts at 5 sends/day and increases by 1/day until 30, with one additional day per step.
+Mario prefers a conservative ramp-up for recently spammy senders, starting at 5/day and increasing by 1/day.
 §
 Mario prefere que contas com ban ou sinais ruins sejam removidas do giro e fiquem em descanso por alguns dias antes de voltar ao ambiente.
 §
 Mario quer que as conversas também alimentem a memória e o aprimoramento do Hermes.
+§
+Mario prefere classificar contas de outbound por janela de segurança, com READY em 5+ dias sem spam, COOLDOWN/WATCH em 3 a 4 dias sem spam e HOLD abaixo de 3 dias ou com sinal ruim recente.
