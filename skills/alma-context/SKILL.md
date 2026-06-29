@@ -23,13 +23,15 @@ license: proprietary
 - Pitfall Instantly: “contas ativas” pode aparecer como contagem de **leads em campanhas ativas**, não mailboxes. Validar separando `/campaigns/analytics` (`leads_count`, `contacted_count`, `emails_sent_count`) de `/accounts` e do painel Cortex `/api/agenda/email-capacity`.
 - Deliverability / daily outbound ops: when Mario falar de volume diário, aquecimento, spam, contas prontas ou “usar todos os leads”, seguir `references/alma-rev-deliverability-daily-ops.md`.
 - Email base hygiene: use `references/email-verification.md` and `leadgen-verification-ops`. Preferred verifier can change by operator decision; current direction is mails.so-first for lead hygiene when Mario switches to it. Treat older verifier stacks as retired unless Mario explicitly reopens them.
-- Lead search / ORION verification details: see `references/orion-lead-factory-verification.md`. Keep provider/account failures loud so billing/auth problems are visible.- Daily operating loop: when Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch. Quando houver conteúdo externo para mineração de GTM, incluir vídeos do Alfredo Soares como fonte recorrente de ideias, não como one-off.
-
+- Lead search / ORION verification details: see `references/orion-lead-factory-verification.md`. Keep provider/account failures loud so billing/auth problems are visible.
+- Daily operating loop: when Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch. Quando houver conteúdo externo para mineração de GTM, incluir vídeos do Alfredo Soares como fonte recorrente de ideias, não como one-off.
 
 ## ALMA Agentic
 - `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
 - ORION lead-gen roda como `alma-orion@1..5.service`, gera lead-base e dashboard em `app.almarev.com/dashboard/leads`.
+- Para perguntas de saúde/capacidade do ORION, usar `references/orion-healthscore-and-content-status.md` e separar stack health, mailbox health, throughput e forecast.
 - LANCE (text SDR), CLAIRE (voice SDR), Clara e AURA existem como agentes/workstreams.
+- Para mapa curto e limpo de funções atuais, consulte `references/agent-role-map.md`.
 
 ## Encerrados / histórico
 - JT Shirts: encerrado. Contexto histórico: US uniform company, Fractional Head of Sales, ICP restaurants/franchises, field service, multi-site healthcare, stack Snov.io/Instantly/Python Google Places API. Usar só para arqueologia, migração, cleanup ou análise histórica.
@@ -48,7 +50,7 @@ license: proprietary
 - Na VPS ALMA atual não assumir Unix user `almarev`; serviços systemd rodam majoritariamente como root/dev. Antes de usar `User=almarev` em unit file, verificar se o usuário existe ou criar explicitamente.
 
 ## Runbooks operacionais
-- Hub Team roster / agent identity correction: quando Mario apontar texto errado no Hub (`/team`, cards de AI Employees, Agentic Lab, org chart), trate como correção de identidade operacional, não só copy. Para IRIS, o papel canônico é métricas/dashboard/analytics/digest/anomaly detection, não follow-up/scheduling/closer. Corrigir tanto runtime DB (`team_agents`, `agent_goals`) quanto fontes persistentes (`migrations/0041_team_cockpit.sql`, `migrations/0042_agent_descriptions.sql`, `hub/src/lib/agents.ts`, `cortex/team.py`, SOUL/template, prompt decomposer quando aplicável), depois `npm run build`, reiniciar `alma-cortex`/`alma-hub` e validar via `/team/agents` e `/api/cortex/team/agents`.
+- Hub Team roster / agent identity correction: quando Mario apontar texto errado no Hub (`/team`, cards de AI Employees, Agentic Lab, org chart), trate como correção de identidade operacional, não só copy. Para IRIS, o papel canônico é metrics/dashboard/analytics/digest/anomaly detection, não follow-up/scheduling/closer. Corrigir tanto runtime DB (`team_agents`, `agent_goals`) quanto fontes persistentes (`migrations/0041_team_cockpit.sql`, `migrations/0042_agent_descriptions.sql`, `hub/src/lib/agents.ts`, `cortex/team.py`, SOUL/template, prompt decomposer quando aplicável), depois `npm run build`, reiniciar `alma-cortex`/`alma-hub` e validar via `/team/agents` e `/api/cortex/team/agents`.
 - Agent/systemd health audit + pause-all: ver `references/agent-systemd-health-audit.md`. Use quando Mario perguntar se os agentes estão instalados, vivos, “rotating”, rodando na VPS, quando houver falha em timers/services ALMA, ou quando pedir pra pausar/parar todos os agentes. Sempre cruzar Brain `STATUS.md` com systemd, timers, journal, failed units, processos soltos, Hermes cron e health endpoints.
 - Instantly outbound status: ver `references/instantly-outbound-status.md`. Use quando Mario perguntar se os emails/campanhas foram enviados, se ainda falta disparo, se houve reply/bounce/open, ou se alguém fez AURA Assessment.
 - Instantly capacity maximization: ver `references/instantly-capacity-maximization.md`. Use quando Mario perguntar sobre plano Instantly, cap de leads, volume diário, capacidade das contas, tamanho de cadência, campanhas pausadas/ativas, ou se estamos maximizando outbound. Sempre separar lead cap workspace-wide, capacidade de mailboxes, daily_limit de campanhas e número real de steps na sequência.
@@ -57,10 +59,20 @@ license: proprietary
 - `Granola meeting context`: ver `references/granola-meeting-notes.md`. Use quando Mario pedir para ler recaps de reuniões, extrair follow-ups, ou reutilizar contexto de calls; trate como insumo recorrente, não como verdade canônica se conflitar com STATUS/_CURRENT/decisions.
 - `HERALD activity notification`: ver `references/herald-activity-notification.md`. Use quando o problema for mensagem entrando mas o alerta não disparar, ou quando for preciso garantir notificação em tempo real com fallback de watchdog.
 - `Hermes Telegram agent fleet`: ver `references/hermes-telegram-agent-fleet.md`. Use quando Mario pedir migração de agentes Claude/LangGraph/OpenClaw para Hermes profiles/bots, criação de um bot por agente, troca de token do BotFather, ou start/validação de gateways por profile.
-
 - LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
 - ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar geração de leads, pausar ORION ou retomar lead-gen. Sequência correta: pausar `orion-watchdog`, parar/desabilitar `alma-orion@1..5`, limpar `failed` se necessário, verificar inactive/disabled/sem processo.
 - `references/orion-lead-factory-flow.md`: flow canônico do Lead Factory, `ICP search -> mails.do -> account verification`.
 - CLAIRE dialer operations: ver `references/claire-dialer-operations.md`. Use quando Mario pedir pra pausar/retomar dialer, fim de semana, ligações da CLAIRE ou checar se ela está discando. Regra padrão: dialer só segunda a sexta; pausar outbound/reminder sem desligar polling/QA/coach.
 - ALMA Local CRM outcomes: ver `references/local-crm-outcomes.md`. Use quando Mario perguntar o significado de outcomes/tags/stages como `CHECK_SENT`, `BOOKED`, `CALLBACK`, ou quando uma notificação de call precisar ser interpretada.
 - LUNA content digest: ver `references/luna-content-digest.md`. Use quando Mario perguntar que email semanal/newsletter da ALMA Rev chegou, se foi enviado pra outras pessoas, quem recebeu, ou se é Instantly/outbound. Validar via `alma-content-digest.timer`, journal e `content_digest_log`; separar emails reais externos de internos/testes.
+- `references/agent-role-map.md`: mapa curto de classificação, incluindo IRIS como digest/reporting, Granola como software, e o critério de saúde das contas do Instagram.
+
+## Workflow de resposta
+- Em respostas de status, evitar narrativa genérica. Preferir blocos curtos com estado atual, pendências, bloqueios e próximo movimento.
+- Se a sessão tiver um plano ativo, task list ou execução em andamento, refletir isso no status em vez de ignorar.
+- Se a resposta for por voz ou o usuário mandar áudio, manter a versão verbal curta e operacional, e deixar o fallback texto mínimo.
+
+## Trigger keywords
+**Leitura**: status, pipeline, onde paramos, ORION, CLAIRE, Clara, ALMA Rev, alma-aios, agentic, JT Shirts, mtmalls, Workstream B, LANCE, IRIS, SCRIBE, Sentinel, Shield, Brain, workspace, tenant, Granola, meeting notes, recap, calls.
+
+**Escrita**: anota, salva no brain, registra, grava, lembra disso, escreve no brain, captura.

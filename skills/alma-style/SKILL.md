@@ -25,6 +25,7 @@ license: proprietary
 - Em pergunta curta por voz sobre métrica/configuração (`por que X está Y?`, `why is X Y?`), responder primeiro a causa literal em 1-3 linhas. Só depois projetar cenários ou fazer análise lateral se isso for claramente útil; não substituir a resposta direta por uma simulação longa.
 - Em áudio transcrito com termos claramente corrompidos pelo ASR, inferir pelo contexto operacional recente quando a intenção for óbvia. Exemplo: em conversa sobre Instantly/outbound, “metros”, “meses” ou “médios” podem ser `emails/envios`; responder a métrica pedida em vez de travar em clarificação, deixando a leitura implícita pelo conteúdo da resposta.
 - Em revisão de status, mapear por área com estado atual, pendências, bloqueios e próximo movimento.
+- Quando o usuário pedir prioridades ou agenda de agentes, separar explicitamente em blocos: **agente**, **software/integrations**, **monitoring rule**, sem misturar os três.
 - Quando a pergunta envolver trabalho do dia, operação ou triagem de prioridades, responder em blocos curtos e objetivos, sem narrativa longa.
 - Quando Mario pede resposta em áudio, priorize uma resposta vocal direta e curta, com config concreta se houver knob explícito, em vez de explicar o mecanismo em abstrato.
 

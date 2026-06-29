@@ -10,7 +10,7 @@ Mario prefere mails.do no fluxo de lead verification/enrichment do Lead Factory,
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-`getalmarev.com` is a functioning workspace; the active issue is sender/provider alignment and deliverability, not workspace availability. `tryalmarev.com` and other domains remain warmup-only until the next gate.
+`getalmarev.com` is a functioning workspace; ORION monitoring is tied to Instantly email accounts and not Instagram. `tryalmarev.com` and other domains remain warmup-only until the next gate; accounts only become eligible to send after 5 days with zero spam.
 §
 ALMA Rev sender separation: the `@getalmarev.com` sending accounts live in Gmail Workspace; `mario@almarev.com` is reserved for owned/warm newsletter-style communication, and cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
@@ -37,7 +37,5 @@ Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline
 Hermes voice stack on Mario's VPS still has Retell/Vapi plumbing, but Bland AI is now the preferred call-flow path when switching away from ElevenLabs-style orchestration.
 §
 No perfil default do Hermes, o Telegram home channel ficou configurado em `TELEGRAM_HOME_CHANNEL=8293697290`, então DMs do Mario passam a ter destino padrão para respostas e deliveries proativos.
-§
-Mario clarified that getalmarev.com is a functioning workspace; the active problem is sender/provider alignment and deliverability (not a workspace outage).
 §
 Na empresa do Mario, os cargos operacionais são ocupados por agentes, não por humanos.

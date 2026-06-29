@@ -17,3 +17,5 @@ Mario quer que Hermes trate mensagens de áudio como canal primário quando ele 
 Mario prefere que, quando houver caminho claro de execução, Hermes responda com plano de execução e recomendação passo a passo e siga executando em vez de terminar com sugestões genéricas.
 §
 Mario wants end-of-week reports from each agent summarizing daily output, quantities, blockers, and the next-day plan.
+§
+Mario prefere check-ins operacionais em dois blocos diários: um resumo no começo do dia com o que será feito e outro no fim do dia com o que foi feito, além do acompanhamento explícito de progresso contra metas semanais e mensais.
