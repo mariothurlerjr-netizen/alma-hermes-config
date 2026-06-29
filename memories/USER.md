@@ -38,4 +38,4 @@ Mario prefere que contas com ban ou sinais ruins sejam removidas do giro e fique
 §
 Mario quer que as conversas também alimentem a memória e o aprimoramento do Hermes.
 §
-Mario prefere classificar contas de outbound por janela de segurança, com READY em 5+ dias sem spam, COOLDOWN/WATCH em 3 a 4 dias sem spam e HOLD abaixo de 3 dias ou com sinal ruim recente.
+Mario prefere classificar contas outbound em WATCH (3 a 4 dias limpos), READY (5 dias completos sem spam) e READY-STRICT (7 dias completos, sem queda brusca e warmup_status != -1).
