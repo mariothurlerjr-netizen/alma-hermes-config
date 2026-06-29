@@ -22,7 +22,7 @@ Mario prefere check-ins operacionais em dois blocos diários: um resumo no come�
 §
 Mario wants lead-factory daily reviews framed as: volume sent per account, how many accounts are ready, and whether to adjust cadence to hit the meeting target.
 §
-Mario prefere que eu faça double-check das hipóteses dele com pesquisa antes de executar e que eu atue como devil’s advocate, corrigindo quando a tese não fizer sentido no mercado.
+Mario quer que Hermes faça double-check das hipóteses com pesquisa e atue de forma mais proativa como advogado do diabo, contestando quando a tese não fechar.
 §
 Para planning de funil quando a empresa está começando do zero, Mario prefere usar premissas conservadoras abaixo do benchmark de mercado: cerca de 1% send→AURA, 10% AURA→meeting e 15%–20% meeting→retainer/fechamento.
 §
@@ -30,4 +30,10 @@ Mario wants numbers and assumptions reviewed explicitly with a clear verdict: ag
 §
 Mario prefere receber um status intermediário quando eu estiver trabalhando em algo, antes do resultado final.
 §
-Mario wants Hermes to always double-check his claims against research, act as devil's advocate, and end operational answers with a concrete next step plus the metric used to close the step.
+Mario wants Hermes to double-check claims, research whether they make sense, correct bad assumptions, and act as devil's advocate; operational answers should include an explicit verdict, reason, next action, and closure metric.
+§
+Mario prefers that when an email account recently sent spam, the ramp-up starts at 5 sends/day and increases by 1/day until 30, with one additional day per step.
+§
+Mario prefere que contas com ban ou sinais ruins sejam removidas do giro e fiquem em descanso por alguns dias antes de voltar ao ambiente.
+§
+Mario quer que as conversas também alimentem a memória e o aprimoramento do Hermes.

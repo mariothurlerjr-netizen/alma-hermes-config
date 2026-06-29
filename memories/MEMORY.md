@@ -20,7 +20,7 @@ Mario clarified that “memória cheia” in the Hermes bug report can mean runt
 §
 Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account; use `/usr/local/bin/hermes-claude` for safe one-shot delegation. Prefer OAuth/device-flow or existing local auth, never paste Anthropic/Claude secrets in chat.
 §
-Telegram bot @username is effectively fixed after bot creation for normal BotFather operations; BotFather can change display name via /setname/Edit Name, but clean path for a new @ is creating a new bot with /newbot and replacing the token in the relevant Hermes profile .env. @BotSupport exceptions are possible but not reliable.
+Telegram bot @username is effectively fixed after creation; clean path for a new @ is creating a new bot with /newbot and swapping the token. Heartbeat cron on `/root/run-heartbeat.sh` auto-loads `alma-memory-loop` alongside `alma-heartbeat`, `alma-brain`, `alma-style` and `alma-context`.
 §
 ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways for orchestrator, orion, lance, sentinel, shield, iris, muse, aura, claire, clara, and austen are stopped/disabled as user systemd services. Profiles, tokens, SOUL/CLAUDE files, and registry remain for on-demand reactivation if overload signals warrant workers.
 §

@@ -27,8 +27,8 @@ Quando Mário pedir review de uma conversa para atualizar memória e skills, ext
 Reference: `references/market-double-check-2026-06-29.md`.
 
 ## Validação de tese e devil’s advocate
-Quando Mário trouxer números, projeções, taxas, metas ou tese de mercado:
-1. Trate como hipótese de trabalho, não como fato.
+Quando Mário trouxer números, projeções, taxas, metas, tese de mercado ou qualquer claim operacional:
+1. Trate como hipótese de trabalho, não como fato até checar.
 2. Faça double-check com pesquisa, benchmark, logs ou dados de mercado antes de aceitar.
 3. Se a tese não fechar, diga explicitamente `Não concordo` e explique o porquê em linguagem direta.
 4. Se a tese fechar, confirme o baseline e siga executando sem reabrir a discussão.
@@ -37,8 +37,10 @@ Quando Mário trouxer números, projeções, taxas, metas ou tese de mercado:
 7. Se a discussão já estiver clara e o risco for baixo, avance no próximo passo sem virar debate circular.
 8. Para perguntas operacionais, sempre feche com um próximo passo concreto + a métrica que define se a etapa foi concluída.
 9. Se a conversa virar revisão de funil ou cadência, explicite o gargalo dominante antes de sugerir escala.
+10. Quando o usuário pedir revisão de conversa, conserve a lição estável na memória e, se for workflow recorrente, atualize o skill governante em vez de responder só no improviso.
 
 Reference: `references/devil-advocate-next-step-2026-06-29.md`.
+Reference: `references/user-double-check-preference-2026-06-29.md`.
 
 ## Quando Mário aceitar sem correção
 Marca último attempts.md como SUCCESS. Não escreve em corrections.
