@@ -74,3 +74,9 @@ Formato:
 - Lição: toda tese numérica precisa sair com veredito explícito + motivo + próximo passo.
 - Status: APPLIED
 
+
+## 2026-06-29T16:23:18+00:00 | instantly-ready-count-mixup
+- O que fiz: misturei o recorte do inventário live completo com o recorte das screenshots e soltei o número errado de READY.
+- Correção: Mario disse que continua errado.
+- Lição: quando citar READY/WATCH/HOLD, separar explicitamente snapshot global versus subset de imagens.
+- Status: APPLIED

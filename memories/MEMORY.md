@@ -10,7 +10,7 @@ Mario prefere mails.do no fluxo de lead verification/enrichment do Lead Factory,
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-`getalmarev.com` is a functioning workspace; ORION monitoring is tied to Instantly email accounts and not Instagram. `tryalmarev.com` and other domains remain warmup-only until the next gate; accounts only become eligible to send after 5 days with zero spam.
+For Instantly warmup readiness, Mario considers READY only after 5 full days without spam. Day-5 streaks are still not READY; 3-4 days are WATCH, fewer than 3 or bad signal are HOLD.
 §
 ALMA Rev sender separation: the `@getalmarev.com` sending accounts live in Gmail Workspace; `mario@almarev.com` is reserved for owned/warm newsletter-style communication, and cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
