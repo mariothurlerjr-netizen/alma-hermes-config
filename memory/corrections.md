@@ -68,3 +68,9 @@ Formato:
 - Lição: antes de aceitar uma tese operacional, fazer checagem externa e contradizer a hipótese se o mercado não sustentar.
 - Status: APPLIED
 
+## 2026-06-29T13:33:19+00:00 | review-numbers-verdict
+- O que fiz: respondi com faixas de benchmark, mas não deixei o veredito explícito em formato agree/disagree.
+- Correção: Mario quer que eu revise o número e diga claramente se concordo ou não, sempre como devil's advocate.
+- Lição: toda tese numérica precisa sair com veredito explícito + motivo + próximo passo.
+- Status: APPLIED
+
