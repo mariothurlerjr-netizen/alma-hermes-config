@@ -62,6 +62,7 @@ license: proprietary
 - LANCE pause/resume: ver `references/lance-systemd-pause.md`. Use quando Mario pedir pra pausar LANCE, quando `alma-lance.timer` reaparecer, ou quando `systemctl disable --now` travar.
 - ORION pause/resume: ver `references/orion-systemd-pause.md`. Use quando Mario pedir pra parar geração de leads, pausar ORION ou retomar lead-gen. Sequência correta: pausar `orion-watchdog`, parar/desabilitar `alma-orion@1..5`, limpar `failed` se necessário, verificar inactive/disabled/sem processo.
 - `references/orion-lead-factory-verification.md`: flow canônico do Lead Factory, `ICP search -> mails.do -> account verification`.
+- `references/orion-lead-factory-operating-checklist.md`: checklist curto para travar blast, gate de entrada, classificar `sub_vertical`, limitar por saúde do sender e enviar em lotes pequenos.
 - `references/orion-classification-signal-drift.md`: empty `by_sub_vertical` means upstream classification drift, not necessarily no leads.
 - CLAIRE dialer operations: ver `references/claire-dialer-operations.md`. Use quando Mario pedir pra pausar/retomar dialer, fim de semana, ligações da CLAIRE ou checar se ela está discando. Regra padrão: dialer só segunda a sexta; pausar outbound/reminder sem desligar polling/QA/coach.
 

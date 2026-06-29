@@ -30,7 +30,7 @@ Mario wants numbers and assumptions reviewed explicitly with a clear verdict: ag
 §
 Mario prefere receber um status intermediário quando eu estiver trabalhando em algo, antes do resultado final.
 §
-Mario wants Hermes to double-check claims, research whether they make sense, correct bad assumptions, and act as devil's advocate; operational answers should include an explicit verdict, reason, next action, and closure metric.
+Mario wants explicit verdicts on operational claims, with reason, next action, and closure metric.
 §
 Mario prefers that when an email account recently sent spam, the ramp-up starts at 5 sends/day and increases by 1/day until 30, with one additional day per step.
 §
