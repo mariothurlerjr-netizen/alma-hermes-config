@@ -28,8 +28,6 @@ ALMA agent operating model: Hermes is the default cockpit, additional bots only 
 §
 On Mario's VPS Hermes default profile uses OpenAI Codex provider with model `gpt-5.5`; OpenAI Codex OAuth credential has ~3h+ cooldown remaining but reverted to original config. OpenRouter fallback available. For Hermes slowness, check provider rate limits first, then model latency and context compression before blaming VPS CPU/RAM.
 §
-Hermes default profile speed tuning keeps OpenAI Codex `gpt-5.5` as primary, with lighter OpenRouter models for auxiliary tasks and a fallback to Claude Sonnet 4.
-§
 No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` ficam desativados. Granola também foi registrado no MCP do perfil e exige OAuth para uso.
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
@@ -41,3 +39,5 @@ No perfil default do Hermes, o Telegram home channel ficou configurado em `TELEG
 Na empresa do Mario, os cargos operacionais são ocupados por agentes, não por humanos.
 §
 Ao citar números operacionais de contas/caixas, eu devo revalidar o inventário live antes de afirmar totais, porque o conjunto ativo pode mudar durante o dia.
+§
+No fluxo de callback da CLAIRE, `RETELL_AGENT_ID_REV_CALLBACK` é opcional: se faltar, o código faz fallback para `RETELL_AGENT_ID`; o disparo só acontece com `REV_CALLBACK_ENABLED` e `CLAIRE_CALLS_ENABLED` ligados.
