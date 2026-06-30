@@ -14,9 +14,9 @@ Mario prefere continuar conversas hands-free quando está dirigindo e considera 
 §
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
 §
-Mario prefere que Hermes tenha autonomia para decidir e executar sozinho, comunicando só o que pode exigir correção; valoriza respostas diretas, honestas, sem misturar estado vivo com arquivo obsoleto.
+Mario prefere autonomia alta e respostas diretas, sem misturar estado vivo com arquivo obsoleto.
 §
-Mario prefere check-ins operacionais em dois blocos diários: um resumo no começo do dia com o que será feito e outro no fim do dia com o que foi feito, além do acompanhamento explícito de progresso contra metas semanais e mensais.
+Mario prefere check-ins diários com plano no começo do dia, realizado no fim do dia e acompanhamento explícito de metas semanais e mensais.
 §
 Mario considera o funil de verdade do outbound composto por três marcos, diagnóstico gratuito, reunião feita e contrato fechado, nessa ordem.
 §
@@ -39,3 +39,5 @@ Mario prefere que aprendizados recorrentes virem skills de classe com SKILL.md r
 Mario prefere classificar contas outbound em WATCH (3 a 4 dias limpos), READY (5 dias completos sem spam) e READY-STRICT (7 dias completos, sem queda brusca e warmup_status != -1).
 §
 Mario prefere um cockpit canônico por agente com meta de hoje, métrica de sucesso, bloqueio principal e condição de pausa.
+§
+Mario prefere que replies inbound de outbound sejam automaticamente respondidos com uma mensagem curta e o link do Aura quando a intenção for positiva ou curiosa; objeções, replies confusos ou off-topic devem ir para draft ou revisão em vez de auto-send total.
