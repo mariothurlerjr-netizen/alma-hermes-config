@@ -71,6 +71,7 @@ license: proprietary
 - `references/orion-classification-signal-drift.md`: empty `by_sub_vertical` means upstream classification drift, not necessarily no leads.
 - CLAIRE dialer operations: ver `references/claire-dialer-operations.md`. Use quando Mario pedir pra pausar/retomar dialer, fim de semana, ligações da CLAIRE ou checar se ela está discando. Regra padrão: dialer só segunda a sexta; pausar outbound/reminder sem desligar polling/QA/coach.
 
+- `references/claire-callback-bridge.md`: use quando o assunto for o callback de replies interessados da Rev. Cobre o gate duplo (`REV_CALLBACK_ENABLED` + `CLAIRE_CALLS_ENABLED`), fallback para `RETELL_AGENT_ID`, a sequência segura de enable/restart/verify, and the boundary that Hermes only wires the local env/id; the Retell agent itself must already exist.
 - LUNA content digest: ver `references/luna-content-digest.md`. Use quando Mario perguntar que email semanal/newsletter da ALMA Rev chegou, se foi enviado pra outras pessoas, quem recebeu, ou se é Instantly/outbound. Validar via `alma-content-digest.timer`, journal e `content_digest_log`; separar emails reais externos de internos/testes.
 - `references/agent-role-map.md`: mapa curto de classificação, incluindo IRIS como digest/reporting, Granola como software, e o critério de saúde das contas do Instagram.
 
