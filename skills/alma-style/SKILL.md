@@ -63,6 +63,14 @@ license: proprietary
 - `references/decision-epistemics.md` — regra prática de sinais vs verdade, recência e formato de dúvida.
 - `references/agent-cockpit.md` — formato canônico para metas e status por agente.
 - `references/alma-rev-growth-bottleneck-offer-sequence.md` — template canônico para oferta, lead magnet e sequência de 3 emails em ALMA Rev.
+- `references/alma-rev-vertical-campaign-matrix.md` — matriz pronta para adaptar a campanha por vertical, incluindo consulting, cpa_advisory, legal e insurance.
+
+## Bundle delivery rule
+- When the user asks for a bundle of deliverables, for example "os 3", "pode montar", or "faz os três", deliver the full requested set in one response.
+- Do not stop at a strategy note or ask for confirmation when the next artifact is already clear.
+- Keep the bundle self-contained, with separate headings for each requested item, and prefer the minimum extra framing needed to make the output usable.
+- For ALMA Rev outbound assets, keep the written deliverable in English and keep the CTA singular and low friction.
+- When the user asks for a vertical matrix or category adaptation, deliver every requested vertical in one pass, with a dedicated heading per vertical and no intermediate summary.
 
 ## Cold email
 - Subject curto, observação específica
