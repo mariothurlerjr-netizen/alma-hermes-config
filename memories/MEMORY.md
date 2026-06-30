@@ -10,7 +10,7 @@ Mario prefere mails.do no fluxo de lead verification/enrichment do Lead Factory,
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-For Instantly warmup readiness, Mario considers READY only after 5 full days without spam. Day-5 streaks are still not READY; 3-4 days are WATCH, fewer than 3 or bad signal are HOLD.
+For Instantly warmup screenshots, orange bars mean spam. Mario's last-4-days criterion means the previous 4 calendar days must each be spam-free; do not reinterpret it as a generic 4+ day streak. 3-4 days are WATCH, fewer than 3 or bad signal are HOLD.
 §
 ALMA Rev sender separation: the `@getalmarev.com` sending accounts live in Gmail Workspace; `mario@almarev.com` is reserved for owned/warm newsletter-style communication, and cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
