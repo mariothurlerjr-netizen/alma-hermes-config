@@ -10,7 +10,7 @@ Mario prefere mails.do no fluxo de lead verification/enrichment do Lead Factory,
 §
 ALMA Rev Instantly outbound requires `insert_unsubscribe_header=true` and visible unsubscribe footer/link in every email step: `https://almarev.com/api/v1/public/unsubscribe?email={{email}}`.
 §
-For Instantly warmup screenshots, orange bars mean spam. Mario's last-4-days criterion means the previous 4 calendar days must each be spam-free; do not reinterpret it as a generic 4+ day streak. 3-4 days are WATCH, fewer than 3 or bad signal are HOLD.
+For Instantly warmup screenshots, orange bars mean spam. Mario's last-4-days criterion is the previous 4 calendar days all spam-free; 3-4 days are WATCH, fewer than 3 or bad signal are HOLD.
 §
 ALMA Rev sender separation: the `@getalmarev.com` sending accounts live in Gmail Workspace; `mario@almarev.com` is reserved for owned/warm newsletter-style communication, and cold/outbound should use warmed `@getalmarev.com` sender accounts, especially `mario@getalmarev.com`, once warmed.
 §
@@ -22,7 +22,7 @@ Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account;
 §
 Telegram bot @username is effectively fixed after creation; clean path for a new @ is creating a new bot with /newbot and swapping the token. Heartbeat cron on `/root/run-heartbeat.sh` auto-loads `alma-memory-loop` alongside `alma-heartbeat`, `alma-brain`, `alma-style` and `alma-context`.
 §
-ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways for orchestrator, orion, lance, sentinel, shield, iris, muse, aura, claire, clara, and austen are stopped/disabled as user systemd services. Profiles, tokens, SOUL/CLAUDE files, and registry remain for on-demand reactivation if overload signals warrant workers.
+ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways for orchestrator, orion, lance, sentinel, shield, iris, muse, aura, claire, clara, and austen are stopped/disabled. Profiles, tokens, SOUL/CLAUDE files, and registry remain for on-demand reactivation.
 §
 ALMA agent operating model: Hermes is the default cockpit, additional bots only when overload signals appear. Mario sees LinkedIn as useful for filtering jobs, Instagram for campaign monitoring, and All Grow may also be worth connecting.
 §
@@ -41,3 +41,5 @@ Na empresa do Mario, os cargos operacionais são ocupados por agentes, não por 
 Ao citar números operacionais de contas/caixas, eu devo revalidar o inventário live antes de afirmar totais, porque o conjunto ativo pode mudar durante o dia.
 §
 No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETELL_AGENT_ID_REV_CALLBACK`; fallback para `RETELL_AGENT_ID` se vazio.
+§
+Para rotação Instantly/ALMA Rev, contas novas entram com volume inicial de 5 envios por dia, enquanto contas aquecidas seguem o teto operacional normal.
