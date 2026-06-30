@@ -22,11 +22,11 @@ Claude Code on Mario's VPS is OAuth-authenticated as Mario's Claude Max account;
 §
 Telegram bot @username is effectively fixed after creation; clean path for a new @ is creating a new bot with /newbot and swapping the token. Heartbeat cron on `/root/run-heartbeat.sh` auto-loads `alma-memory-loop` alongside `alma-heartbeat`, `alma-brain`, `alma-style` and `alma-context`.
 §
-ALMA Hermes Telegram bot fleet is preserved but inactive: per-profile gateways for orchestrator, orion, lance, sentinel, shield, iris, muse, aura, claire, clara, and austen are stopped/disabled. Profiles, tokens, SOUL/CLAUDE files, and registry remain for on-demand reactivation.
+ALMA Hermes Telegram bot fleet is preserved but inactive; per-profile gateways, tokens, SOUL/CLAUDE files, and registry remain for reactivation.
 §
-ALMA agent operating model: Hermes is the default cockpit, additional bots only when overload signals appear. Mario sees LinkedIn as useful for filtering jobs, Instagram for campaign monitoring, and All Grow may also be worth connecting.
+ALMA operating model: Hermes is the default cockpit; extra bots only when overload signals appear.
 §
-On Mario's VPS Hermes default profile uses OpenAI Codex provider with model `gpt-5.5`; OpenAI Codex OAuth credential has ~3h+ cooldown remaining but reverted to original config. OpenRouter fallback available. For Hermes slowness, check provider rate limits first, then model latency and context compression before blaming VPS CPU/RAM.
+Hermes default profile uses OpenAI Codex with model `gpt-5.5`; OpenRouter fallback is available and slowness should be checked against provider limits before VPS resources.
 §
 No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` ficam desativados. Granola também foi registrado no MCP do perfil e exige OAuth para uso.
 §
@@ -42,4 +42,6 @@ Ao citar números operacionais de contas/caixas, eu devo revalidar o inventário
 §
 No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETELL_AGENT_ID_REV_CALLBACK`; fallback para `RETELL_AGENT_ID` se vazio.
 §
-Para rotação Instantly/ALMA Rev, contas novas entram com volume inicial de 5 envios por dia, enquanto contas aquecidas seguem o teto operacional normal.
+Para rotação Instantly/ALMA Rev, contas novas entram em 5 envios/dia; contas que já aguentaram 20/dia sem spam mas seguem em 10/dia devem ficar em 5/dia e subir +5/dia até ~35-40/dia, com revisão diária.
+§
+No perfil default do Hermes, o Composio está conectado e o dashboard mostra LinkedIn como app ativo, mas o toolkit exposto ainda não reflete isso; o problema parece ser refresh/reconfiguração do MCP, não ausência do app.

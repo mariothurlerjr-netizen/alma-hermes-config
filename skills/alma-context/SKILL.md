@@ -45,6 +45,8 @@ license: proprietary
 - Posicionamento: Sales Director / VP Sales / CRO. NÃO General Manager.
 - Estratégia: passa em todo processo, decide no offer.
 - LinkedIn entra como filtro de vagas e triagem de oportunidades, não como fonte genérica de browsing contínuo.
+- Quando Mario envia CV/resume + LinkedIn URL, fazer matching entre os dois, extrair role family, keywords e shortlist priorizada. Ver `references/job-search-linkedin-matching.md`.
+- Se o CV e o LinkedIn divergirem, preferir o sinal mais recente e apontar o mismatch como risco de conversão.
 - Instagram entra mais como canal de monitoramento de campanha do que como superfície operacional primária.
 - Para reativação de integrações Composio com toolkit filtrado, ver `references/composio-app-priorities.md`.
 
