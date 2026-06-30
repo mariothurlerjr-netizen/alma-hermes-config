@@ -64,6 +64,12 @@ Regras obrigatórias:
 Support file with a concise write-validation + reporting note: `references/brain-write-frontmatter-and-report-matrix.md`.
 Support file for cross-domain status reads: `references/alma-current-state-entrypoints.md`.
 
+When a raw capture starts looking reusable, promote it deliberately:
+- `raw/` = session capture, scratchpad, one-off derivation
+- `agents/hermes/lessons/` = reusable operating pattern, template, or workflow
+- keep the raw artifact as the provenance trail, then promote the distilled version into `agents/hermes/`
+- if the user keeps asking for the same shape again, prefer turning it into a reusable template instead of leaving it as a one-off note
+
 When Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 
 1. **Decide WHERE**:
