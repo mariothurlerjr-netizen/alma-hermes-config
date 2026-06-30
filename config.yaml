@@ -504,52 +504,52 @@ mcp_servers:
     enabled: true
     tools:
       include:
-        - GMAIL_CREATE_EMAIL_DRAFT
-        - GMAIL_FETCH_EMAILS
-        - GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID
-        - GMAIL_FETCH_MESSAGE_BY_THREAD_ID
-        - GMAIL_GET_PROFILE
-        - GMAIL_LIST_THREADS
-        - GMAIL_REPLY_TO_THREAD
-        - GMAIL_SEARCH_PEOPLE
-        - GMAIL_SEND_EMAIL
-        - NOTION_APPEND_TEXT_BLOCKS
-        - NOTION_CREATE_NOTION_PAGE
-        - NOTION_GET_PAGE_MARKDOWN
-        - NOTION_QUERY_DATABASE
-        - NOTION_RETRIEVE_PAGE
-        - NOTION_SEARCH_NOTION_PAGE
-        - NOTION_UPDATE_PAGE
-        - OUTLOOK_CALENDAR_CREATE_EVENT
-        - OUTLOOK_CREATE_DRAFT
-        - OUTLOOK_GET_PROFILE
-        - OUTLOOK_LIST_EVENTS
-        - OUTLOOK_LIST_MESSAGES
-        - OUTLOOK_REPLY_EMAIL
-        - OUTLOOK_SEARCH_MESSAGES
-        - OUTLOOK_SEND_EMAIL
-        - OUTLOOK_UPDATE_CALENDAR_EVENT
-        - LINKEDIN_CREATE_COMMENT_ON_POST
-        - LINKEDIN_CREATE_LINKED_IN_POST
-        - LINKEDIN_DELETE_LINKED_IN_POST
-        - LINKEDIN_GET_MY_INFO
-        - LINKEDIN_GET_PERSON
-        - LINKEDIN_GET_POST_CONTENT
-        - LINKEDIN_LIST_REACTIONS
-        - INSTAGRAM_CREATE_POST
-        - INSTAGRAM_GET_POST_COMMENTS
-        - INSTAGRAM_GET_POST_INSIGHTS
-        - INSTAGRAM_GET_USER_INFO
-        - INSTAGRAM_GET_USER_MEDIA
-        - INSTAGRAM_LIST_ALL_MESSAGES
-        - INSTAGRAM_REPLY_TO_COMMENT
-        - INSTAGRAM_SEND_IMAGE
-        - INSTAGRAM_SEND_TEXT_MESSAGE
-        - SUPABASE_GET_PROJECT
-        - SUPABASE_LIST_ALL_PROJECTS
-        - SUPABASE_LIST_TABLES
-        - SUPABASE_RUN_SQL_QUERY
-        - SUPABASE_SELECT_FROM_TABLE
+      - GMAIL_CREATE_EMAIL_DRAFT
+      - GMAIL_FETCH_EMAILS
+      - GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID
+      - GMAIL_FETCH_MESSAGE_BY_THREAD_ID
+      - GMAIL_GET_PROFILE
+      - GMAIL_LIST_THREADS
+      - GMAIL_REPLY_TO_THREAD
+      - GMAIL_SEARCH_PEOPLE
+      - GMAIL_SEND_EMAIL
+      - NOTION_APPEND_TEXT_BLOCKS
+      - NOTION_CREATE_NOTION_PAGE
+      - NOTION_GET_PAGE_MARKDOWN
+      - NOTION_QUERY_DATABASE
+      - NOTION_RETRIEVE_PAGE
+      - NOTION_SEARCH_NOTION_PAGE
+      - NOTION_UPDATE_PAGE
+      - OUTLOOK_CALENDAR_CREATE_EVENT
+      - OUTLOOK_CREATE_DRAFT
+      - OUTLOOK_GET_PROFILE
+      - OUTLOOK_LIST_EVENTS
+      - OUTLOOK_LIST_MESSAGES
+      - OUTLOOK_REPLY_EMAIL
+      - OUTLOOK_SEARCH_MESSAGES
+      - OUTLOOK_SEND_EMAIL
+      - OUTLOOK_UPDATE_CALENDAR_EVENT
+      - LINKEDIN_CREATE_COMMENT_ON_POST
+      - LINKEDIN_CREATE_LINKED_IN_POST
+      - LINKEDIN_DELETE_LINKED_IN_POST
+      - LINKEDIN_GET_MY_INFO
+      - LINKEDIN_GET_PERSON
+      - LINKEDIN_GET_POST_CONTENT
+      - LINKEDIN_LIST_REACTIONS
+      - INSTAGRAM_CREATE_POST
+      - INSTAGRAM_GET_POST_COMMENTS
+      - INSTAGRAM_GET_POST_INSIGHTS
+      - INSTAGRAM_GET_USER_INFO
+      - INSTAGRAM_GET_USER_MEDIA
+      - INSTAGRAM_LIST_ALL_MESSAGES
+      - INSTAGRAM_REPLY_TO_COMMENT
+      - INSTAGRAM_SEND_IMAGE
+      - INSTAGRAM_SEND_TEXT_MESSAGE
+      - SUPABASE_GET_PROJECT
+      - SUPABASE_LIST_ALL_PROJECTS
+      - SUPABASE_LIST_TABLES
+      - SUPABASE_RUN_SQL_QUERY
+      - SUPABASE_SELECT_FROM_TABLE
       resources: false
       prompts: false
   granola:
@@ -579,6 +579,7 @@ platform_toolsets:
   - file
   - homeassistant
   - image_gen
+  - kanban
   - memory
   - messaging
   - moa
@@ -601,3 +602,25 @@ session_reset:
 known_plugin_toolsets:
   cli:
   - spotify
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4

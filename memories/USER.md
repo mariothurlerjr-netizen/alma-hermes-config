@@ -28,7 +28,7 @@ Mario wants numbers and assumptions reviewed explicitly with a clear verdict: ag
 §
 Mario prefere fonte mais recente em conflitos e resposta com input + aproximação quando houver ambiguidade.
 §
-Mario wants explicit verdicts on operational claims, with reason, next action, and closure metric.
+Mario wants explicit verdicts on operational claims.
 §
 Mario prefers a conservative ramp-up for recently spammy senders, starting at 5/day and increasing by 1/day.
 §

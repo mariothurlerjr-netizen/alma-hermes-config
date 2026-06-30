@@ -40,4 +40,4 @@ Na empresa do Mario, os cargos operacionais são ocupados por agentes, não por 
 §
 Ao citar números operacionais de contas/caixas, eu devo revalidar o inventário live antes de afirmar totais, porque o conjunto ativo pode mudar durante o dia.
 §
-No fluxo de callback da CLAIRE, `RETELL_AGENT_ID_REV_CALLBACK` é opcional: se faltar, o código faz fallback para `RETELL_AGENT_ID`; o disparo só acontece com `REV_CALLBACK_ENABLED` e `CLAIRE_CALLS_ENABLED` ligados.
+No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETELL_AGENT_ID_REV_CALLBACK`; fallback para `RETELL_AGENT_ID` se vazio.
