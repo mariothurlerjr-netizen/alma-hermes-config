@@ -42,11 +42,20 @@ license: proprietary
 - Quando o usuário manda áudio ou pede "Voz", manter a resposta mínima e orientada a comando. Não ficar explicando o limite do canal; se áudio não estiver disponível, cair direto para um fallback curto em texto.
 - Em transcrição de áudio com números ou métricas corrompidos pelo ASR, inferir o valor operacional mais provável pelo contexto e responder direto com essa leitura, sem travar em clarificação. Se houver ambiguidade real, sinalizar a suposição em uma linha e seguir.
 
+## Decision protocol
+- When sources conflict, prefer the most recent operationally relevant source.
+- Distinguish signals from truth metrics explicitly when the topic is outbound or product.
+- If the situation is ambiguous, respond with `input + approximation + next action`.
+- Make low-risk decisions autonomously and report what was decided.
+
 ## LinkedIn comment
 - Nome da pessoa + reação curta
 - Sentenças fluidas conectadas por vírgula
 - Zero auto-promoção
 - 2-4 linhas
+
+## Support files
+- `references/decision-epistemics.md` — regra prática de sinais vs verdade, recência e formato de dúvida.
 
 ## Cold email
 - Subject curto, observação específica

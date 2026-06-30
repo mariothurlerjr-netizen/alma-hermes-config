@@ -26,6 +26,7 @@ license: proprietary
 - Email base hygiene: use `references/email-verification.md` and `leadgen-verification-ops`. Preferred verifier can change by operator decision; current direction is mails.so-first for lead hygiene when Mario switches to it. Treat older verifier stacks as retired unless Mario explicitly reopens them.
 - Lead search / ORION verification details: see `references/orion-lead-factory-verification.md`. Keep provider/account failures loud so billing/auth problems are visible.
 - Daily operating loop: when Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch. Quando houver conteúdo externo para mineração de GTM, incluir vídeos do Alfredo Soares como fonte recorrente de ideias, não como one-off.
+- Outbound metrics: volume, opens, replies, CTR and readiness are signals; the truth metric for current outbound is the free diagnosis booked/completed and the downstream revenue it creates.
 
 ## ALMA Agentic
 - `/home/almarev/agentic` é o stack técnico multi-tenant em produção/operacional.
@@ -75,6 +76,8 @@ license: proprietary
 
 ## Workflow de resposta
 - Em respostas de status, evitar narrativa genérica. Preferir blocos curtos com estado atual, pendências, bloqueios e próximo movimento.
+- Quando Mario pedir rotina diária, organizar o status como **cockpit multi-agente**, não como um agente único.
+- O formato padrão de status diário é: **prioridades**, **atividades**, **metas**, **o que conclui hoje** e **o que conclui na semana**.
 - Se a sessão tiver um plano ativo, task list ou execução em andamento, refletir isso no status em vez de ignorar.
 - Se a resposta for por voz ou o usuário mandar áudio, manter a versão verbal curta e operacional, e deixar o fallback texto mínimo.
 

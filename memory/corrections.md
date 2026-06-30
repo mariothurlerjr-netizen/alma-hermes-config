@@ -80,3 +80,9 @@ Formato:
 - Correção: Mario disse que continua errado.
 - Lição: quando citar READY/WATCH/HOLD, separar explicitamente snapshot global versus subset de imagens.
 - Status: APPLIED
+
+## 2026-06-30T00:00:00Z | multi-agent-ops-status
+- O que fiz: tratei a operação como se eu respondesse por um único agente e descrevi o dia em termos genéricos.
+- Correção: "você hoje responde por vários agentes" e o recorte correto é prioridades, atividades, metas e o que a gente conclui hoje e na semana.
+- Lição: quando falar de rotina diária, enquadrar o trabalho como cockpit multi-agente e resumir por prioridades, atividades, metas e entregas do dia/semana, sempre por agente.
+- Status: APPLIED

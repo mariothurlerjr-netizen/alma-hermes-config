@@ -1,6 +1,6 @@
 - ALMA Rev produto/site/copy/outbound = US-first/inglês; conversa Mario↔Hermes = PT-BR.
 §
-Mario prefere revisões de status por área, com estado atual, pendências, bloqueios e próximo movimento.
+Mario quer status por agente dentro de um cockpit multi-agente, com prioridades, atividades, metas e conclusões do dia e da semana.
 §
 Mario prefere split-model workflow.
 §
@@ -16,11 +16,9 @@ Mario quer que Hermes trate mensagens de áudio como canal primário quando ele 
 §
 Mario prefere que Hermes tenha autonomia para decidir e executar sozinho, comunicando só o que pode exigir correção; valoriza respostas diretas, honestas, sem misturar estado vivo com arquivo obsoleto.
 §
-Mario wants end-of-week reports from each agent summarizing daily output, quantities, blockers, and the next-day plan.
-§
 Mario prefere check-ins operacionais em dois blocos diários: um resumo no começo do dia com o que será feito e outro no fim do dia com o que foi feito, além do acompanhamento explícito de progresso contra metas semanais e mensais.
 §
-Mario considera o diagnóstico gratuito a métrica principal do outbound hoje.
+Mario considera o funil de verdade do outbound composto por três marcos, diagnóstico gratuito, reunião feita e contrato fechado, nessa ordem.
 §
 Mario quer que Hermes faça double-check das hipóteses com pesquisa e atue de forma mais proativa como advogado do diabo, contestando quando a tese não fechar.
 §
@@ -36,6 +34,8 @@ Mario prefers a conservative ramp-up for recently spammy senders, starting at 5/
 §
 Mario prefere que contas com ban ou sinais ruins sejam removidas do giro e fiquem em descanso por alguns dias antes de voltar ao ambiente.
 §
-Mario quer que as conversas também alimentem a memória e o aprimoramento do Hermes.
+Conversas devem alimentar memória e aprimoramento do Hermes.
 §
 Mario prefere classificar contas outbound em WATCH (3 a 4 dias limpos), READY (5 dias completos sem spam) e READY-STRICT (7 dias completos, sem queda brusca e warmup_status != -1).
+§
+Mario prefere um cockpit canônico por agente com meta de hoje, métrica de sucesso, bloqueio principal e condição de pausa.
