@@ -6,7 +6,7 @@ Mario prefere split-model workflow.
 §
 Mario prefere ensino em camadas: fatos duráveis, procedimentos, contexto operacional e handoffs.
 §
-Mario quer o daily do Hermes em 4 frentes: Instantly/email, balanceamento de leads entre ICPs, completude/enrichment da base, e market/content watch para Instagram, blog e email.
+Mario quer daily do Hermes em Instantly/email, leads, base e content watch.
 §
 Mario quer que vídeos do Alfredo Soares sejam acompanhados como fonte recorrente de ideias de GTM e marketing.
 §
@@ -34,7 +34,7 @@ Mario prefers a conservative ramp-up for recently spammy senders, starting at 5/
 §
 Mario prefere que contas com ban ou sinais ruins sejam removidas do giro e fiquem em descanso por alguns dias antes de voltar ao ambiente.
 §
-Conversas devem alimentar memória e aprimoramento do Hermes.
+Mario prefere que aprendizados recorrentes virem skills de classe com SKILL.md rico e referências separadas por sessão.
 §
 Mario prefere classificar contas outbound em WATCH (3 a 4 dias limpos), READY (5 dias completos sem spam) e READY-STRICT (7 dias completos, sem queda brusca e warmup_status != -1).
 §
