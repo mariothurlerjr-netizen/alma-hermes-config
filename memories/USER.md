@@ -14,13 +14,13 @@ Mario prefere continuar conversas hands-free quando está dirigindo e considera 
 §
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
 §
-Mario prefere que, quando houver caminho claro de execução, Hermes responda com plano de execução e recomendação passo a passo e siga executando em vez de terminar com sugestões genéricas.
+Mario prefere que Hermes tenha autonomia para decidir e executar sozinho, comunicando só o que pode exigir correção; valoriza respostas diretas, honestas, sem misturar estado vivo com arquivo obsoleto.
 §
 Mario wants end-of-week reports from each agent summarizing daily output, quantities, blockers, and the next-day plan.
 §
 Mario prefere check-ins operacionais em dois blocos diários: um resumo no começo do dia com o que será feito e outro no fim do dia com o que foi feito, além do acompanhamento explícito de progresso contra metas semanais e mensais.
 §
-Mario wants lead-factory daily reviews framed as: volume sent per account, how many accounts are ready, and whether to adjust cadence to hit the meeting target.
+Mario considera o diagnóstico gratuito a métrica principal do outbound hoje.
 §
 Mario quer que Hermes faça double-check das hipóteses com pesquisa e atue de forma mais proativa como advogado do diabo, contestando quando a tese não fechar.
 §
@@ -28,7 +28,7 @@ Para planning de funil quando a empresa está começando do zero, Mario prefere 
 §
 Mario wants numbers and assumptions reviewed explicitly with a clear verdict: agree or disagree, followed by the reason and the next action.
 §
-Mario prefere receber um status intermediário quando eu estiver trabalhando em algo, antes do resultado final.
+Mario prefere fonte mais recente em conflitos e resposta com input + aproximação quando houver ambiguidade.
 §
 Mario wants explicit verdicts on operational claims, with reason, next action, and closure metric.
 §
