@@ -21,6 +21,12 @@ Use this when enabling the Rev "interested" reply callback path.
 - Hermes cannot create or duplicate the Retell agent from the local ALMA stack unless a dedicated Retell admin/API path is added later.
 - So the handoff is: create agent in Retell, then let Hermes connect the id locally.
 
+## Browser fallback requirements
+- A plain public Retell homepage URL is not enough.
+- To use the dashboard path, provide either a logged-in browser session or the exact dashboard page already open.
+- The useful target is the Agents / Voice agents settings area, where the agent UUID or copyable id is visible.
+- If the browser session is not authenticated, switch to the API-key path instead of wasting cycles on the public site.
+
 ## Verify
 - Service comes back `active (running)`.
 - Env contains the callback flag set and the callback agent id when dedicated routing is desired.

@@ -18,7 +18,8 @@ license: proprietary
 2. `STATUS.md` (auto-gerado 24h) — entry point pra qualquer pergunta de "como está / onde paramos / quantos / quando".
 3. `INDEX.md` — mapa do vault pra navegar pastas.
 4. Pasta específica via `brain_search` ou `brain_read`.
-5. Se o tema for reuniões/calls/recaps, ler `references/granola-meeting-notes.md` e depois buscar em `05-meeting-notes/granola/`.
+5. Se a pergunta atravessar **Agentic / Rev / Local**, ler primeiro os `_CURRENT.md` canônicos relevantes e usar `references/alma-current-state-entrypoints.md` como mapa rápido.
+6. Se o tema for reuniões/calls/recaps, ler `references/granola-meeting-notes.md` e depois buscar em `05-meeting-notes/granola/`.
 
 ## Protocolo anti-stale / anti-confusão
 
@@ -61,6 +62,7 @@ Regras obrigatórias:
 ## Protocolo de escrita
 
 Support file with a concise write-validation + reporting note: `references/brain-write-frontmatter-and-report-matrix.md`.
+Support file for cross-domain status reads: `references/alma-current-state-entrypoints.md`.
 
 When Mario diz **"anota no brain X"**, **"salva isso"**, **"registra X"**:
 
