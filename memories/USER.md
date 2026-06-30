@@ -24,7 +24,7 @@ Mario quer que Hermes faça double-check das hipóteses com pesquisa e atue de f
 §
 Para planning de funil quando a empresa está começando do zero, Mario prefere usar premissas conservadoras abaixo do benchmark de mercado: cerca de 1% send→AURA, 10% AURA→meeting e 15%–20% meeting→retainer/fechamento.
 §
-Mario wants numbers and assumptions reviewed explicitly with a clear verdict: agree or disagree, followed by the reason and the next action.
+Mario wants explicit verdicts on numbers and assumptions, with the reason and next action.
 §
 Mario prefere fonte mais recente em conflitos e resposta com input + aproximação quando houver ambiguidade.
 §

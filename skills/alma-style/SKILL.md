@@ -64,6 +64,7 @@ license: proprietary
 - `references/agent-cockpit.md` — formato canônico para metas e status por agente.
 - `references/alma-rev-growth-bottleneck-offer-sequence.md` — template canônico para oferta, lead magnet e sequência de 3 emails em ALMA Rev.
 - `references/alma-rev-vertical-campaign-matrix.md` — matriz pronta para adaptar a campanha por vertical, incluindo consulting, cpa_advisory, legal e insurance.
+- `references/alma-rev-scale-decision-template.md` — template curto de decisão para escalar, manter ou pausar campanhas depois do primeiro teste.
 
 ## Bundle delivery rule
 - When the user asks for a bundle of deliverables, for example "os 3", "pode montar", or "faz os três", deliver the full requested set in one response.
