@@ -10,7 +10,7 @@ Mario prefere continuar conversas hands-free quando está dirigindo e considera 
 §
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
 §
-Mario autorizou Hermes a operar Instantly autonomamente com live state e guardrails de deliverability.
+Mario autorizou Hermes a operar Instantly autonomamente com live state e guardrails de deliverability, ajustando inboxes, campanhas, sequências e pacing conforme replies, spam e visitas ao Aura.
 §
 Mario prefere check-ins diários com plano no começo do dia, realizado no fim do dia e acompanhamento explícito de metas semanais e mensais.
 §
