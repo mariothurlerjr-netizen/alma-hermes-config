@@ -24,6 +24,9 @@ Lê últimas 10 entries de corrections.md ANTES de responder. Aplica silenciosam
 ## Revisão de conversa / atualização de persistência
 Quando Mário pedir review de uma conversa para atualizar memória e skills, extrai somente preferências estáveis e lições recorrentes, salva no USER.md/MEMORY.md e atualiza o skill governante afetado, em vez de tratar como resposta descartável. Detalhe de sessão pode ir para references/ dentro do skill afetado.
 
+## Propostas de métricas a partir de dados recentes
+Quando a conversa for sobre “novas métricas” ou revisão de desempenho com dados recentes, a proposta deve sair em 5 blocos: outcome, funnel, quality, speed/reliability e guardrails. Use o snapshot atual como baseline, destaque o gargalo dominante e prefira métricas acionáveis em vez de volume bruto. Se houver risco de otimização míope, inclua explicitamente pelo menos um guardrail por estágio relevante.
+
 Reference: `references/market-double-check-2026-06-29.md`.
 
 ## Validação de tese e devil’s advocate
