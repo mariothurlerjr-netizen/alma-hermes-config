@@ -21,3 +21,5 @@ Vereditos explícitos sobre números e premissas (razão + próxima ação); dou
 Avaliar bots por métricas de valor real (conversões, reuniões, contratos, retenção, qualidade do output), não volume bruto de atividade.
 §
 Mario autorizou Hermes a operar Instantly autonomamente com live state e guardrails, cockpit por empresa e inbox/sequência, split 70/30 Rev/Local, 3+ sequências por empresa e rebalanceio por replies, spam/bounces e Aura.
+§
+Mario prefere que updates de campanha/outbound sejam respondidos em formato de cockpit operacional em 3 camadas: resumo executivo, detalhamento por empresa/vertical e detalhamento por inbox e sequence.
