@@ -8,8 +8,6 @@ Mario prefere ensino em camadas: fatos duráveis, procedimentos, contexto operac
 §
 Mario quer daily do Hermes em Instantly/email, leads, base e content watch.
 §
-Mario quer que vídeos do Alfredo Soares sejam acompanhados como fonte recorrente de ideias de GTM e marketing.
-§
 Mario prefere continuar conversas hands-free quando está dirigindo e considera uma interface de voz por ligação telefônica uma opção válida se for simples e prática.
 §
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
@@ -41,3 +39,5 @@ Mario prefere classificar contas outbound em WATCH (3 a 4 dias limpos), READY (5
 Mario prefere um cockpit canônico por agente com meta de hoje, métrica de sucesso, bloqueio principal e condição de pausa.
 §
 Mario prefere que replies inbound de outbound sejam automaticamente respondidos com uma mensagem curta e o link do Aura quando a intenção for positiva ou curiosa; objeções, replies confusos ou off-topic devem ir para draft ou revisão em vez de auto-send total.
+§
+Mario prefere avaliar bots por métricas de valor real e resultado de negócio — conversões, reuniões, contratos, retenção e qualidade do output — em vez de volume bruto de atividade.
