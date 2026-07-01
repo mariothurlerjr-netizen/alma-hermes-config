@@ -28,7 +28,7 @@ ALMA operating model: Hermes is the default cockpit; extra bots only when overlo
 §
 Hermes default profile uses OpenAI Codex with model `gpt-5.5`; OpenRouter fallback is available and slowness should be checked against provider limits before VPS resources.
 §
-No perfil default do Hermes, o Composio está filtrado para Gmail, Notion, Outlook, LinkedIn, Instagram e Supabase; `resources` e `prompts` ficam desativados. Granola também foi registrado no MCP do perfil e exige OAuth para uso.
+No perfil default do Hermes, o Composio agora está com `Tools: all` no `hermes mcp list` e `hermes mcp test composio` descobre 508 tools; `resources` e `prompts` continuam desativados.
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
 §
