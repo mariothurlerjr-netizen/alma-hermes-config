@@ -45,3 +45,5 @@ No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETE
 Para rotação Instantly/ALMA Rev, contas novas entram em 5 envios/dia; contas que já aguentaram 20/dia sem spam mas seguem em 10/dia devem ficar em 5/dia e subir +5/dia até ~35-40/dia, com revisão diária.
 §
 No perfil default do Hermes, o Composio está conectado e o dashboard mostra LinkedIn como app ativo, mas o toolkit exposto ainda não reflete isso; o problema parece ser refresh/reconfiguração do MCP, não ausência do app.
+§
+Composio CLI was installed on the Hermes host, logged in as mariothurlerjr@gmail.com, and LinkedIn toolkit became available after running `composio link linkedin`.
