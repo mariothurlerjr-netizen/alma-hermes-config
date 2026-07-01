@@ -6,8 +6,6 @@ Mario prefere split-model workflow.
 §
 Mario prefere ensino em camadas: fatos duráveis, procedimentos, contexto operacional e handoffs.
 §
-Mario quer daily do Hermes em Instantly/email, leads, base e content watch.
-§
 Mario prefere continuar conversas hands-free quando está dirigindo e considera uma interface de voz por ligação telefônica uma opção válida se for simples e prática.
 §
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
