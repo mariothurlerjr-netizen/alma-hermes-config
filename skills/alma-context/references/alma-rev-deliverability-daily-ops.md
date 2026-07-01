@@ -22,6 +22,17 @@ source: telegram
 5. If spam appears, pause or reduce volume for a few days before resuming.
 6. Verify the warmup pipeline in the dosso system and whether the remaining accounts/domains are still scheduled to unlock next Tuesday.
 
+## Mailbox reconnection provider selection
+
+When reactivating `@getalmarev.com` accounts in Instantly, do not assume Google/Gmail just because the domain resembles Workspace mail. If Mario specifies Maildoso/M365, reconnect those inboxes using the Maildoso / Microsoft 365 path in Instantly, not Google OAuth.
+
+Operational sequence:
+1. Identify the exact affected accounts first.
+2. Confirm current provider/auth type in Instantly before changing anything.
+3. Reconnect with the intended provider class (`Maildoso/M365` when specified), then verify SMTP/IMAP or Microsoft auth health.
+4. Keep daily limit conservative during re-entry, starting at 5/day for newly reconnected or recently risky inboxes unless a newer live readiness rule overrides it.
+5. Recheck SPF/DKIM/DMARC, but do not treat DNS being correct as proof that the inbox provider connection is correct.
+
 ## Daily operating rule
 
 - Use the warmed accounts as the active base.

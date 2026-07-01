@@ -27,6 +27,7 @@ license: proprietary
 - Email base hygiene: use `references/email-verification.md` and `leadgen-verification-ops`. Preferred verifier can change by operator decision; current direction is mails.so-first for lead hygiene when Mario switches to it. Treat older verifier stacks as retired unless Mario explicitly reopens them.
 - Lead search / ORION verification details: see `references/orion-lead-factory-verification.md`. Keep provider/account failures loud so billing/auth problems are visible.
 - Daily operating loop: when Mario pedir o trabalho do dia, usar os 4 blocos de `references/daily-operating-loop.md`, começando por Instantly/inbox, depois balanceamento ICP, depois completude/enrichment, e por fim market/content watch. Quando houver conteúdo externo para mineração de GTM, incluir vídeos do Alfredo Soares como fonte recorrente de ideias, não como one-off.
+- Broad business-success mandate: when Mario says algo como “make ALMA successful”, “arruma o negócio”, or gives a global revenue command, use `references/alma-business-success-command.md`. Treat it as execution mandate: brain first, live-state verification, rank revenue gates, execute the next safe move, and write operating artifacts to `agents/hermes/` only when they are useful.
 - Outbound metrics: volume, opens, replies, CTR and readiness are signals; the truth metric for current outbound is the free diagnosis booked/completed and the downstream revenue it creates.
 
 ## ALMA Agentic

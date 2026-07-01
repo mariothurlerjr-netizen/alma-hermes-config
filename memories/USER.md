@@ -12,7 +12,7 @@ Mario prefere continuar conversas hands-free quando está dirigindo e considera 
 §
 Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
 §
-Mario prefere autonomia alta e respostas diretas, sem misturar estado vivo com arquivo obsoleto.
+Mario autorizou Hermes a operar Instantly autonomamente com live state e guardrails de deliverability.
 §
 Mario prefere check-ins diários com plano no começo do dia, realizado no fim do dia e acompanhamento explícito de metas semanais e mensais.
 §
@@ -25,8 +25,6 @@ Para planning de funil quando a empresa está começando do zero, Mario prefere 
 Mario wants explicit verdicts on numbers and assumptions, with the reason and next action.
 §
 Mario prefere fonte mais recente em conflitos e resposta com input + aproximação quando houver ambiguidade.
-§
-Mario wants explicit verdicts on operational claims.
 §
 Mario prefers a conservative ramp-up for recently spammy senders, starting at 5/day and increasing by 1/day.
 §
