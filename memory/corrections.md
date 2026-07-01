@@ -86,3 +86,10 @@ Formato:
 - Correção: "você hoje responde por vários agentes" e o recorte correto é prioridades, atividades, metas e o que a gente conclui hoje e na semana.
 - Lição: quando falar de rotina diária, enquadrar o trabalho como cockpit multi-agente e resumir por prioridades, atividades, metas e entregas do dia/semana, sempre por agente.
 - Status: APPLIED
+|
+## 2026-07-01 16:05 UTC | model routing
+- O que fiz: usei um modelo/contexto que o Mario apontou como errado.
+- Correção: "o model ta errado".
+- Lição: quando Mario sinalizar modelo errado, parar e alinhar qual routing/modelo ele quer antes de seguir.
+- Status: APPLIED
+|

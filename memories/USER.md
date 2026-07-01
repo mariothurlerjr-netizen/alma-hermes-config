@@ -39,3 +39,5 @@ Mario prefere um cockpit canônico por agente com meta de hoje, métrica de suce
 Mario prefere que replies inbound de outbound sejam automaticamente respondidos com uma mensagem curta e o link do Aura quando a intenção for positiva ou curiosa; objeções, replies confusos ou off-topic devem ir para draft ou revisão em vez de auto-send total.
 §
 Mario prefere avaliar bots por métricas de valor real e resultado de negócio — conversões, reuniões, contratos, retenção e qualidade do output — em vez de volume bruto de atividade.
+§
+Mario prefere o modelo 5.5 como default quando disponível.
