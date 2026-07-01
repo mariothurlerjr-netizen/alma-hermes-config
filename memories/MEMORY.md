@@ -26,8 +26,6 @@ ALMA Hermes Telegram bot fleet is preserved but inactive; per-profile gateways, 
 §
 ALMA operating model: Hermes is the default cockpit; extra bots only when overload signals appear.
 §
-Hermes default profile uses OpenAI Codex with model `gpt-5.5`; OpenRouter fallback is available and slowness should be checked against provider limits before VPS resources.
-§
 No perfil default do Hermes, o Composio agora está com `Tools: all` no `hermes mcp list` e `hermes mcp test composio` descobre 508 tools; `resources` e `prompts` continuam desativados.
 §
 Mario prefere priorizar RevOps, fechamento, oferta/pricing e higiene de pipeline antes de customer success, retenção/expansão e market intelligence pesada quando ainda não há clientes.
@@ -43,7 +41,5 @@ Ao citar números operacionais de contas/caixas, eu devo revalidar o inventário
 No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETELL_AGENT_ID_REV_CALLBACK`; fallback para `RETELL_AGENT_ID` se vazio.
 §
 Para rotação Instantly/ALMA Rev, contas novas entram em 5 envios/dia; contas que já aguentaram 20/dia sem spam mas seguem em 10/dia devem ficar em 5/dia e subir +5/dia até ~35-40/dia, com revisão diária.
-§
-No perfil default do Hermes, o Composio está conectado e o dashboard mostra LinkedIn como app ativo, mas o toolkit exposto ainda não reflete isso; o problema parece ser refresh/reconfiguração do MCP, não ausência do app.
 §
 Composio CLI was installed on the Hermes host, logged in as mariothurlerjr@gmail.com, and LinkedIn toolkit became available after running `composio link linkedin`.
