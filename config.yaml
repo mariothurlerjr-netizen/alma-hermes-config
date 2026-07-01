@@ -7,13 +7,13 @@ providers:
     base_url: https://api.openai.com/v1
     api_mode: openai
 fallback_providers:
-  - provider: openrouter
-    model: anthropic/claude-sonnet-4
-    base_url: ''
-    api_mode: openai
+- provider: openrouter
+  model: anthropic/claude-sonnet-4
+  base_url: ''
+  api_mode: openai
 credential_pool_strategies: {}
 toolsets:
-  - hermes-cli
+- hermes-cli
 agent:
   max_turns: 90
   gateway_timeout: 1800
@@ -140,8 +140,8 @@ auxiliary:
     timeout: 360
     extra_body: {}
   compression:
-    provider: openrouter
-    model: openai/gpt-4o-mini
+    provider: auto
+    model: ''
     base_url: ''
     api_key: ''
     timeout: 90
@@ -246,9 +246,9 @@ display:
   runtime_footer:
     enabled: false
     fields:
-      - model
-      - context_pct
-      - cwd
+    - model
+    - context_pct
+    - cwd
   copy_shortcut: auto
   tool_progress: all
 dashboard:
@@ -388,10 +388,10 @@ approvals:
   mcp_reload_confirm: true
   destructive_slash_confirm: false
 command_allowlist:
-  - overwrite system config
-  - shell command via -c/-lc flag
-  - script execution via -e/-c flag
-  - stop/restart system service
+- overwrite system config
+- shell command via -c/-lc flag
+- script execution via -e/-c flag
+- stop/restart system service
 quick_commands: {}
 hooks: {}
 hooks_auto_accept: false
@@ -441,10 +441,10 @@ network:
   force_ipv4: false
 gateway:
   media_delivery_allow_dirs:
-    - /home/almarev
-    - /root/.hermes
-    - /root/alma-aios
-    - /tmp
+  - /home/almarev
+  - /root/.hermes
+  - /root/alma-aios
+  - /tmp
   trust_recent_files: true
   trust_recent_files_seconds: 600
 sessions:
@@ -497,8 +497,7 @@ mcp_servers:
     timeout: 60
     connect_timeout: 15
   composio:
-    url: 
-      https://backend.composio.dev/v3/mcp/21c80646-00d9-45bc-a84a-52e3f1d3ba66?user_id=mario
+    url: https://backend.composio.dev/v3/mcp/21c80646-00d9-45bc-a84a-52e3f1d3ba66?user_id=mario
     headers:
       x-api-key: ${COMPOSIO_API_KEY}
     timeout: 60
@@ -511,51 +510,51 @@ mcp_servers:
     auth: oauth
 platform_toolsets:
   telegram:
-    - web
-    - terminal
-    - file
-    - code_execution
-    - skills
-    - todo
-    - memory
-    - session_search
-    - clarify
-    - delegation
-    - cronjob
-    - messaging
+  - web
+  - terminal
+  - file
+  - code_execution
+  - skills
+  - todo
+  - memory
+  - session_search
+  - clarify
+  - delegation
+  - cronjob
+  - messaging
   cli:
-    - browser
-    - clarify
-    - code_execution
-    - computer_use
-    - cronjob
-    - delegation
-    - file
-    - homeassistant
-    - image_gen
-    - kanban
-    - memory
-    - messaging
-    - moa
-    - session_search
-    - skills
-    - spotify
-    - terminal
-    - todo
-    - tts
-    - video
-    - video_gen
-    - vision
-    - web
-    - x_search
-    - yuanbao
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - cronjob
+  - delegation
+  - file
+  - homeassistant
+  - image_gen
+  - kanban
+  - memory
+  - messaging
+  - moa
+  - session_search
+  - skills
+  - spotify
+  - terminal
+  - todo
+  - tts
+  - video
+  - video_gen
+  - vision
+  - web
+  - x_search
+  - yuanbao
 session_reset:
   mode: both
   idle_minutes: 1440
   at_hour: 4
 known_plugin_toolsets:
   cli:
-    - spotify
+  - spotify
 
 # ── Fallback Model ────────────────────────────────────────────────────
 # Automatic provider failover when primary is unavailable.
