@@ -140,10 +140,10 @@ auxiliary:
     timeout: 360
     extra_body: {}
   compression:
-    provider: auto
-    model: ''
-    base_url: ''
-    api_key: ''
+    provider: custom
+    model: 'gemini-3-flash-preview'
+    base_url: 'https://generativelanguage.googleapis.com/v1beta/openai/'
+    api_key: '${GEMINI_API_KEY}'
     timeout: 90
     extra_body: {}
   skills_hub:
