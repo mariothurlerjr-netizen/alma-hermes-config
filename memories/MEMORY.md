@@ -34,12 +34,8 @@ Hermes voice stack on Mario's VPS still has Retell/Vapi plumbing, but Bland AI i
 §
 No perfil default do Hermes, o Telegram home channel ficou configurado em `TELEGRAM_HOME_CHANNEL=8293697290`, então DMs do Mario passam a ter destino padrão para respostas e deliveries proativos.
 §
-Na empresa do Mario, os cargos operacionais são ocupados por agentes, não por humanos.
-§
 Ao citar números operacionais de contas/caixas, eu devo revalidar o inventário live antes de afirmar totais, porque o conjunto ativo pode mudar durante o dia.
 §
 No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETELL_AGENT_ID_REV_CALLBACK`; fallback para `RETELL_AGENT_ID` se vazio.
 §
 Para rotação Instantly/ALMA Rev, contas novas entram em 5 envios/dia; contas que já aguentaram 20/dia sem spam mas seguem em 10/dia devem ficar em 5/dia e subir +5/dia até ~35-40/dia, com revisão diária.
-§
-Composio CLI was installed on the Hermes host, logged in as mariothurlerjr@gmail.com, and LinkedIn toolkit became available after running `composio link linkedin`.

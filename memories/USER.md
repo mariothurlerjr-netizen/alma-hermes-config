@@ -1,41 +1,23 @@
 - ALMA Rev produto/site/copy/outbound = US-first/inglês; conversa Mario↔Hermes = PT-BR.
 §
-Mario quer status por agente dentro de um cockpit multi-agente, com prioridades, atividades, metas e conclusões do dia e da semana.
+Cockpit canônico multi-agente: status por agente com meta de hoje, métrica de sucesso, prioridades, bloqueio principal, condição de pausa e conclusões do dia/semana. Check-ins diários (plano de manhã, realizado à noite) + metas semanais/mensais acompanhadas explicitamente.
 §
-Mario prefere split-model workflow.
+Mario prefere split-model workflow e o modelo 5.5 como default quando disponível.
 §
-Mario prefere ensino em camadas: fatos duráveis, procedimentos, contexto operacional e handoffs.
+Ensino em camadas: fatos duráveis, procedimentos, contexto operacional, handoffs. Aprendizado recorrente vira skill de classe com SKILL.md rico e referências separadas por sessão.
 §
-Mario prefere continuar conversas hands-free quando está dirigindo e considera uma interface de voz por ligação telefônica uma opção válida se for simples e prática.
+Áudio = canal primário quando Mario manda áudio (responder no mesmo fluxo; sem áudio no canal, texto curto). Hands-free ao dirigir; voz por ligação telefônica é opção válida se simples e prática.
 §
-Mario quer que Hermes trate mensagens de áudio como canal primário quando ele mandar áudio, respondendo no mesmo fluxo quando possível; se áudio não estiver disponível no canal, a resposta deve ser curta em texto.
+Instantly: Hermes autorizado a operar autonomamente com live state e guardrails de deliverability (inboxes, campanhas, sequências, pacing conforme replies, spam e visitas ao Aura).
 §
-Mario autorizou Hermes a operar Instantly autonomamente com live state e guardrails de deliverability, ajustando inboxes, campanhas, sequências e pacing conforme replies, spam e visitas ao Aura.
+Deliverability: ramp-up conservador pós-spam (5/dia, +1/dia); conta com ban/sinais ruins sai do giro e descansa alguns dias; classificação WATCH (3-4 dias limpos), READY (5 dias sem spam), READY-STRICT (7 dias completos, sem queda brusca e warmup_status != -1).
 §
-Mario prefere check-ins diários com plano no começo do dia, realizado no fim do dia e acompanhamento explícito de metas semanais e mensais.
+Funil real do outbound: diagnóstico gratuito → reunião feita → contrato fechado. Planning do zero com premissas conservadoras abaixo do benchmark: ~1% send→AURA, 10% AURA→meeting, 15-20% meeting→retainer/fechamento.
 §
-Mario considera o funil de verdade do outbound composto por três marcos, diagnóstico gratuito, reunião feita e contrato fechado, nessa ordem.
+Replies inbound de outbound: intenção positiva/curiosa = auto-reply curto com link do Aura; objeções, replies confusos ou off-topic = draft/revisão, nunca auto-send total.
 §
-Mario quer que Hermes faça double-check das hipóteses com pesquisa e atue de forma mais proativa como advogado do diabo, contestando quando a tese não fechar.
+Vereditos explícitos sobre números e premissas (razão + próxima ação); double-check de hipóteses com pesquisa; atuar como advogado do diabo quando a tese não fechar; em conflito de fontes, usar a mais recente e responder com input + aproximação.
 §
-Para planning de funil quando a empresa está começando do zero, Mario prefere usar premissas conservadoras abaixo do benchmark de mercado: cerca de 1% send→AURA, 10% AURA→meeting e 15%–20% meeting→retainer/fechamento.
+Avaliar bots por métricas de valor real (conversões, reuniões, contratos, retenção, qualidade do output), não volume bruto de atividade.
 §
-Mario wants explicit verdicts on numbers and assumptions, with the reason and next action.
-§
-Mario prefere fonte mais recente em conflitos e resposta com input + aproximação quando houver ambiguidade.
-§
-Mario prefers a conservative ramp-up for recently spammy senders, starting at 5/day and increasing by 1/day.
-§
-Mario prefere que contas com ban ou sinais ruins sejam removidas do giro e fiquem em descanso por alguns dias antes de voltar ao ambiente.
-§
-Mario prefere que aprendizados recorrentes virem skills de classe com SKILL.md rico e referências separadas por sessão.
-§
-Mario prefere classificar contas outbound em WATCH (3 a 4 dias limpos), READY (5 dias completos sem spam) e READY-STRICT (7 dias completos, sem queda brusca e warmup_status != -1).
-§
-Mario prefere um cockpit canônico por agente com meta de hoje, métrica de sucesso, bloqueio principal e condição de pausa.
-§
-Mario prefere que replies inbound de outbound sejam automaticamente respondidos com uma mensagem curta e o link do Aura quando a intenção for positiva ou curiosa; objeções, replies confusos ou off-topic devem ir para draft ou revisão em vez de auto-send total.
-§
-Mario prefere avaliar bots por métricas de valor real e resultado de negócio — conversões, reuniões, contratos, retenção e qualidade do output — em vez de volume bruto de atividade.
-§
-Mario prefere o modelo 5.5 como default quando disponível.
+Mario autorizou Hermes a operar Instantly autonomamente com live state e guardrails, cockpit por empresa e inbox/sequência, split 70/30 Rev/Local, 3+ sequências por empresa e rebalanceio por replies, spam/bounces e Aura.
