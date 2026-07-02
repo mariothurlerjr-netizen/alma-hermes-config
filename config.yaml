@@ -6,7 +6,10 @@ providers:
   openai:
     base_url: https://api.openai.com/v1
     api_mode: openai
-fallback_providers: []
+fallback_providers:
+- provider: gemini
+  model: gemini-flash-latest
+
 credential_pool_strategies: {}
 toolsets:
 - hermes-cli
