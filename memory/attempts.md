@@ -115,3 +115,10 @@
 - Outcome: SUCCESS
 - Sinal: patch aplicado com sucesso e memória operacional compactada para abrir espaço.
 - Próximo: monitorar o próximo ciclo do heartbeat.
+
+## 2026-07-02T00:24:05+00:00 | skill-curation
+- Ação: consolidei skills de outbound/Instantly em umbrella outbound-campaign-operations e absorvi duas skills estreitas.
+- Abordagem: criei umbrella class-level, copiei referências, arquivei/absorvi skills antigas via skill_manage com absorbed_into.
+- Outcome: UNKNOWN
+- Sinal: skills_list mostra umbrella ativa e antigas fora da lista ativa; skill_view mostra 10 referências copiadas.
+- Próximo: continuar
