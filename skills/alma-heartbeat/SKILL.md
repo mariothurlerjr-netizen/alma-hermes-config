@@ -6,20 +6,19 @@ license: proprietary
 
 # Heartbeat workflow
 
-1. Lê `/root/.hermes/HEARTBEAT.md` (checklist do que rastrear)
-2. Lê `/root/.hermes/memory/corrections.md` (últimas 10)
-3. Lê `/root/.hermes/memory/patterns.md` (flag SWITCH_STRATEGY)
-4. Lê `/home/almarev/brain/STATUS.md` (estado real do sistema, auto-atualizado 24h)
-5. Lê `/root/.hermes/memory/heartbeat-log.md` (últimas 8, anti-spam)
-6. Para cada item do checklist, decide ação
-7. Se aciona, manda 1 mensagem objetiva no Telegram
-8. SEMPRE escreve em `heartbeat-log.md`
+1. Lê `/root/.hermes/HEARTBEAT.md` como fonte autoritativa do ciclo.
+2. Lê `/home/almarev/brain/agents/default/heartbeat-state.md` antes de agir.
+3. Executa somente os itens da janela atual que ainda não constem como executados no state.
+4. Registra todo resultado em arquivo/state; não depende de memória conversacional.
+5. Se precisar de contexto operacional, lê `/home/almarev/brain/STATUS.md` e arquivos indicados pelo próprio `HEARTBEAT.md`.
+6. Se detectar desvio relevante fora da janela atual, registra em arquivo para SHIELD/ORCHESTRATOR; não pageia Mario diretamente.
+7. Resposta final do cron default deve ser exatamente `[SILENT]`, sem relatório, prefixo, sufixo ou combinação com conteúdo.
 
-## Silêncio é positivo
-Não manda "tudo ok". Spam de heartbeat é pior que silêncio.
+## Silêncio é obrigatório no default
+O perfil default nunca manda mensagem proativa para Mario. Heartbeats e rituais continuam rodando e escrevendo em arquivo, mas a entrega final do job default é sempre `[SILENT]`. Spam de heartbeat é pior que silêncio.
 
-## Critério de envio
-Novo (não avisou em 4h) + acionável (sugestão concreta) + Mario age em menos de 5min.
+## Critério de ação
+Executar apenas o que está explicitamente na janela atual do `HEARTBEAT.md` e ainda não foi marcado no `heartbeat-state.md`. Ação fora da janela vira anotação em arquivo, não notificação.
 
 ## Briefing diário 07:15
 Quando o heartbeat roda como check-in da manhã, ele não é anti-spam silencioso comum: entregar um briefing operacional em PT-BR, direto, a menos que não haja absolutamente nada novo. Protocolo:
