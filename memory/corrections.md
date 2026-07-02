@@ -93,3 +93,9 @@ Formato:
 - Lição: quando Mario sinalizar modelo errado, parar e alinhar qual routing/modelo ele quer antes de seguir.
 - Status: APPLIED
 |
+
+## 2026-07-02T17:57:30+00:00 | youtube-content
+- O que fiz: tratei o link do YouTube sem confirmar o vídeo/transcript corretamente.
+- Correção: Mario reenviou o link correto: https://youtu.be/PsE9u37gJjU?is=syrpMi2YKprqn0Fw
+- Lição: em links de YouTube, confirmar video_id, título e fonte antes de resumir; se transcript falhar por bloqueio da VPS, rotular explicitamente a leitura como metadata-grounded.
+- Status: APPLIED
