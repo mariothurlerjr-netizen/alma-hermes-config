@@ -21,7 +21,7 @@ O perfil default nunca manda mensagem proativa para Mario. Heartbeats e rituais 
 Executar apenas o que está explicitamente na janela atual do `HEARTBEAT.md` e ainda não foi marcado no `heartbeat-state.md`. Ação fora da janela vira anotação em arquivo, não notificação.
 
 ## Briefing diário 07:15
-Quando o heartbeat roda como check-in da manhã, ele não é anti-spam silencioso comum: entregar um briefing operacional em PT-BR, direto, a menos que não haja absolutamente nada novo. Protocolo:
+Quando o heartbeat roda como check-in da manhã, ele só pode entregar briefing se o `JOB.md`/mensagem do cron permitir entrega. Se a instrução ativa disser `SILENT`, `responda sempre [SILENT]`, ou que o perfil default nunca manda mensagem proativa, essa instrução vence e a resposta final deve ser exatamente `[SILENT]`. Quando permitido, entregar um briefing operacional em PT-BR, direto, a menos que não haja absolutamente nada novo. Protocolo:
 
 1. Ler `JOB.md` no diretório do Hermes se existir e obedecer regras do job.
 2. Ler `/home/almarev/brain/STATUS.md`, `/home/almarev/brain/02-alma-rev/_CURRENT.md` e `/home/almarev/brain/agents/default/heartbeat-state.md` se acessíveis.
