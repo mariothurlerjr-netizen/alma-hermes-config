@@ -14,7 +14,7 @@ credential_pool_strategies: {}
 toolsets:
 - hermes-cli
 agent:
-  max_turns: 90
+  max_turns: 20
   gateway_timeout: 1800
   restart_drain_timeout: 180
   api_max_retries: 2
@@ -501,7 +501,7 @@ mcp_servers:
       x-api-key: ${COMPOSIO_API_KEY}
     timeout: 60
     connect_timeout: 15
-    enabled: true
+    enabled: false
     resources: false
     prompts: false
   granola:
