@@ -30,6 +30,9 @@ Quando o heartbeat roda como check-in da manhã, ele só pode entregar briefing 
 5. Consolidar todas as pendências do Mario em uma única lista numerada, resolvível por palavra ou resposta curta; não espalhar pendências em blocos por área.
 6. Usar o formato: resumo executivo; prioridades de hoje; atividades por área/agente com estado/meta/métrica/bloqueio/condição de pausa; fila única do Mario; o que conclui hoje; o que conclui na semana.
 
+## Support files
+- `references/default-heartbeat-instantly-audit.md` — padrão operacional para o default heartbeat auditar Instantly silenciosamente, separar ALMAREV-V3/legacy/Local, atualizar state e registrar desvios em SHIELD sem pagear Mario.
+
 ## Pitfalls conhecidos
 - Na VPS do Mario, `hermes-gateway` roda como user service de root. Validar com `hermes gateway status` ou `XDG_RUNTIME_DIR=/run/user/0 systemctl --user is-active hermes-gateway.service`. `systemctl is-active hermes-gateway.service` como system unit pode retornar inactive/absent e não significa gateway down.
 - Quando Mario pedir para "pausar o alarme" ou reclamar de ruído, não olhe só `hermes cron list`: também inspecione o crontab (`/root/run-heartbeat.sh`) e diferencie watchdog específico (ex: `orion-watchdog`) de heartbeat geral. Se o watchdog já estiver pausado, o alarme pode estar vindo do checklist do heartbeat, então ajuste/silencie a condição ruidosa em vez de reportar "já está pausado".
