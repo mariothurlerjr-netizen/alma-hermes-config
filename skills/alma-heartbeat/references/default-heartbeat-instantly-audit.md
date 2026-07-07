@@ -61,3 +61,24 @@ The SHIELD line should be short: timestamp, default-heartbeat window, numeric ob
 - latest live metrics;
 - any deviation registered;
 - per-window execution markers for the current date.
+
+## Night-window check-in pattern
+
+For the `18:00-18:25` default heartbeat window, run both night tasks when not already marked for the current BRT date:
+
+1. Read `checkin-manha.md` before writing the night check-in, so the night file compares morning plan vs realized state rather than producing a standalone status dump.
+2. Collect fresh live Instantly + Postgres metrics, then overwrite `status-instantly.md` with a night section. Do not append a second stale morning report unless the active `HEARTBEAT.md` explicitly asks for append semantics.
+3. Write `checkin-noite.md` with: what closed, what stuck and why, what changed vs morning, status by agent/area, a single Mario-dependency queue, and tomorrow's priority.
+4. Update `heartbeat-state.md` with distinct markers such as `instantly_status_morning_executed` and `instantly_status_night_executed`; avoid one ambiguous `instantly_status_executed` marker that can hide whether the night status ran.
+5. If V3 sends continue while `seed-tests.json` is absent, append a new SHIELD inbox line with the updated numbers even if a morning line already exists. This is a persistent gate/governance deviation, not a duplicate deliverability alarm.
+
+## Practical collector pattern
+
+When Python `requests` helpers may hit provider quirks or hide endpoint details, a temporary Python collector that shells out to `curl --compressed -A 'curl/8.5.0'` is acceptable for the heartbeat. Keep it secret-safe:
+
+- load `/home/almarev/agentic/.env` without printing values;
+- pass the Instantly token only as an Authorization header;
+- emit aggregate JSON only, never raw env or secrets;
+- query `/campaigns`, `/accounts`, and `/campaigns/analytics` for both today and sprint start;
+- split analytics into `ALMAREV-V3-*`, Rev legacy, Local, and total;
+- use `psql "$POSTGRES_URL" -t -A` for Postgres metrics if Python DB deps are not guaranteed in the Hermes runtime.
