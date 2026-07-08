@@ -122,3 +122,10 @@
 - Outcome: UNKNOWN
 - Sinal: skills_list mostra umbrella ativa e antigas fora da lista ativa; skill_view mostra 10 referências copiadas.
 - Próximo: continuar
+
+## 2026-07-08T13:17:00Z | ORION lead factory status
+- Ação: Respondi status da produção de leads usando Brain, logs e DB.
+- Abordagem: Dei inventário operacional e estoque Apollo, mas não priorizei a falha da missão no-Apollo nem o alerta preventivo.
+- Outcome: FAILURE
+- Sinal: Mario corrigiu explicitamente e pediu causa + plano de desbloqueio.
+- Próximo: Trocar para accountability operacional, causa-raiz e plano de recuperação sem Apollo.

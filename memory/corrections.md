@@ -99,3 +99,21 @@ Formato:
 - Correção: Mario reenviou o link correto: https://youtu.be/PsE9u37gJjU?is=syrpMi2YKprqn0Fw
 - Lição: em links de YouTube, confirmar video_id, título e fonte antes de resumir; se transcript falhar por bloqueio da VPS, rotular explicitamente a leitura como metadata-grounded.
 - Status: APPLIED
+
+## 2026-07-08T13:17:00Z | ORION lead factory
+- O que fiz: tratei o pull Apollo como recuperação de estoque e respondi status sem assumir explicitamente a falha da missão diária open-web/no-Apollo.
+- Correção: Mario reforçou que a missão do ORION é gerar 100 leads/dia sem depender do Apollo, perguntou por que gerou zero e por que não avisei antes.
+- Lição: produção zero ou abaixo da meta diária é desvio crítico; ORION deve avisar proativamente com causa e plano de desbloqueio, e Apollo/manual pull não substitui a fábrica diária própria.
+- Status: APPLIED
+
+## 2026-07-08T13:20:00Z | ORION lead factory free sourcing
+- O que fiz: propus Ample/cheap extractor como parte da recuperação de produção.
+- Correção: Mario não quer assinar extractor novo; quer maneira gratuita de gerar leads.
+- Lição: plano de desbloqueio ORION deve priorizar fontes gratuitas/open-web e infraestrutura própria; paid extractors entram só se Mario pedir explicitamente.
+- Status: APPLIED
+
+## 2026-07-08T13:23:21Z | ORION ICP size filter
+- O que fiz: propus sourcing gratuito/open-web sem explicitar filtro operacional forte de tamanho de empresa.
+- Correção: Mario reforçou que ALMA Rev deve atacar empresas com no máximo ~$10M de faturamento; empresas grandes, bancos gigantes e instituições grandes não servem para a consultoria.
+- Lição: todo lead ORION precisa passar por size gate antes de contar: excluir enterprise/large firms usando proxies de headcount, professional count, office count, AUM, naming e sinais de site quando revenue não estiver disponível.
+- Status: APPLIED
