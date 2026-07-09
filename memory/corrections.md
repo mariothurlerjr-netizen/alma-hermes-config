@@ -117,3 +117,9 @@ Formato:
 - Correção: Mario reforçou que ALMA Rev deve atacar empresas com no máximo ~$10M de faturamento; empresas grandes, bancos gigantes e instituições grandes não servem para a consultoria.
 - Lição: todo lead ORION precisa passar por size gate antes de contar: excluir enterprise/large firms usando proxies de headcount, professional count, office count, AUM, naming e sinais de site quando revenue não estiver disponível.
 - Status: APPLIED
+
+## 2026-07-09T01:23:30+00:00 | email-routing/getalmarev
+- O que fiz: tratei getalmarev como possivelmente dependente de Maildoso.
+- Correção: "O getalmarev está direto no Gmail, não no maildoso"
+- Lição: getalmarev.com usa Gmail/Google Workspace direto como fonte primária, não Maildoso.
+- Status: APPLIED
