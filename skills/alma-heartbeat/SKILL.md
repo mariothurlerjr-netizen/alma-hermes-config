@@ -32,6 +32,7 @@ Quando o heartbeat roda como check-in da manhã, ele só pode entregar briefing 
 
 ## Support files
 - `references/default-heartbeat-instantly-audit.md` — padrão operacional para o default heartbeat auditar Instantly silenciosamente, separar ALMAREV-V3/legacy/Local, atualizar state e registrar desvios em SHIELD sem pagear Mario.
+- `scripts/default_instantly_heartbeat_collector.py` — coletor reusável e secret-safe para métricas live Instantly + Postgres no heartbeat default; imprime JSON agregado sem valores de env ou payload cru.
 
 ## Pitfalls conhecidos
 - Em heartbeat/status escrito para arquivo, não despejar saída crua de `psql -F '|'` em métricas compostas. Transformar `5|2` em rótulo legível, ex.: `5 total / 2 interested`, `86 total / 0 email-attributed`. Esses arquivos viram insumo de ORCHESTRATOR/SHIELD, então separador bruto vira ambiguidade operacional.
