@@ -7,6 +7,8 @@ providers:
     base_url: https://api.openai.com/v1
     api_mode: openai
 fallback_providers:
+- provider: copilot
+  model: gpt-4.1
 - provider: gemini
   model: gemini-flash-latest
 
