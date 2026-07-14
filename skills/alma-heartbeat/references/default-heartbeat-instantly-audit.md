@@ -72,6 +72,17 @@ For the `18:00-18:25` default heartbeat window, run both night tasks when not al
 4. Update `heartbeat-state.md` with distinct markers such as `instantly_status_morning_executed` and `instantly_status_night_executed`; avoid one ambiguous `instantly_status_executed` marker that can hide whether the night status ran.
 5. If V3 sends continue while `seed-tests.json` is absent, append a new SHIELD inbox line with the updated numbers even if a morning line already exists. This is a persistent gate/governance deviation, not a duplicate deliverability alarm.
 
+## Morning-window check-in pattern
+
+For the `07:00-08:00` default heartbeat window, run both morning tasks when not already marked for the current BRT date:
+
+1. Read `JOB.md` if present, then `STATUS.md`, `02-alma-rev/_CURRENT.md`, and `heartbeat-state.md` before writing the morning check-in. The default cron remains silent, but the file should still contain the full briefing shape requested by the job.
+2. Collect fresh live Instantly + Postgres metrics once and reuse the same JSON for `checkin-manha.md`, `status-instantly.md`, `heartbeat-state.md`, and any SHIELD line. Do not re-run the collector separately for each output.
+3. Write `checkin-manha.md` with: resumo executivo, prioridades de hoje, outbound/Instantly state, ALMA Rev sprint state, agent/automation state, one single Mario-dependency queue, what should conclude today, and what should conclude this week.
+4. Write `status-instantly.md` as a morning status with V3 vs Rev legacy vs Local split, account/warmup health, Postgres business outcomes, gate/deviation status, and active campaigns/caps.
+5. Update `heartbeat-state.md` with current BRT date markers `morning_07_15_executed: yes` and `instantly_status_morning_executed: yes`, leaving night markers as `no` until the night window runs.
+6. If V3 is still active with material sprint sends while `seed-tests.json` is absent, append a SHIELD inbox line even when V3 has not yet sent today; cap still active before the send window is a governance signal.
+
 ## Practical collector pattern
 
 When Python `requests` helpers may hit provider quirks or hide endpoint details, a temporary Python collector that shells out to `curl --compressed -A 'curl/8.5.0'` is acceptable for the heartbeat. Keep it secret-safe:
