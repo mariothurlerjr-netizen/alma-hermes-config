@@ -34,6 +34,13 @@ Quando o heartbeat roda como check-in da manhã, ele só pode entregar briefing 
 - `references/default-heartbeat-instantly-audit.md` — padrão operacional para o default heartbeat auditar Instantly silenciosamente, separar ALMAREV-V3/legacy/Local, atualizar state e registrar desvios em SHIELD sem pagear Mario.
 - `scripts/default_instantly_heartbeat_collector.py` — coletor reusável e secret-safe para métricas live Instantly + Postgres no heartbeat default; imprime JSON agregado sem valores de env ou payload cru.
 
+## Night window write set
+- Na janela `18:00-18:25`, executar os dois itens juntos quando ambos estiverem pendentes: `checkin-noite` e `status-instantly-noite`.
+- Ler o plano/estado da manhã antes de escrever a noite, mas usar dado live do coletor como verdade operacional.
+- Reutilizar uma única coleta live para escrever: `/home/almarev/brain/agents/default/status-instantly.md`, `/home/almarev/brain/agents/default/checkin-noite.md`, `/home/almarev/brain/agents/default/heartbeat-state.md` e, se houver desvio, append em `/home/almarev/brain/agents/shield/inbox.md`.
+- O `checkin-noite.md` deve comparar `o que fechou`, `o que travou e por quê`, `prioridade de amanhã` e manter a `Fila unica do Mario` em um único bloco, mesmo que a resposta final do cron seja sempre `[SILENT]`.
+- Depois de escrever, verificar por leitura dos arquivos gravados que os marcadores da janela atual estão `yes` e que o SHIELD recebeu a linha de desvio quando aplicável.
+
 ## Pitfalls conhecidos
 - Em heartbeat/status escrito para arquivo, não despejar saída crua de `psql -F '|'` em métricas compostas. Transformar `5|2` em rótulo legível, ex.: `5 total / 2 interested`, `86 total / 0 email-attributed`. Esses arquivos viram insumo de ORCHESTRATOR/SHIELD, então separador bruto vira ambiguidade operacional.
 - Para métricas live de contas Instantly, o campo de score observado na API v2 é `stat_warmup_score`, não `warmup_score`. Contar `status == 1` como conectado, `warmup_status == 1` como warmup ativo e `setup_pending == false` como sem pendência; se usar chaves erradas, o relatório pode mostrar score `null` mesmo com dados válidos.
