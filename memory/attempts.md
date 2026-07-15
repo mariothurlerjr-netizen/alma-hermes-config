@@ -129,3 +129,10 @@
 - Outcome: FAILURE
 - Sinal: Mario corrigiu explicitamente e pediu causa + plano de desbloqueio.
 - Próximo: Trocar para accountability operacional, causa-raiz e plano de recuperação sem Apollo.
+
+## 2026-07-15T22:08:45Z | revisão operacional e de código
+- Ação: revisei sessões, estado live do Instantly, crons do Jarvis e diffs não commitados do Hermes; executei a suíte direcionada.
+- Abordagem: dados live + histórico + code review paralelo, com foco em regressões, autonomia e output executivo.
+- Outcome: UNKNOWN
+- Sinal: 196 testes passaram; auditoria encontrou 2 mailboxes sem warmup no pool e 3 riscos de código priorizados.
+- Próximo: entregar veredito e, se Mario aprovar, corrigir P1/P2 e reativar rotina mínima de briefing.
