@@ -123,3 +123,10 @@ Formato:
 - Correção: "O getalmarev está direto no Gmail, não no maildoso"
 - Lição: getalmarev.com usa Gmail/Google Workspace direto como fonte primária, não Maildoso.
 - Status: APPLIED
+
+## 2026-07-15T10:48:27Z | mailbox-reconciliation-autonomy
+- O que fiz: pedi aprovação/esperei confirmação para seguir com a reconciliação de contas após identificar o recorte operacional.
+- Correção: "Pode seguir. Não precisava nem da minha aprovação"
+- Lição: Em reconciliação de mailboxes/warmup e remediações operacionais de baixo risco, Jarvis deve executar direto quando o próximo passo seguro estiver claro. Só pedir aprovação se for prospect-facing, gated, custo novo, destrutivo ou sem credencial/fonte autenticada.
+- Status: APPLIED
+
