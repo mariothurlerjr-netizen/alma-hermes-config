@@ -136,3 +136,9 @@ Formato:
 - Correção: "Toda vez que você for fazer alguma coisa, pesquise para ver qual é o mais assertivo, o que vai dar mais resultado, e o que vai ter mais visualização e mais alcance".
 - Lição: antes de criar ou recomendar conteúdo, formato, visual, hook, script, carrossel, blog, Reel ou campanha, pesquisar referências/benchmarks atuais e escolher o caminho mais assertivo para resultado, visualização, alcance e conversão.
 - Status: APPLIED
+## 2026-07-27T15:52:55+00:00 | alma-agent-roster
+- O que fiz: tratei SAGE como o bot/agente novo relevante nesta frente sem registrar Friday Audit.
+- Correção: Mario informou que além do SAGE existe um bot novo chamado Friday Audit, responsável só por auditorias.
+- Lição: separar SAGE de Friday Audit; SAGE = Growth R&D/outbound experiments, Friday Audit = auditorias.
+- Status: APPLIED
+
