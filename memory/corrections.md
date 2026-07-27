@@ -130,3 +130,9 @@ Formato:
 - Lição: Em reconciliação de mailboxes/warmup e remediações operacionais de baixo risco, Jarvis deve executar direto quando o próximo passo seguro estiver claro. Só pedir aprovação se for prospect-facing, gated, custo novo, destrutivo ou sem credencial/fonte autenticada.
 - Status: APPLIED
 
+
+## 2026-07-27T14:06:01.470909+00:00 | MUSE/content research
+- O que fiz: recomendei direção criativa de IG primeiro por julgamento interno e só pesquisei depois que o Mario pediu.
+- Correção: "Toda vez que você for fazer alguma coisa, pesquise para ver qual é o mais assertivo, o que vai dar mais resultado, e o que vai ter mais visualização e mais alcance".
+- Lição: antes de criar ou recomendar conteúdo, formato, visual, hook, script, carrossel, blog, Reel ou campanha, pesquisar referências/benchmarks atuais e escolher o caminho mais assertivo para resultado, visualização, alcance e conversão.
+- Status: APPLIED
