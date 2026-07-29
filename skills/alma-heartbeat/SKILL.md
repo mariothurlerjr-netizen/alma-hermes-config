@@ -34,6 +34,13 @@ Quando o heartbeat roda como check-in da manhã, ele só pode entregar briefing 
 - `references/default-heartbeat-instantly-audit.md` — padrão operacional para o default heartbeat auditar Instantly silenciosamente, separar ALMAREV-V3/legacy/Local, atualizar state e registrar desvios em SHIELD sem pagear Mario.
 - `scripts/default_instantly_heartbeat_collector.py` — coletor reusável e secret-safe para métricas live Instantly + Postgres no heartbeat default; imprime JSON agregado sem valores de env ou payload cru.
 
+## Morning window write set
+- Na janela `07:00-08:00`, executar os dois itens juntos quando ambos estiverem pendentes: `checkin-manha` e `status-instantly-manha`.
+- Ler `JOB.md` quando existir, `STATUS.md`, `02-alma-rev/_CURRENT.md`, `heartbeat-state.md` e os arquivos alvo antes de sobrescrever.
+- Reutilizar uma única coleta live para escrever: `/home/almarev/brain/agents/default/status-instantly.md`, `/home/almarev/brain/agents/default/checkin-manha.md`, `/home/almarev/brain/agents/default/heartbeat-state.md` e, se houver desvio, append em `/home/almarev/brain/agents/shield/inbox.md`.
+- O `checkin-manha.md` deve conter resumo executivo, prioridades de hoje, estado outbound/Instantly, atividades por área/agente, `Fila unica do Mario`, o que conclui hoje e o que conclui na semana.
+- Depois de escrever, verificar por leitura dos arquivos gravados que `morning_07_15_executed: yes` e `instantly_status_morning_executed: yes` estão na seção da data BRT atual, que `status-instantly.md` e `checkin-manha.md` carregam o mesmo `collected_at` da coleta única, e que o SHIELD recebeu a linha de desvio quando aplicável.
+
 ## Night window write set
 - Na janela `18:00-18:25`, executar os dois itens juntos quando ambos estiverem pendentes: `checkin-noite` e `status-instantly-noite`.
 - Ler o plano/estado da manhã antes de escrever a noite, mas usar dado live do coletor como verdade operacional.
