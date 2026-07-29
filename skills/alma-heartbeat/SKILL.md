@@ -44,9 +44,9 @@ Quando o heartbeat roda como check-in da manhã, ele só pode entregar briefing 
 ## Night window write set
 - Na janela `18:00-18:25`, executar os dois itens juntos quando ambos estiverem pendentes: `checkin-noite` e `status-instantly-noite`.
 - Ler o plano/estado da manhã antes de escrever a noite, mas usar dado live do coletor como verdade operacional.
-- Reutilizar uma única coleta live para escrever: `/home/almarev/brain/agents/default/status-instantly.md`, `/home/almarev/brain/agents/default/checkin-noite.md`, `/home/almarev/brain/agents/default/heartbeat-state.md` e, se houver desvio, append em `/home/almarev/brain/agents/shield/inbox.md`.
+- Reutilizar sempre uma única coleta live de métrica Instantly/postgres feita na abertura da janela para escrever todos os arquivos da noite (`status-instantly.md`, `checkin-noite.md`, `heartbeat-state.md`, SHIELD/inbox). Nunca gerar state com timestamps divergentes na mesma janela. O patch noturno deve sempre refletir `sends`, `replies` e cumulativo correto auditável direto do output do coletor.
 - O `checkin-noite.md` deve comparar `o que fechou`, `o que travou e por quê`, `prioridade de amanhã` e manter a `Fila unica do Mario` em um único bloco, mesmo que a resposta final do cron seja sempre `[SILENT]`.
-- Depois de escrever, verificar por leitura dos arquivos gravados que os marcadores da janela atual estão `yes` e que o SHIELD recebeu a linha de desvio quando aplicável.
+- Depois de escrever, verificar por leitura dos arquivos gravados que os marcadores da janela atual estão `yes` e que o SHIELD recebeu a linha de desvio com o delta do output ao menos em replies ou discovery.
 
 ## Pitfalls conhecidos
 - Ao atualizar arquivos append-only do heartbeat, especialmente `/home/almarev/brain/agents/shield/inbox.md`, nunca reutilizar conteúdo retornado por `read_file` como corpo bruto sem limpar prefixos de linha. O output de leitura pode vir no formato `  12|conteúdo`; se isso for regravado, o arquivo passa a acumular numeração persistida (`12|12|...`). Para append, preferir patch pontual/append controlado ou normalizar cada linha removendo `^\s*\d+\|` antes de escrever de volta. Padrão seguro: usar `patch` substituindo a última linha real por ela mesma + nova linha de desvio, sem regravar o arquivo inteiro. Verificar o arquivo relido depois.
