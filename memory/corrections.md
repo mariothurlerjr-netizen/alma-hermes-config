@@ -142,3 +142,14 @@ Formato:
 - Lição: separar SAGE de Friday Audit; SAGE = Growth R&D/outbound experiments, Friday Audit = auditorias.
 - Status: APPLIED
 
+## 2026-07-30T17:22:14+00:00 | alma-style/telegram-readability
+- O que fiz: formatei respostas no Telegram com blocos densos e títulos próximos do conteúdo.
+- Correção: Mario pediu títulos em negrito, espaço depois do título, conteúdo separado, espaço entre tópicos.
+- Lição: em respostas no Telegram, usar títulos em negrito, linha em branco depois do título, conteúdo em bloco separado e linha em branco entre tópicos para facilitar leitura rápida.
+- Status: APPLIED
+
+## 2026-07-30T17:25:29+00:00 | outbound-reporting/test-exclusion
+- O que fiz: reportei 2 interested no Sprint Cold Email V3 sem excluir provável teste da base operacional.
+- Correção: Mario disse que os 2 interessados provavelmente foram teste e que tudo que é teste deve ser excluído da base de relatórios.
+- Lição: relatórios operacionais devem separar produção real de teste; testes não entram em métricas de interessados, replies, reuniões, conversões ou performance.
+- Status: APPLIED
