@@ -171,3 +171,31 @@ Formato:
 - Correção: Mario disse que Sentinel não precisa mandar informação da própria empresa/campanhas; deve trazer informação de mercado, cobertura, possibilidades, concorrência e sinais externos dentro do job description.
 - Lição: Sentinel deve focar output proativo em market intelligence externo acionável: mercado, ICP, verticais, concorrência, coverage/opportunity e sinais que mudam decisão. Métrica interna de campanha só entra quando Mario pedir explicitamente, com fonte viva e timestamp.
 - Status: APPLIED
+
+
+## 2026-07-31T17:17:19+00:00 | whatsapp-relationship-style
+- O que fiz: sugeri mensagem de WhatsApp com tom mais polido/consultivo e com risco de soar crítica ou posicionamento fechado.
+- Correção: Mario quer versão mais curta, no jeito dele, sem crítica, apresentando como uma possibilidade de posicionamento de mercado.
+- Lição: drafts de WhatsApp para relacionamento devem soar como Mario: curto, natural, exploratório, sem pitch, sem crítica, com linguagem de possibilidade e conversa.
+- Status: APPLIED
+
+
+## 2026-07-31T17:30:00+00:00 | whatsapp-human-connection
+- O que fiz: resumi uma mensagem de WhatsApp de forma seca, indo direto ao artigo sem abertura humana.
+- Correção: Mario quer incluir conexão humana quando adequado, como “Fred, tudo bem?” e “como tem sido a semana em São Paulo?”.
+- Lição: drafts de WhatsApp para relacionamento devem abrir com uma ponte humana breve antes do assunto, mantendo naturalidade, contexto e calor sem alongar demais.
+- Status: APPLIED
+
+
+## 2026-07-31T17:25:00+00:00 | whatsapp-positioning-clarity
+- O que fiz: resumi a mensagem sobre Sequoia como "camada operada em cima da ferramenta", deixando confuso e apagando a palavra serviço.
+- Correção: Mario apontou que o ponto importante é serviço, não apenas camada em cima da ferramenta.
+- Lição: ao resumir a tese Services: The New Software para WhatsApp, manter explícito que empresas de software podem vender serviço/trabalho pronto além da ferramenta. Evitar formulação vaga como "camada em cima da ferramenta" sem dizer serviço.
+- Status: APPLIED
+
+
+## 2026-07-31T17:28:12.988004+00:00 | sequoia-service-as-software-language
+- O que fiz: formulei a tese como “empresas de software podem capturar mais valor quando vendem também o serviço”, o que sugere software + serviço como duas coisas separadas.
+- Correção: Mario corrigiu que a tese é vender o software como serviço/trabalho pronto, não vender também serviço em cima do software.
+- Lição: ao explicar Sequoia/service-as-software, usar “vender o software como serviço/trabalho pronto” ou “software se apresenta como serviço”; evitar “vender também serviço” quando isso separar produto e serviço.
+- Status: APPLIED
