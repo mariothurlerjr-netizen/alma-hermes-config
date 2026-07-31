@@ -199,3 +199,17 @@ Formato:
 - Correção: Mario corrigiu que a tese é vender o software como serviço/trabalho pronto, não vender também serviço em cima do software.
 - Lição: ao explicar Sequoia/service-as-software, usar “vender o software como serviço/trabalho pronto” ou “software se apresenta como serviço”; evitar “vender também serviço” quando isso separar produto e serviço.
 - Status: APPLIED
+
+
+## 2026-07-31T17:30:36.804174+00:00 | sequoia-service-as-software-language-2
+- O que fiz: chamei a ideia de “tese” e formulei como software entregue como serviço.
+- Correção: Mario corrigiu que não é para chamar de tese na mensagem; é um estudo/leitura de mercado: empresas pagam mais por serviço e a tendência é vender serviço com software.
+- Lição: para mensagem 1:1 sobre o artigo da Sequoia, usar linguagem simples: “estudo/artigo mostra que empresas pagam mais por serviço do que por software; tendência é vender serviço com software por trás”. Evitar soar acadêmico com “tese”.
+- Status: APPLIED
+
+
+## 2026-07-31T17:46:28.519581+00:00 | alma-not-growth-only
+- O que fiz: reduzi a leitura de serviços comprados pela ALMA para growth/agency/SDR/follow-up.
+- Correção: Mario lembrou que já tínhamos alinhado que o escopo inclui serviços financeiros, operações e RevOps, não só growth.
+- Lição: quando discutir service-as-software/ALMA, partir de operating functions amplas: growth, finance/cash flow, operations e RevOps. Growth é wedge, não categoria inteira.
+- Status: APPLIED
