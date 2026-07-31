@@ -145,11 +145,29 @@ Formato:
 ## 2026-07-30T17:22:14+00:00 | alma-style/telegram-readability
 - O que fiz: formatei respostas no Telegram com blocos densos e títulos próximos do conteúdo.
 - Correção: Mario pediu títulos em negrito, espaço depois do título, conteúdo separado, espaço entre tópicos.
-- Lição: em respostas no Telegram, usar títulos em negrito, linha em branco depois do título, conteúdo em bloco separado e linha em branco entre tópicos para facilitar leitura rápida.
+- Lição: em respostas no Telegram, usar títulos em negrito, linha em branco depois do título, conteúdo em bloco separado e linha entre tópicos para facilitar leitura rápida.
 - Status: APPLIED
 
 ## 2026-07-30T17:25:29+00:00 | outbound-reporting/test-exclusion
 - O que fiz: reportei 2 interested no Sprint Cold Email V3 sem excluir provável teste da base operacional.
 - Correção: Mario disse que os 2 interessados provavelmente foram teste e que tudo que é teste deve ser excluído da base de relatórios.
 - Lição: relatórios operacionais devem separar produção real de teste; testes não entram em métricas de interessados, replies, reuniões, conversões ou performance.
+- Status: APPLIED
+
+## 2026-07-31T13:06:22+00:00 | Instantly/getalmarev reservation
+- O que fiz: tratei `getalmarev.com` como reservado para resposta/1:1.
+- Correção: "Getalmarev não está reservado pra resposta"
+- Lição: `getalmarev.com` não está reservado para resposta/1:1; em outbound, avaliar e usar por gates vivos de warmup, compliance, sender health, sending_gap, bounce/reputation e aprovação quando aplicável.
+- Status: APPLIED
+
+## 2026-07-31T13:09:15+00:00 | outbound-reporting/source-of-truth
+- O que fiz: mandei informações sobre campanhas de e-mail sem garantir que a fonte era live, correta e separada de teste/noise.
+- Correção: "Pq vc tá mandando informações sobre as campanhas de e-mail e as suas informações não estão certas"
+- Lição: Sentinel só deve reportar status ou métrica de campanhas ALMA Rev quando consultar fonte viva Instantly/Cortex produção com timestamp; nunca usar brain stale, memória, cron antigo, webhook/test replies ou inferência como fonte final.
+- Status: APPLIED
+
+## 2026-07-31T13:12:28+00:00 | sentinel-role-boundary
+- O que fiz: enviei informação interna de empresa/campanhas que o Mario já tem via link/dashboard e que sobrepõe outros bots.
+- Correção: Mario disse que Sentinel não precisa mandar informação da própria empresa/campanhas; deve trazer informação de mercado, cobertura, possibilidades, concorrência e sinais externos dentro do job description.
+- Lição: Sentinel deve focar output proativo em market intelligence externo acionável: mercado, ICP, verticais, concorrência, coverage/opportunity e sinais que mudam decisão. Métrica interna de campanha só entra quando Mario pedir explicitamente, com fonte viva e timestamp.
 - Status: APPLIED
