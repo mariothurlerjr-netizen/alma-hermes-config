@@ -312,8 +312,8 @@ context:
 memory:
   memory_enabled: true
   user_profile_enabled: true
-  memory_char_limit: 6000
-  user_char_limit: 2500
+  memory_char_limit: 16000
+  user_char_limit: 5000
   provider: holographic
 delegation:
   model: ''
