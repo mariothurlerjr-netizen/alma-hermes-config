@@ -213,3 +213,9 @@ Formato:
 - Correção: Mario lembrou que já tínhamos alinhado que o escopo inclui serviços financeiros, operações e RevOps, não só growth.
 - Lição: quando discutir service-as-software/ALMA, partir de operating functions amplas: growth, finance/cash flow, operations e RevOps. Growth é wedge, não categoria inteira.
 - Status: APPLIED
+
+## 2026-08-06T14:32:28+00:00 | MUSE visual assets
+- O que fiz: usei ou considerei composição de picture-in-picture e possivelmente uma imagem já usada.
+- Correção: "Remember that we are not putting pictures in pictures" e "I think that this picture was used".
+- Lição: não usar imagem dentro de imagem em assets ALMA Rev, salvo pedido explícito; antes de reaproveitar imagem, verificar histórico de uso/publicação para evitar repetição.
+- Status: APPLIED
