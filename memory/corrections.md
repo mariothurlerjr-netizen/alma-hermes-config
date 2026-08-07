@@ -219,3 +219,10 @@ Formato:
 - Correção: "Remember that we are not putting pictures in pictures" e "I think that this picture was used".
 - Lição: não usar imagem dentro de imagem em assets ALMA Rev, salvo pedido explícito; antes de reaproveitar imagem, verificar histórico de uso/publicação para evitar repetição.
 - Status: APPLIED
+
+
+## 2026-08-07T14:34:39Z | MUSE/visual-quality
+- O que fiz: gerei ou propus imagem com aparência ruim e elemento estranho/mesclado que não estava claro visualmente.
+- Correção: "This image is very bad, and it has a strange business that we have combined. What is it?"
+- Lição: em assets visuais ALMA Rev, rejeitar composições com elementos artificiais, mesclados, deformados ou ambíguos antes de mandar para aprovação; se houver qualquer objeto estranho na cena, refazer com composição limpa e verificável.
+- Status: APPLIED
