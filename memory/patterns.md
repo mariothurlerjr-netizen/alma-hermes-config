@@ -17,3 +17,11 @@
 - Próxima abordagem: quando o mesmo bloqueio aparecer por 48h+ sem delta, resumir como open loop de receita e pedir decisão curta: reativar follow-through manual, fechar pós-sprint, ou arquivar/test-excluir replies.
 - Flag: SWITCH_STRATEGY
 - Data: 2026-08-07
+
+## lance-standup-artifacts-late
+- Falhas: LANCE registrou artifacts `RECUPERADO_TARDE` e status diz deadline 08h perdido historicamente.
+- Abordagem que falhou: depender de fallback depois da janela STANDUP para gerar health/replies/placement, mantendo o agente OFF_TRACK sem bloquear a rotina cedo.
+- Hipótese: o watchdog/check-in não está tratando perda de SLA como falha própria do agente, só como recuperação de arquivo.
+- Próxima abordagem: quando artifacts LANCE chegarem depois de 08h, classificar como falha de SLA operacional e abrir correção de scheduler/gate, não só status informativo.
+- Flag: SWITCH_STRATEGY
+- Data: 2026-08-07
