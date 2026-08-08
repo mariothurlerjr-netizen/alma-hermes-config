@@ -143,3 +143,10 @@
 - Outcome: UNKNOWN
 - Sinal: Coleta 21:00 BRT confirmou 0 sends/replies/discoveries, 33/33 contas conectadas, 0 failed units; Telegram entregue com message_id=6770.
 - Próximo: continuar
+
+## 2026-08-08T22:02:23.117465+00:00 | heartbeat-manual-telegram
+- Ação: executei checklist do alma-heartbeat fora da janela, validei state/checkin/status, identifiquei open loop repetido e enviei mensagem concisa no Telegram a pedido do Mario.
+- Abordagem: respeitar janela atual sem reexecutar itens já marcados, usar pattern existente de revenue-open-loop stale e fallback seguro via Bot API quando send_message falhou.
+- Outcome: UNKNOWN
+- Sinal: Telegram Bot API retornou sent=true, chat_id 8293697290, message_id 6809; ainda sem feedback do Mario.
+- Próximo: continuar com abordagem de open loop curto quando bloqueio repetir 48h+ sem delta.
