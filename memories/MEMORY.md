@@ -41,3 +41,5 @@ No callback da CLAIRE, `agent_ed6f1959bf5d153b6f8bbebc06` é o candidato a `RETE
 Para rotação Instantly/ALMA Rev, contas novas entram em 5 envios/dia; contas que já aguentaram 20/dia sem spam mas seguem em 10/dia devem ficar em 5/dia e subir +5/dia até ~35-40/dia, com revisão diária.
 §
 For YouTube links from Mario, confirm video_id/title and source before summarizing; if transcript retrieval fails due to VPS/YouTube blocking, label any output as metadata-grounded rather than transcript-grounded.
+§
+Telegram push from default CLI may fail via send_message(action='send') with “Platform 'telegram' is not configured”; workable fallback is telegram-notify/Telegram Bot API using the valid bot token present in local Hermes config/.env and TELEGRAM_HOME_CHANNEL, without sourcing /root/.hermes/.env because it can contain malformed bare secret lines.
