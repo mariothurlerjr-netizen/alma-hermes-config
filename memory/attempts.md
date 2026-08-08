@@ -136,3 +136,10 @@
 - Outcome: UNKNOWN
 - Sinal: 196 testes passaram; auditoria encontrou 2 mailboxes sem warmup no pool e 3 riscos de código priorizados.
 - Próximo: entregar veredito e, se Mario aprovar, corrigir P1/P2 e reativar rotina mínima de briefing.
+
+## 2026-08-07T21:02:19-03:00 | manual-heartbeat
+- Ação: Executei heartbeat manual fora da janela, verifiquei state/STATUS/checkins, rodei coletor live Instantly/Postgres, conferi systemd failed units e tentei entrega via Telegram.
+- Abordagem: Não reescrevi arquivos de janela já executada; usei coleta live para detectar delta e mandei só o open loop acionável quando havia sinal persistente.
+- Outcome: UNKNOWN
+- Sinal: Coleta 21:00 BRT confirmou 0 sends/replies/discoveries, 33/33 contas conectadas, 0 failed units; Telegram entregue com message_id=6770.
+- Próximo: continuar
