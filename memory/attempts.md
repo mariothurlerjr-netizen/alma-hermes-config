@@ -150,3 +150,10 @@
 - Outcome: UNKNOWN
 - Sinal: Telegram Bot API retornou sent=true, chat_id 8293697290, message_id 6809; ainda sem feedback do Mario.
 - Próximo: continuar com abordagem de open loop curto quando bloqueio repetir 48h+ sem delta.
+
+## 2026-08-09T16:01:39.891328+00:00 | alma-heartbeat ad hoc
+- Ação: executei heartbeat manual às 13:00 BRT, li HEARTBEAT/state/STATUS/_CURRENT/checkin/status/SHIELD/corrections/patterns, rodei coletor Instantly/Postgres e checklist systemd/ORION.
+- Abordagem: fora de janela programada, registrar state e só alertar se houvesse delta novo acionável; respeitar regra do perfil default sem Telegram proativo.
+- Outcome: UNKNOWN
+- Sinal: coleta live 2026-08-09T13:00:47-03:00 repetiu 0 campanhas ativas, 0 sends hoje, 0 discoveries, ORION inactive/disabled, 0 falhas systemd; sem delta material desde 09:00/11:00.
+- Próximo: continuar; próximo fechamento real é a janela noturna 18:00-18:25 BRT ou uma decisão explícita sobre follow-through/ORION.
