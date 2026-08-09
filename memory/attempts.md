@@ -157,3 +157,10 @@
 - Outcome: UNKNOWN
 - Sinal: coleta live 2026-08-09T13:00:47-03:00 repetiu 0 campanhas ativas, 0 sends hoje, 0 discoveries, ORION inactive/disabled, 0 falhas systemd; sem delta material desde 09:00/11:00.
 - Próximo: continuar; próximo fechamento real é a janela noturna 18:00-18:25 BRT ou uma decisão explícita sobre follow-through/ORION.
+
+## 2026-08-09T18:00:40Z | alma-heartbeat ad hoc
+- Ação: executei heartbeat manual às 15:00 BRT, li HEARTBEAT/state/STATUS/_CURRENT/checkin/status/SHIELD/corrections/patterns, rodei coletor Instantly/Postgres e checklist systemd/ORION, atualizei heartbeat-state.
+- Abordagem: fora de janela programada, registrar state e só alertar Telegram se houvesse delta novo acionável; comparar contra execuções 07:00/09:00/11:00/13:00.
+- Outcome: UNKNOWN
+- Sinal: coleta live 2026-08-09T15:00:40-03:00 repetiu 0 campanhas ativas, 0 sends hoje, 0 discoveries, ORION inactive/disabled, 0 falhas systemd; sem delta material desde 13:00.
+- Próximo: continuar; próxima ação programada é janela noturna 18:00-18:25 BRT.
