@@ -25,3 +25,11 @@
 - Próxima abordagem: quando artifacts LANCE chegarem depois de 08h, classificar como falha de SLA operacional e abrir correção de scheduler/gate, não só status informativo.
 - Flag: SWITCH_STRATEGY
 - Data: 2026-08-07
+
+## orion-status-active-but-units-inactive
+- Falhas: STATUS.md mostra ORION ativo por atividade de brain/log, mas systemd live pode estar com `alma-orion@1..5` e `alma-orion-watchdog.timer` inactive.
+- Abordagem que falhou: confiar no status agregado de activity 7d como prova de produção diária ativa.
+- Hipótese: atividade de agente/arquivo mascara ausência de geração real, e a fábrica diária fica sem dono quando os workers/timer estão parados.
+- Próxima abordagem: em heartbeat com ORION ativo no STATUS, validar systemd + último run lead factory; se produção diária estiver zero/stale, reportar como open loop operacional ou marcar pausado explicitamente.
+- Flag: SWITCH_STRATEGY
+- Data: 2026-08-09
