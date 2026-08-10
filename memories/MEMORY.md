@@ -43,3 +43,5 @@ Para rotação Instantly/ALMA Rev, contas novas entram em 5 envios/dia; contas q
 For YouTube links from Mario, confirm video_id/title and source before summarizing; if transcript retrieval fails due to VPS/YouTube blocking, label any output as metadata-grounded rather than transcript-grounded.
 §
 Telegram push from default CLI may fail via send_message(action='send') with “Platform 'telegram' is not configured”; workable fallback is telegram-notify/Telegram Bot API using the valid bot token present in local Hermes config/.env and TELEGRAM_HOME_CHANNEL, without sourcing /root/.hermes/.env because it can contain malformed bare secret lines.
+§
+Telegram fallback on Mario's VPS: if send_message reports Telegram not configured, use Telegram Bot API with TELEGRAM_BOT_TOKEN from /root/alma-aios/.env and home chat 8293697290; never print the token.
