@@ -178,3 +178,10 @@
 - Outcome: UNKNOWN
 - Sinal: métricas 13:00 BRT iguais ao ciclo 11:00, sem sends/replies/discoveries/meetings novos, sem falhas systemd e sem insight novo além dos open loops já reportados.
 - Próximo: manter silêncio operacional até surgir delta material ou janela noturna 18:00-18:25.
+
+## 2026-08-10T18:00:52Z | alma-heartbeat manual telegram
+- Ação: executei heartbeat manual às 15:00 BRT, validei Instantly/Postgres, systemd/gateway/ORION/host, atualizei heartbeat-state e enviei Telegram conciso a pedido explícito do Mario.
+- Abordagem: fora de janela formal, não sobrescrever checkin/status; usar Telegram só porque havia open loop acionável persistente e o pedido atual autorizava entrega.
+- Outcome: UNKNOWN
+- Sinal: coleta live 2026-08-10T15:00:52-03:00 mostrou +0 sends/replies/discoveries/meetings desde 13:00, 0 failed units, gateway ativo; Telegram entregue via Bot API fallback com message_id=6838.
+- Próximo: continuar; próxima execução material é janela 18:00-18:25 BRT ou mudança live.
