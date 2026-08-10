@@ -171,3 +171,10 @@
 - Outcome: UNKNOWN
 - Sinal: coleta 2026-08-10T03:00:49-03:00 repetiu 0 campanhas ativas, 0 sends/replies/discoveries/meetings, ORION inactive/disabled, 0 failed units; sem delta material desde 01:00.
 - Próximo: continuar; próxima execução material é janela 07:00-08:00 BRT ou novo delta operacional.
+
+## 2026-08-10T16:01:30Z | alma-heartbeat manual run
+- Ação: executei heartbeat manual fora da janela formal, com coleta live Instantly/Postgres, health checks de systemd/gateway/ORION/host, leitura brain/current/corrections/patterns e atualização do heartbeat-state.
+- Abordagem: respeitar janelas formais para não sobrescrever checkin/status, mas atualizar state ad hoc e só enviar Telegram se houvesse delta novo ou open loop esquecido.
+- Outcome: UNKNOWN
+- Sinal: métricas 13:00 BRT iguais ao ciclo 11:00, sem sends/replies/discoveries/meetings novos, sem falhas systemd e sem insight novo além dos open loops já reportados.
+- Próximo: manter silêncio operacional até surgir delta material ou janela noturna 18:00-18:25.
