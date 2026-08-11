@@ -185,3 +185,10 @@
 - Outcome: UNKNOWN
 - Sinal: coleta live 2026-08-10T15:00:52-03:00 mostrou +0 sends/replies/discoveries/meetings desde 13:00, 0 failed units, gateway ativo; Telegram entregue via Bot API fallback com message_id=6838.
 - Próximo: continuar; próxima execução material é janela 18:00-18:25 BRT ou mudança live.
+
+## 2026-08-11T00:02:07+00:00 | heartbeat-adhoc
+- Ação: executei heartbeat ad-hoc fora da janela, li HEARTBEAT/state/STATUS/_CURRENT/status/checkin/corrections/patterns, coletei Instantly live, chequei systemd/gateway, registrei desvio em SHIELD e enviei Telegram via fallback Bot API.
+- Abordagem: respeitar ausência de janela para não sobrescrever write set; usar dado live só para validar delta e transformar open loop persistente em alerta conciso.
+- Outcome: UNKNOWN
+- Sinal: Telegram Bot API retornou ok true message_id 983; sem confirmação do Mário ainda.
+- Próximo: continuar monitorando; se timeouts gpt-5.5 repetirem, trocar fallback/model routing ou abrir correção de runtime.
