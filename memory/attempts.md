@@ -207,3 +207,10 @@
 - Outcome: UNKNOWN
 - Sinal: Telegram API retornou ok true, chat_id 8293697290, message_id 989; live state teve delta 07h→09h zero e open loops persistentes.
 - Próximo: continuar monitorando, sem novo page se não houver delta material ou decisão pendente nova.
+
+## 2026-08-11T20:00:52Z | alma-heartbeat-adhoc
+- Ação: executei heartbeat ad-hoc 17h BRT a pedido do Mario, li HEARTBEAT/JOB/state/STATUS/_CURRENT/corrections/patterns/SHIELD/status-instantly, coletei Instantly/Postgres e chequei systemd/gateway/ORION/host.
+- Abordagem: manter silêncio proativo absoluto, não sobrescrever write set de manhã/noite fora da janela, atualizar apenas heartbeat-state com delta e padrões.
+- Outcome: UNKNOWN
+- Sinal: heartbeat-state relido com collected_at 2026-08-11T17:00:52-03:00 e marcador ad_hoc_17_00_executed=yes; sem Telegram e sem append novo no SHIELD por ausência de delta material vs 15h.
+- Próximo: continuar; próxima janela formal é 18:00-18:25 BRT.
