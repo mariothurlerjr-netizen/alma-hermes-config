@@ -192,3 +192,11 @@
 - Outcome: UNKNOWN
 - Sinal: Telegram Bot API retornou ok true message_id 983; sem confirmação do Mário ainda.
 - Próximo: continuar monitorando; se timeouts gpt-5.5 repetirem, trocar fallback/model routing ou abrir correção de runtime.
+
+
+## 2026-08-11T08:00:55Z | alma-heartbeat manual run
+- Ação: executei heartbeat ad-hoc 05:00 BRT, coletei Instantly/Postgres, chequei systemd/gateway/host/ORION, atualizei heartbeat-state e enviei Telegram por override explícito do Mario.
+- Abordagem: usar dado vivo, comparar com state 03h, tratar open loop recorrente como acionável mesmo sem delta novo.
+- Outcome: UNKNOWN
+- Sinal: Telegram Bot API retornou ok=true message_id=986; heartbeat-state relido com collected_at 2026-08-11T05:00:55-03:00 e marcador ad_hoc_05_00_executed=yes.
+- Próximo: continuar; na janela 07:00 executar write set oficial se pendente, usando coleta única e mantendo separação teste vs produção.
