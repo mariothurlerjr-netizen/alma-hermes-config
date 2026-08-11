@@ -6,6 +6,8 @@ providers:
   openai:
     base_url: https://api.openai.com/v1
     api_mode: openai
+  openai-codex:
+    stale_timeout_seconds: 150
 fallback_providers:
 - provider: copilot
   model: gpt-4.1
@@ -487,7 +489,7 @@ paste_collapse_char_threshold: 2000
 _config_version: 24
 messaging:
   telegram:
-    enabled: true
+    enabled: false
     bot_token: ${TELEGRAM_BOT_TOKEN}
     allowed_users: ${TELEGRAM_ALLOWED_USERS}
 mcp_servers:

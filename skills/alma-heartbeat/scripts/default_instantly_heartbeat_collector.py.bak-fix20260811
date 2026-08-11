@@ -4,7 +4,7 @@
 Prints aggregate JSON only. It does not print env values or raw API payloads.
 Run from any cwd on Mario's VPS:
 
-    python3 ~/.hermes/skills/alma-heartbeat/scripts/default_instantly_heartbeat_collector.py
+    python ~/.hermes/skills/alma-heartbeat/scripts/default_instantly_heartbeat_collector.py
 """
 from __future__ import annotations
 
