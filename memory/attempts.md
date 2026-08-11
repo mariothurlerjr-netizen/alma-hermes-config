@@ -200,3 +200,10 @@
 - Outcome: UNKNOWN
 - Sinal: Telegram Bot API retornou ok=true message_id=986; heartbeat-state relido com collected_at 2026-08-11T05:00:55-03:00 e marcador ad_hoc_05_00_executed=yes.
 - Próximo: continuar; na janela 07:00 executar write set oficial se pendente, usando coleta única e mantendo separação teste vs produção.
+
+## 2026-08-11T12:02:34.425016+00:00 | alma-heartbeat-adhoc
+- Ação: executei heartbeat ad-hoc 09h, validei Instantly/Postgres/systemd/gateway/host/ORION, atualizei heartbeat-state e enviei Telegram via Bot API fallback.
+- Abordagem: respeitei janelas do HEARTBEAT para não sobrescrever check-ins fora da janela; usei coleta live única e comparei com snapshot 07h.
+- Outcome: UNKNOWN
+- Sinal: Telegram API retornou ok true, chat_id 8293697290, message_id 989; live state teve delta 07h→09h zero e open loops persistentes.
+- Próximo: continuar monitorando, sem novo page se não houver delta material ou decisão pendente nova.
