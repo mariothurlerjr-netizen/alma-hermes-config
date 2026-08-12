@@ -214,3 +214,10 @@
 - Outcome: UNKNOWN
 - Sinal: heartbeat-state relido com collected_at 2026-08-11T17:00:52-03:00 e marcador ad_hoc_17_00_executed=yes; sem Telegram e sem append novo no SHIELD por ausência de delta material vs 15h.
 - Próximo: continuar; próxima janela formal é 18:00-18:25 BRT.
+
+## 2026-08-12T09:01:23-03:00 | heartbeat-default
+- Ação: executei heartbeat ad hoc fora das janelas formais, com coleta live Instantly/Postgres, checklist systemd/gateway/ORION/host, update de heartbeat-state e SHIELD.
+- Abordagem: seguir HEARTBEAT.md, manter default silencioso, registrar padrões/open loops em arquivo em vez de enviar mensagem proativa.
+- Outcome: UNKNOWN
+- Sinal: arquivos escritos e verificação pendente nesta execução; sem feedback do Mario neste ciclo.
+- Próximo: continuar silêncio, deixar JARVIS entregar briefing e SHIELD/ORCHESTRATOR consolidarem desvios.
