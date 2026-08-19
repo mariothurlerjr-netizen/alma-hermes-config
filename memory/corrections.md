@@ -240,3 +240,10 @@ Formato:
 - Correção: "It's not the same, can you explain me the differences?"
 - Lição: ao replicar uma referência visual aprovada pelo Mario, decompor e preservar elementos observáveis concretos, incluindo tipo de imagem, tratamento gráfico, enquadramento, proporção, tipografia, cor, cenário, pose e nível de produção; não substituir a referência por um arquétipo amplo como talking head ou conteúdo humano.
 - Status: APPLIED
+
+
+## 2026-08-19T14:20:00Z | MUSE/visual-pattern replication
+- O que fiz: criei um mockup com headshot estático, fundo desfocado e texto de Reel, usando uma abstração superficial da referência em vez de medir e reproduzir o sistema visual real das peças enviadas.
+- Correção: "It's still not the same as the models I sent you. How do you analyze and see what we need to have the same pattern?"
+- Lição: antes de gerar um exemplo baseado em referências visuais, analisar os assets exatos em uma matriz comparativa e extrair regras mensuráveis de formato, origem da imagem, layout, tipografia, escala, posição, cor, textura, edição e recorrência; só produzir depois de validar que o template cobre o padrão dominante, sem usar aproximações como headshot desfocado.
+- Status: APPLIED
