@@ -226,3 +226,10 @@ Formato:
 - Correção: "This image is very bad, and it has a strange business that we have combined. What is it?"
 - Lição: em assets visuais ALMA Rev, rejeitar composições com elementos artificiais, mesclados, deformados ou ambíguos antes de mandar para aprovação; se houver qualquer objeto estranho na cena, refazer com composição limpa e verificável.
 - Status: APPLIED
+
+
+## 2026-08-19T03:09:15Z | MUSE/reference-review intent
+- O que fiz: analisei posicionamento, modelo e performance da conta enviada, sem começar pela qualidade das imagens.
+- Correção: "Quero q vc olhe a qualidade das imagens" e "Olhe essa qualidade tbm e veja como implementar".
+- Lição: quando Mario enviar um perfil ou referência visual para MUSE, priorizar auditoria objetiva da qualidade visual e transformar os padrões aprováveis em implementação concreta no pipeline criativo da ALMA Rev; estratégia de negócio entra só como contexto secundário.
+- Status: APPLIED
