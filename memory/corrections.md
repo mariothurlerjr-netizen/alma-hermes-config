@@ -233,3 +233,10 @@ Formato:
 - Correção: "Quero q vc olhe a qualidade das imagens" e "Olhe essa qualidade tbm e veja como implementar".
 - Lição: quando Mario enviar um perfil ou referência visual para MUSE, priorizar auditoria objetiva da qualidade visual e transformar os padrões aprováveis em implementação concreta no pipeline criativo da ALMA Rev; estratégia de negócio entra só como contexto secundário.
 - Status: APPLIED
+
+
+## 2026-08-19T14:03:11Z | MUSE/visual-reference fidelity
+- O que fiz: transformei a referência Devolvi Meu Crachá em uma direção genérica de talking head/founder footage, perdendo a composição e o tratamento visual específicos dos exemplos.
+- Correção: "It's not the same, can you explain me the differences?"
+- Lição: ao replicar uma referência visual aprovada pelo Mario, decompor e preservar elementos observáveis concretos, incluindo tipo de imagem, tratamento gráfico, enquadramento, proporção, tipografia, cor, cenário, pose e nível de produção; não substituir a referência por um arquétipo amplo como talking head ou conteúdo humano.
+- Status: APPLIED
