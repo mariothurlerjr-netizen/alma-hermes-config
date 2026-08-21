@@ -247,3 +247,10 @@ Formato:
 - Correção: "It's still not the same as the models I sent you. How do you analyze and see what we need to have the same pattern?"
 - Lição: antes de gerar um exemplo baseado em referências visuais, analisar os assets exatos em uma matriz comparativa e extrair regras mensuráveis de formato, origem da imagem, layout, tipografia, escala, posição, cor, textura, edição e recorrência; só produzir depois de validar que o template cobre o padrão dominante, sem usar aproximações como headshot desfocado.
 - Status: APPLIED
+
+
+## 2026-08-21T11:12:51Z | MUSE/visual-production-stack
+- O que fiz: tentei reproduzir a referência editorial com desenho procedural em Pillow, sem o motor de geração/composição que produz o acabamento fotográfico e 3D dos modelos.
+- Correção: "There is still no format, there is a software that eventually has to be connected to do the same or the last model."
+- Lição: referências editoriais com colagem fotográfica, objetos 3D e luz coerente exigem motor visual dedicado; para ALMA, gerar a imagem-base no Higgsfield com Nano Banana Pro/2 via OAuth e finalizar tipografia/layout no Canva. Não apresentar desenho procedural como equivalente ao modelo.
+- Status: APPLIED

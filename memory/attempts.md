@@ -228,3 +228,10 @@
 - Outcome: checklist executado fora da janela formal; zero delta comercial; infra estável pós-restart com swap 0B; state atualizado; sem SHIELD novo por ausência de delta material.
 - Next: aguardar janela noturna formal ou decisão JARVIS/ORCHESTRATOR sobre follow-through/estado oficial do sprint.
 - 2026-08-12T15:35:55-03:00 | default heartbeat ad hoc 15:35: checklist executado, coleta live 2026-08-12T15:35:50-03:00, zero delta comercial, sem falhas systemd/user, state atualizado, sem mensagem proativa.
+
+## 2026-08-21 08:01 BRT | lance-heartbeat
+- Ação: executei a manutenção da janela, recuperei artifacts health/replies/placement e atualizei state, status, scorecard e daily-notes.
+- Abordagem: fallback read-only status-instantly fresco, kanban live e gates OFF/HOLD.
+- Outcome: UNKNOWN
+- Sinal: arquivos de 2026-08-21 verificados; 33/30 contas conectadas, warmup 94.0/98.18/100.0, 0 eventos hoje, placement formal ausente.
+- Próximo: continuar em silêncio e manter OFF/HOLD até reconciliação das 3 mailboxes e seed placement formal.
