@@ -235,3 +235,10 @@
 - Outcome: UNKNOWN
 - Sinal: arquivos de 2026-08-21 verificados; 33/30 contas conectadas, warmup 94.0/98.18/100.0, 0 eventos hoje, placement formal ausente.
 - Próximo: continuar em silêncio e manter OFF/HOLD até reconciliação das 3 mailboxes e seed placement formal.
+
+## 2026-08-24 08:00 BRT | lance-heartbeat
+- Ação: executei manutenção, recuperei artifacts diários e atualizei state, status, scorecard e daily-notes.
+- Abordagem: fallback read-only status-instantly fresco, kanban live e gates OFF/HOLD; usei cópia em `/tmp` para contornar permissão do scorecard.
+- Outcome: UNKNOWN
+- Sinal: artifacts verificados; 33/30 contas conectadas, warmup 96.0/99.18/100.0, 0 eventos hoje, placement formal ausente; scorecard W35 contém uma única linha LANCE.
+- Próximo: continuar em silêncio e manter OFF/HOLD até reconciliação das 3 mailboxes e seed placement formal.
