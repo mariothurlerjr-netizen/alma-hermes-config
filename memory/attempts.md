@@ -242,3 +242,10 @@
 - Outcome: UNKNOWN
 - Sinal: artifacts verificados; 33/30 contas conectadas, warmup 96.0/99.18/100.0, 0 eventos hoje, placement formal ausente; scorecard W35 contém uma única linha LANCE.
 - Próximo: continuar em silêncio e manter OFF/HOLD até reconciliação das 3 mailboxes e seed placement formal.
+
+## 2026-08-24 18:00 BRT | MEC radar statewide prioritization
+- Ação: construí matriz dos 645 municípios de SP, duas ondas prioritárias de 30 e inventário dos 585 restantes.
+- Abordagem: universo IBGE completo, população 2024, PIB 2023, centralidade regional, corredores e GIS conservador, com relatório citado e validação automática.
+- Outcome: UNKNOWN
+- Sinal: CSV 645/645 códigos únicos, shortlist 60/60 com justificativa e corredor, relatório com citations OK e cobertura estadual explícita.
+- Próximo: aguardar uso/feedback e, se aprovado, iniciar inventário de GIS da Onda 1.

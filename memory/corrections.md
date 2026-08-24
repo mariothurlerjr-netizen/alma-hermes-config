@@ -254,3 +254,9 @@ Formato:
 - Correção: "There is still no format, there is a software that eventually has to be connected to do the same or the last model."
 - Lição: referências editoriais com colagem fotográfica, objetos 3D e luz coerente exigem motor visual dedicado; para ALMA, gerar a imagem-base no Higgsfield com Nano Banana Pro/2 via OAuth e finalizar tipografia/layout no Canva. Não apresentar desenho procedural como equivalente ao modelo.
 - Status: APPLIED
+
+## 2026-08-24T20:42:21Z | MEC radar statewide coverage
+- O que fiz: apresentei 300 parcelas da capital e uma shortlist de 14 como se representassem adequadamente o estado de São Paulo.
+- Correção: "ta mto pequena, no estado de sp deve ter muitas"
+- Lição: em radar estadual, capital não representa o estado. Preservar um universo amplo por municípios/RMs/polos antes de cortar; comunicar claramente cobertura municipal e não usar shortlist curta como prova de cobertura estadual.
+- Status: APPLIED
