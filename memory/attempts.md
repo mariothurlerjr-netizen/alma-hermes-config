@@ -249,3 +249,10 @@
 - Outcome: UNKNOWN
 - Sinal: CSV 645/645 códigos únicos, shortlist 60/60 com justificativa e corredor, relatório com citations OK e cobertura estadual explícita.
 - Próximo: aguardar uso/feedback e, se aprovado, iniciar inventário de GIS da Onda 1.
+
+## 2026-08-25 00:32 UTC | PNCP pre-registry diligence
+- Ação: diligenciei o item 03 de Forquilhinha, cruzei edital/anexos, PNCP vivo e legislação/mapa municipal, e gerei CSV, GeoJSON e validação JSON.
+- Abordagem: identidade conservadora, sem inferir polígono, contiguidade, zoneamento parcelar, frente ou acesso a partir do ponto viário.
+- Outcome: UNKNOWN
+- Sinal: validação final passou com 1 linha, 1 ponto representativo viário e 0 polígonos; todos os gates de não inferência passaram.
+- Próximo: levar apenas ao gate registral/cadastral e exigir matrículas atuais, BCIs, geometrias, contiguidade, zoneamento CSS, frente e ingresso antes de proposta.
